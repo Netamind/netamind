@@ -1,2106 +1,6249 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <!-- Meta Tags -->
-
-    <meta charset="UTF-8" >
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <title> Netamind Technology : Prominent IT Services Provider </title>
-
-
-    <link rel="shortcut icon" href="frontend-assets/images/icons/favicon.svg" type="image/x-icon" >
-
-        
-    <!-- Bootstrap Cdn -->
-    <link cache-files="cached" rel="stylesheet"  href="frontend-assets/libraries/css/bootstrap.css" media="all">
-    <link cache-files="cached" rel="stylesheet"  href="frontend-assets/libraries/css/swiperBundle.css" media="all">
-    <!-- Page Css -->
-
-
-    
-    <link rel="stylesheet"  href="frontend-assets/libraries/css/flatepicker.css" media="all">
-    <link rel="stylesheet"  href="frontend-assets/css/feedbackSelector.css" media="all">
-    <link rel="stylesheet"  href="frontend-assets/css/globalStyle.css" media="all">
-    <link rel="stylesheet"  href="frontend-assets/css/homeResponsive.css" media="all">
-      
-
-    
-
-        <style id="custom-style">
-        .meet-column {
-            padding-right: 2px !important;
-        }
-        .backgrpound-video{
-            opacity: 0;
-        }
-        .form-area {
-            background-color: #fff;
-            box-shadow: 0px 5px 10px rgba(90, 116, 148, 0.3);
-            padding: 40px;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .form-area .form-inner {
-            width: 100%;
-        }
-
-        .hero-section .main-heading,
-        .hero-section .custom-software {
-            position: relative;
-            z-index: 4;
-        }
-
-        .form-control:focus {
-            color: #475F7B;
-            background-color: #FFF;
-            border-color: #5A8DEE;
-            outline: 0;
-            box-shadow: 0 3px 8px 0 rgb(0 0 0 / 10%);
-        }
-
-        .cursor-pointer:hover {
-            cursor: pointer;
-        }
-
-        .custom-position {
-
-            position: absolute;
-            top: 50%;
-            left: 45%;
-        }
-
-        .wave-btn {
-            cursor: pointer;
-            position: relative;
-            z-index: 3;
-        }
-
-        .wave-btn.clicked {
-            animation: shadowFadeOut 200ms ease-out forwards infinite,
-                shadowFadeIn 200ms 300ms ease-in forwards infinite;
-        }
-
-        .wave {
-            z-index: 1;
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border-radius: 70%;
-            box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1), -1px -1px 5px rgba(255, 255, 255, 0.1);
-            opacity: 0;
-            animation: fadeIn 400ms ease-out forwards, outside_grow 5s ease-out,
-                fadeOut 3s 2s forwards;
-            background-color: transparent;
-            bottom: 65px;
-            left: 100px;
-            transform: rotate(-10deg);
-            clip-path: polygon(30% 0%, 39% 0, 100% 0, 100% 70%, 70% 100%, 52% 100%, 53% 47%, 0% 30%);
-        }
-
-        .wave::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 0px;
-            height: 0px;
-            border-radius: 70%;
-            box-shadow: inset 5px 5px 30px rgba(255, 255, 255, 0.2), inset -5px -5px 30px rgba(255, 255, 255, 0.2);
-            animation: inside_grow 5s ease-out;
-            /* bottom: 100%; */
-        }
-
-        #waveContainer {
-            transform: rotate(30deg);
-            position: absolute;
-            top: 100%;
-            z-index: 1;
-        }
-
-        .wave::before {
-            content: "";
-            position: absolute;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 2;
-        }
-
-        @keyframes outside_grow {
-            from {
-                width: 20px;
-                height: 20px;
-            }
-
-            to {
-                width: 600px;
-                height: 600px;
-            }
-        }
-
-        /** This one is ugly too */
-        @keyframes inside_grow {
-            from {
-                width: 0px;
-                height: 0px;
-            }
-
-            to {
-                width: 580px;
-                height: 580px;
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
-
-            to {
-                opacity: 0;
-            }
-        }
-
-        .swal2-title {
-            font-size: 2rem;
-            line-height: 3rem;
-            font-weight: 400;
-            color: #000;
-        }
-
-        .swal2-popup {
-            max-width: 440px !important;
-            width: 100% !important;
-            padding-top: 2rem !important;
-            padding-bottom: 4rem !important;
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
-
-        .swal2-confirm.swal2-styled {
-            padding: 1rem 2.5rem;
-            background-color: #005BAA;
-            border: 1px solid #005BAA;
-            box-shadow: none !important;
-            outline: none;
-            font-size: 1.8rem;
-            line-height: 2.4rem;
-            font-weight: 400;
-            color: #FFF;
-            transition: all .5s ease;
-            transition-property: background-color, color;
-        }
-
-        .swal2-confirm.swal2-styled:hover {
-            background-color: #ffffff !important;
-            color: #005BAA;
-            background-image: none !important;
-        }
-
-        .backgrpound-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            opacity: 0;
-            transition: all 0.3s ease;
-            transition-property: opacity;
-        }
-
-        .backgrpound-video::before {
-            position: absolute;
-            content: '';
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(0deg, rgba(10, 37, 64, 0.90) -26%, rgba(10, 37, 64, 0.27) 144.93%);
-        }
-
-        .backgrpound-video video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .meet-column .btn.sw-btn-prev.go-to-prev {
-            width: 41.5px;
-            height: 41.5px;
-            border-radius: 50%;
-            border: 1px solid var(--blueshade);
-            background-color: transparent;
-            margin: 0;
-            padding: 0;
-            outline: 0
-        }
-
-        .calender-container .meet-header .btn.sw-btn-prev.go-to-prev:active,
-        .calender-container .meet-header .btn.sw-btn-prev.go-to-prev:focus,
-        .meet-column .btn.sw-btn-prev.go-to-prev:active,
-        .meet-column .btn.sw-btn-prev.go-to-prev:focus {
-            box-shadow: 0 !important;
-            outline: 0
-        }
-
-        .sw>.tab-content {
-            /* min-height: 564px !important; */
-            min-height: 634px !important;
-        }
-
-        .tab-content .tab-pane {
-            position: absolute;
-            width: 100%;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            transition: all 0s ease;
-            transition-property: left;
-            background: #f2f7fb !important;
-        }
-
-        .select2-container--default .select2-results>.select2-results__options {
-            scrollbar-width: none;
-        }
-
-        .select2-container--default .select2-results>.select2-results__options::-webkit-scrollbar {
-            width: 0;
-            height: 0;
-        }
-
-
-        .smart-wizard .swiper-slide {
-            height: fit-content !important;
-        }
-
-        .mobile-responsive-wizard {
-            display: none;
-        }
-
-        .excellence-cards {
-            display: grid;
-            grid-template-columns: repeat(6, auto);
-            row-gap: 5.1rem;
-            column-gap: 3.8rem;
-        }
-
-        .excellence-cards .excellence img {
-            max-width: 100% !important;
-            height: auto !important;
-            object-fit: contain;
-        }
-
-        .clientsSwiper {
-            transform: translate3d(0, 0, 0);
-            backface-visibility: hidden;
-        }
-
-        .clientsSwiper .swiper-wrapper {
-            -webkit-transition-timing-function: linear !important;
-            -o-transition-timing-function: linear !important;
-            transition-timing-function: linear !important;
-        }
-
-        .clientsSwiper .swiper-wrapper .swiper-slide {
-            width: fit-content !important;
-        }
-
-        .clientsSwiper.excellence-carosoul {
-            display: none;
-        }
-
-        @media screen and (max-width: 991px) {
-
-            .mobile-responsive-wizard {
-                display: block;
-            }
-
-            .smart-wizard .detail-form {
-                border: none;
-            }
-
-            .sw>.tab-content {
-                min-height: unset !important;
-            }
-
-            .attribute-to-team {
-                padding: 1.2rem 2.5rem;
-                font-size: 2rem;
-            }
-
-            .smart-wizard .swiper-wrapper {
-                height: 556px;
-            }
-
-            .shedul-call-sec {
-                padding-bottom: 4.3rem;
-            }
-
-            .smart-wizard .swiper-slide:nth-child(2) {
-                min-height: 465px !important;
-            }
-
-            .smart-wizard .swiper-slide:first-child {
-                min-height: 554px !important;
-            }
-
-            .smart-wizard .swiper-slide:nth-child(3) {
-                min-height: 822px !important;
-            }
-
-            .excellence-cards {
-                grid-template-columns: repeat(5, auto);
-            }
-
-
-        }
-
-        @media screen and (max-width: 768px) {
-            .excellence-cards {
-                grid-template-columns: repeat(3, auto);
-            }
-        }
-
-        @media screen and (max-width: 550px) {
-
-            /* .tab-content .tab-pane:last-child{
-                                min-height: 750px;
-                            } */
-
-        }
-
-        @media screen and (max-width: 520px) {
-
-            .wave {
-                transform: translateX(-50%) rotate(-50deg);
-                left: 110px;
-            }
-
-            .detail-form .enter-details {
-                margin-top: 3rem !important;
-            }
-
-            /* .tab-content .tab-pane:last-child{
-                                min-height: 750px;
-                            } */
-            /* .tab-content .tab-pane:last-child{
-                                min-height: 750px;
-                            } */
-            .select2-container {
-                z-index: 700 !important;
-            }
-
-            .smart-wizard .swiper-wrapper {
-                height: 425px;
-            }
-
-            .smart-wizard .swiper-slide:first-child {
-                min-height: 425px !important;
-            }
-
-            .smart-wizard .swiper-slide:nth-child(2) {
-                min-height: 425px !important;
-            }
-
-            .smart-wizard .swiper-slide:nth-child(3) {
-                min-height: 730px !important;
-            }
-
-            .clientsSwiper.excellence-carosoul {
-                display: block;
-            }
-
-            .excellence-cards {
-                display: none;
-            }
-
-        }
-
-        @media screen and (max-width: 425px) {
-            .select2-container--open .select2-dropdown {
-                width: 270px !important;
-                left: -58px !important;
-            }
-        }
-
-        @media screen and (max-width: 375px) {
-            .smart-wizard .swiper-slide:nth-child(2) {
-                min-height: 432px !important;
-            }
-
-            .smart-wizard .swiper-slide:nth-child(3) {
-                min-height: 742px !important;
-            }
-
-        }
-
-        .iti-mobile .intl-tel-input.iti-container {
-            z-index: 1 !important;
-        }
-
-        .mobile-responsive-wizard .tab-pane {
-            background: #F2F7FB !important;
-        }
-    </style>
-    <!-- Page Css End-->
-
-    <!-- Custom Css -->
-    
-
-    <!-- Custom Css Ends-->
-
+  <meta charset="utf-8">
+  <title>Netamind  &amp; Technology | Realiable tech solutionsph</title>
+ 
 
   <style>
 
 
-.main-testi{
-        background-image: url(frontend-assets/images/testimonial-bg.webp);
-        /* padding: 50px; */
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        /* margin-bottom: 80px; */
+    a.cta_button {
+      -moz-box-sizing: content-box !important;
+      -webkit-box-sizing: content-box !important;
+      box-sizing: content-box !important;
+      vertical-align: middle
     }
-    .testi-content{
-      padding: 93px 0 93px 0;
-      gap: 30px;
-      justify-content: space-between;
-    }
-    .teti-text{
-      width: 100%;
-      max-width: 660px;
-    }
-    .teti-text .zapta-team-p{
-      font-size: 20px;
-      font-weight: 500;
-      color: white;
-      line-height: 32px;
 
+    .hs-breadcrumb-menu {
+      list-style-type: none;
+      margin: 0px 0px 0px 0px;
+      padding: 0px 0px 0px 0px
     }
-    .testi-img{
-      width: 100%;
-      max-width: 412px;
 
+    .hs-breadcrumb-menu-item {
+      float: left;
+      padding: 10px 0px 10px 10px
     }
-    .testi-img img{
-      width: 100%;
-    }
-    .teti-text .redha-client{
-      padding-top: 30px;
-      font-size: 26px;
-      font-weight: 500;
-      line-height: 32px;
-      color: white;
 
+    .hs-breadcrumb-menu-divider:before {
+      content: '›';
+      padding-left: 10px
     }
-    .teti-text .legal-p{
+
+    .hs-featured-image-link {
+      border: 0
+    }
+
+    .hs-featured-image {
+      float: right;
+      margin: 0 0 20px 20px;
+      max-width: 50%
+    }
+
+    @media (max-width: 568px) {
+      .hs-featured-image {
+        float: none;
+        margin: 0;
+        width: 100%;
+        max-width: 100%
+      }
+    }
+
+    .hs-screen-reader-text {
+      clip: rect(1px, 1px, 1px, 1px);
+      height: 1px;
+      overflow: hidden;
+      position: absolute !important;
+      width: 1px
+    }
+  </style>
+
+  <link rel="stylesheet" href="../use.typekit.net/etd2crw.css">
+  <link rel="stylesheet" href="hs-fs/hub/491011/hub_generated/template_assets/85013747237/1709638201973/lsretail-s2/css/main.css">
+  <style></style>
+  <link rel="stylesheet" href="hs-fs/hub/491011/hub_generated/template_assets/85014448032/1716821506320/lsretail-s2/css/components/menu.min.css">
+  <style>
+    #hs_cos_wrapper_dnd_area-module-1 .hero-banner {
+      padding-top: 120px;
+      padding-bottom: 40px;
+    }
+
+    #hs_cos_wrapper_dnd_area-module-1 .hero-banner__cta {
+      display: inline-flex !important;
+      align-items: center;
+      gap: 20px;
+    }
+
+    #hs_cos_wrapper_dnd_area-module-1 .btn-custom {
+      display: inline-block;
+      letter-spacing: .5px;
+      line-height: 1.25;
+      text-transform: uppercase;
+      font-weight: 700;
+      border-radius: 10px;
+      font-size: 14px;
+      color: rgba(54, 29, 92, 1.0);
+      background-color: rgba(246, 195, 112, 1.0);
+      border: 2px solid rgba(246, 195, 112, 1.0);
+      padding-top: 15px;
+      padding-right: 30px;
+      padding-bottom: 15px;
+      padding-left: 30px;
+    }
+
+    #hs_cos_wrapper_dnd_area-module-1 .btn-custom:hover {
+      color: rgba(54, 29, 92, 1.0);
+      background-color: rgba(246, 195, 112, 0.0);
+      border-color: rgba(246, 195, 112, 1.0);
+    }
+
+    @media (min-width:992px) {
+      #hs_cos_wrapper_dnd_area-module-1 .hero-banner {
+        padding-top: 90px;
+        padding-bottom: 50px;
+      }
+    }
+
+    .hero-banner .container {
+      position: relative;
+    }
+
+    .hero-banner__image {
+      position: relative;
+    }
+
+    .hero-img {
+      position: relative;
+      z-index: 99;
+    }
+
+    .image-copy img.hero-img {
+      margin-left: auto;
+    }
+
+    .hero-banner__imageWrap.default {
+      display: inline-block;
+      position: relative;
+    }
+
+    .default .hero-banner__imageInner {
+      position: relative;
+      border-radius: 0 200px 0 200px;
+      overflow: hidden;
+      /*   height:325px; */
+      display: inline-block;
+    }
+
+    .hero-banner__imageWrap.default img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      -o-object-fit: cover;
+      display: block;
+    }
+
+    .hero-img__default {
+      position: relative;
+    }
+
+    .hero-img__default .img-curve {
+      bottom: -60px;
+      left: -72px;
+      position: absolute;
+    }
+
+    .hero-img__default.img-flip {
+      transform: scaleX(-1);
+      -webkit-transform: scaleX(-1);
+    }
+
+    .hero-img__default.img-flip img {
+      transform: scaleX(-1);
+      -webkit-transform: scaleX(-1);
+    }
+
+
+    @media (min-width:992px) {
+      .hero-banner__image.float {
+        width: 49vw;
+        padding: 10% 0;
+      }
+
+      .image-copy .hero-banner__image.float {
+        float: right;
+      }
+    }
+
+    @media (max-width:991px) {
+      .default .hero-banner__imageInner {
+        position: relative;
+        border-radius: 0 80px 0 80px;
+      }
+
+      .hero-img__default .img-curve {
+        bottom: -20px;
+        left: -26px;
+        width: 100px;
+        height: auto;
+      }
+
+      .hero-banner__imageInner img {
+        margin: 0 auto;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="hs-fs/hub/491011/hub_generated/template_assets/85203696204/1689773814651/lsretail-s2/css/vendors/_slick.min.css">
+  <link rel="stylesheet" href="hs-fs/hub/491011/hub_generated/module_assets/85016256891/1707993347201/module_85016256891_08-logos.min.css">
+  <style>
+    #hs_cos_wrapper_widget_1663369318873 .logos-mod {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    #hs_cos_wrapper_widget_1663369318873 .slick-slide img {
+      margin: 0 auto;
+    }
+
+    #hs_cos_wrapper_widget_1663369318873 .btn-custom {
+      display: inline-block;
+      letter-spacing: .5px;
+      line-height: 1.25;
+      text-transform: uppercase;
+      font-weight: 700;
+      border-radius: 10px;
+      font-size: 14px;
+      color: rgba(54, 29, 92, 1.0);
+      background-color: rgba(246, 195, 112, 1.0);
+      border: 2px solid rgba(246, 195, 112, 1.0);
+      padding-top: 13px;
+      padding-right: 30px;
+      padding-bottom: 13px;
+      padding-left: 30px;
+    }
+
+    #hs_cos_wrapper_widget_1663369318873 .btn-custom:hover {
+      color: rgba(54, 29, 92, 1.0);
+      background-color: rgba(246, 195, 112, 0.0);
+      border-color: rgba(246, 195, 112, 1.0);
+    }
+
+    @media (min-width:992px) {
+      #hs_cos_wrapper_widget_1663369318873 .logos-mod {
+        padding-top: 20px;
+        padding-bottom: 50px;
+      }
+
+      #hs_cos_wrapper_widget_1663369318873 .slick-track {
+        display: flex;
+      }
+
+      #hs_cos_wrapper_widget_1663369318873 .slick-track .slick-slide {
+        display: flex;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  </style>
+  <style>
+    #hs_cos_wrapper_widget_1663369318873 .logos-mod__logo img {
+      max-height: 85px;
+      object-fit: contain;
+    }
+
+    @media (max-width:991px) {
+      #hs_cos_wrapper_widget_1663369318873 .logo-item__icon {
+        max-height: 85px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #hs_cos_wrapper_widget_1663369318873 .logo-item__icon img {
+        width: auto;
+        max-width: 150px;
+        object-fit: contain;
+        height: 100%;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="hs-fs/hub/491011/hub_generated/module_assets/85016279860/1696592351306/module_85016279860_09-cards.min.css">
+  <style>
+    #hs_cos_wrapper_widget_1663376133416 .cards-mod {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    #hs_cos_wrapper_widget_1663376133416 .custom_style {
+      display: inline-block;
+      letter-spacing: .5px;
+      line-height: 1.25;
+      text-transform: uppercase;
+      font-weight: 700;
+      border-radius: 10px;
+      font-size: 14px;
+      color: rgba(54, 29, 92, 1.0);
+      background-color: rgba(#null, 0.0);
+      border: 0px solid rgba(#null, 0.0);
+    }
+
+    #hs_cos_wrapper_widget_1663376133416 .custom_style:hover {
+      color: rgba(54, 29, 92, 1.0);
+      background-color: rgba(#null, 0.0);
+      border-color: rgba(#null, 0.0);
+    }
+
+    #hs_cos_wrapper_widget_1663376133416 .has-arrow:after {
+      content: url(hubfs/s2_assets/icons/arrow-primary-right.svg);
+      left: 5px;
+    }
+
+    #hs_cos_wrapper_widget_1663376133416 .cards-mod__boxWrap .animate__animated {
+      height: 100%;
+    }
+
+    @media (min-width:992px) {
+      #hs_cos_wrapper_widget_1663376133416 .cards-mod {
+        padding-top: 60px;
+        padding-bottom: 50px;
+      }
+
+      #hs_cos_wrapper_widget_1663376133416 .bg-image__wrapper {
+        height: 60%;
+      }
+    }
+
+    @media (max-width:991px) {
+      #hs_cos_wrapper_widget_1663376133416 .bg-image__wrapper {
+        display: none;
+      }
+    }
+  </style>
+  <style>
+    @media (min-width:992px) {
+      #hs_cos_wrapper_widget_1663376133416 .card-item__icon {
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-box-align: end;
+        -ms-flex-align: end;
+        align-items: flex-end;
+      }
+    }
+  </style>
+
+  <style>
+    #hs_cos_wrapper_widget_1675239261847 .tabbed-mod {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    #hs_cos_wrapper_widget_1675239261847 .overline {
       font-size: 18px;
       font-weight: 400;
-      color: white;
-      line-height: 28px;
+      margin-bottom: 15px;
     }
-    @media screen and (max-width: 991px) {
 
-      .main-testi{
-        background-size: cover;
+    #hs_cos_wrapper_widget_1675239261847 .section-title {
+      margin-bottom: 40px;
     }
-      .testi-content{
-      padding: 113px 0 93px 0;
-      flex-wrap: wrap-reverse;
-      justify-content: center;
+
+    #hs_cos_wrapper_widget_1675239261847 .tm__nav {
+      position: relative;
+      margin-bottom: 30px;
     }
+
+    #hs_cos_wrapper_widget_1675239261847 .tm__nav .selected-item {
+      display: block;
+      background: #F6C370;
+      border: 2px solid #F6C370;
+      border-radius: 10px 10px 0px 0px;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1;
+      color: #361D5C;
+      cursor: pointer;
+      position: relative;
+      padding: 12px 30px 12px 15px;
+    }
+
+    #hs_cos_wrapper_widget_1675239261847 .tm__nav .selected-item .arrow {
+      display: inline-block;
+      position: absolute;
+      right: 15px;
+      top: 10px;
+    }
+
+    #hs_cos_wrapper_widget_1675239261847 .tm__nav ul {
+      display: none;
+      position: absolute;
+      width: 100%;
+      list-style: none;
+      margin: 0;
+      padding: 10px 0;
+      background: #FFFFFF;
+      border: 2px solid #F6C370;
+      border-radius: 0px 0px 10px 10px;
+      z-index: 99;
+    }
+
+    #hs_cos_wrapper_widget_1675239261847 .tm__nav ul li {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.4;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    #hs_cos_wrapper_widget_1675239261847 .tm-item-wrap:not(.is-active) {
+      display: none;
+    }
+
+    #hs_cos_wrapper_widget_1675239261847 .tm-item-img {
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    #hs_cos_wrapper_widget_1675239261847 .tm-item .item-title {
+      margin-bottom: 15px;
+    }
+
+    #hs_cos_wrapper_widget_1675239261847 .tm-item .item-intro,
+    #hs_cos_wrapper_widget_1675239261847 .tm-item .tm-content {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.78;
+    }
+
+    #hs_cos_wrapper_widget_1675239261847 .tm-item .item-intro,
+    #hs_cos_wrapper_widget_1675239261847 .tm-item .item-intro p {
+      margin-bottom: 20px;
+    }
+
+    #hs_cos_wrapper_widget_1675239261847 .tm-item .item-intro *:last-child {
+      margin-bottom: 0;
+    }
+
+    #hs_cos_wrapper_widget_1675239261847 .tm-item .tm-content ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    #hs_cos_wrapper_widget_1675239261847 .tm-item .tm-content ul li {
+      margin-bottom: 20px;
+      padding-left: 40px;
+      position: relative;
+    }
+
+    #hs_cos_wrapper_widget_1675239261847 .tm-item .tm-content ul li:before {
+      content: "";
+      display: inline-block;
+      width: 25px;
+      height: 30px;
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='22' height='16' viewBox='0 0 22 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.75781 15.4648C8.14844 15.8555 8.8125 15.8555 9.20312 15.4648L20.6875 3.98047C21.0781 3.58984 21.0781 2.92578 20.6875 2.53516L19.2812 1.12891C18.8906 0.738281 18.2656 0.738281 17.875 1.12891L8.5 10.5039L4.08594 6.12891C3.69531 5.73828 3.07031 5.73828 2.67969 6.12891L1.27344 7.53516C0.882812 7.92578 0.882812 8.58984 1.27344 8.98047L7.75781 15.4648Z' fill='%23F6C370'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      background-position: 0 0;
+      position: absolute;
+      left: 0;
+      top: 6px;
+    }
+
+    #hs_cos_wrapper_widget_1675239261847 .tm-pattern {
+      display: none;
+    }
+
+    #hs_cos_wrapper_widget_1675239261847 .tm-item .hs_cos_wrapper_type_cta {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    @media (min-width:767px) {
+      #hs_cos_wrapper_widget_1675239261847 .tm-item .cta-wrapper {
+        display: flex;
+        column-gap: 20px;
+      }
+
+      #hs_cos_wrapper_widget_1675239261847 .tm-item .hs_cos_wrapper_type_cta {
+        width: 50%;
+        margin: 0;
+      }
+
+      #hs_cos_wrapper_widget_1675239261847 .tm-item .hs_cos_wrapper_type_cta .btn {
+        width: 100%;
+      }
+    }
+
+    @media (min-width:992px) {
+      #hs_cos_wrapper_widget_1675239261847 .tabbed-mod {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      #hs_cos_wrapper_widget_1675239261847 .entry {
+        position: relative;
+      }
+
+      #hs_cos_wrapper_widget_1675239261847 .tm__nav {
+        margin-bottom: 56px;
+      }
+
+      #hs_cos_wrapper_widget_1675239261847 .tm__nav .selected-item {
+        display: none;
+      }
+
+      #hs_cos_wrapper_widget_1675239261847 .tm__nav ul {
+        display: flex !important;
+        column-gap: 30px;
+        justify-content: center;
+        padding: 0;
+        border: none;
+        position: unset;
+        left: unset;
+        top: unset;
+        background: transparent;
+        border-radius: 0;
+      }
+
+      #hs_cos_wrapper_widget_1675239261847 .tm__nav .nav-item {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.778;
+        color: rgba(54, 29, 92, 1.0);
+        border-bottom: 2px solid rgba(246, 245, 248, 1.0);
+        padding: 5px 0;
+      }
+
+      #hs_cos_wrapper_widget_1675239261847 .tm__nav .nav-item:hover,
+      #hs_cos_wrapper_widget_1675239261847 .tm__nav .nav-item.is-active {
+        color: rgba(246, 195, 112, 1.0);
+        border-color: #F6C370;
+      }
+
+      #hs_cos_wrapper_widget_1675239261847 .tm-row.tm-header {
+        display: flex;
+        align-items: center;
+      }
+
+      #hs_cos_wrapper_widget_1675239261847 .tm-item-img {
+        width: 42.8%;
+        margin-bottom: 35px;
+      }
+
+      #hs_cos_wrapper_widget_1675239261847 .tm-col-ti:not(.text-center) {
+        width: 57.2%;
+        padding-left: 8.5%;
+      }
+
+      #hs_cos_wrapper_widget_1675239261847 .tm-content.column-2 ul,
+      #hs_cos_wrapper_widget_1675239261847 .tm-content.column-3 ul {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 30px;
+      }
+
+      #hs_cos_wrapper_widget_1675239261847 .tm-content ul li {
+        box-sizing: border-box;
+        margin-bottom: 30px;
+      }
+
+      #hs_cos_wrapper_widget_1675239261847 .tm-content.column-3 ul li {
+        width: calc(100%/3 - 30px);
+      }
+
+      #hs_cos_wrapper_widget_1675239261847 .tm-content.column-2 ul li {
+        width: calc(100%/2 - 30px);
+      }
+
+      #hs_cos_wrapper_widget_1675239261847 .bg-image__wrapper {
+        height: 65%;
+      }
+    }
+
+    @media (min-width:992px) and (max-width:1199px) {
+      #hs_cos_wrapper_widget_1675239261847 .tm__nav ul {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 15;
+      }
+
+      #hs_cos_wrapper_widget_1675239261847 .tm__nav .nav-item {
+        width: calc((100%/3) - 25px);
+      }
+    }
+
+    @media (max-width:991px) {
+      #hs_cos_wrapper_widget_1675239261847 .bg-image__wrapper {
+        display: none;
+      }
+    }
+
+    #hs_cos_wrapper_widget_1675239261847 .tm__nav ul {
+      width: calc(100% - 40px);
+    }
+
+    #hs_cos_wrapper_widget_1675239261847 .tm__nav--sticky .tm__navHeight {
+      height: 44px;
+      margin-bottom: 30px;
+    }
+
+    #hs_cos_wrapper_widget_1675239261847 .tm__nav--sticky .tm__nav {
+      position: fixed;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      max-width: 720px;
+      padding: 20px;
+      background-color: #fff;
+      z-index: 99;
+    }
+  </style>
+
+  <link rel="stylesheet" href="hs-fs/hub/491011/hub_generated/module_assets/85214377634/1695310106979/module_85214377634_13-testimonials.min.css">
+
+  <style>
+    #hs_cos_wrapper_widget_1663391336813 .container {
+      position: relative;
+    }
+
+    #hs_cos_wrapper_widget_1663391336813 .testimonials {
+      padding-top: 40px;
+      padding-bottom: 70px;
+    }
+
+    #hs_cos_wrapper_widget_1663391336813 .testimonials .animate__animated {
+      height: 100%;
+    }
+
+    @media (min-width:992px) {
+      #hs_cos_wrapper_widget_1663391336813 .testimonials {
+        padding-top: 70px;
+        padding-bottom: 90px;
+      }
+
+      #hs_cos_wrapper_widget_1663391336813 .slick-track {
+        display: flex !important;
+      }
+
+      #hs_cos_wrapper_widget_1663391336813 .slick-slide {
+        height: inherit !important;
+      }
+    }
+
+    @media (max-width:991px) {
+      #hs_cos_wrapper_widget_1663391336813 .bg-image__wrapper {
+        display: none;
+      }
+    }
+  </style>
+
+
+  <style>
+    .testimonials__box1 .animate__animated {
+      animation-delay: 0.25s;
+      -webkit-animation-delay: 0.25s;
+    }
+  </style>
+
+
+  <style>
+    .testimonials__box2 .animate__animated {
+      animation-delay: 0.5s;
+      -webkit-animation-delay: 0.5s;
+    }
+  </style>
+
+
+  <style>
+    .testimonials__box3 .animate__animated {
+      animation-delay: 0.75s;
+      -webkit-animation-delay: 0.75s;
+    }
+  </style>
+
+
+  <style>
+    .testimonials__box4 .animate__animated {
+      animation-delay: 1.0s;
+      -webkit-animation-delay: 1.0s;
+    }
+  </style>
+
+
+  <style>
+    .testimonials__box5 .animate__animated {
+      animation-delay: 1.25s;
+      -webkit-animation-delay: 1.25s;
+    }
+  </style>
+
+
+  <style>
+    .testimonials__box6 .animate__animated {
+      animation-delay: 1.5s;
+      -webkit-animation-delay: 1.5s;
+    }
+  </style>
+
+
+  <style>
+    .testimonials__box7 .animate__animated {
+      animation-delay: 1.75s;
+      -webkit-animation-delay: 1.75s;
+    }
+  </style>
+
+
+  <style>
+    .testimonials__box8 .animate__animated {
+      animation-delay: 2.0s;
+      -webkit-animation-delay: 2.0s;
+    }
+  </style>
+
+
+  <style>
+    .testimonials__box9 .animate__animated {
+      animation-delay: 2.25s;
+      -webkit-animation-delay: 2.25s;
+    }
+  </style>
+
+
+  <style>
+    .testimonials__box10 .animate__animated {
+      animation-delay: 2.5s;
+      -webkit-animation-delay: 2.5s;
+    }
+  </style>
+
+  <link rel="stylesheet" href="hs-fs/hub/491011/hub_generated/module_assets/85014985555/1698224941139/module_85014985555_07-content-grid.min.css">
+  <style>
+    #hs_cos_wrapper_widget_1663399129122 .content-grid {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    @media (min-width:992px) {
+      #hs_cos_wrapper_widget_1663399129122 .content-grid {
+        padding-top: 70px;
+        padding-bottom: 70px;
+      }
+    }
+
+    @media (max-width:991px) {
+      #hs_cos_wrapper_widget_1663399129122 .bg-image__wrapper {
+        display: none;
+      }
+    }
+
+    #hs_cos_wrapper_widget_1663399129122 .content-grid__box a {
+      text-decoration: none;
+    }
+
+    #hs_cos_wrapper_widget_1663399129122 .content-grid__box a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <style>
+    .boxes-widget_1663399129122-1 .animate__animated {
+      animation-delay: 0.3333333333333333s;
+      -webkit-animation-delay: 0.3333333333333333s;
+    }
+  </style>
+  <style>
+    .boxes-widget_1663399129122-2 .animate__animated {
+      animation-delay: 0.6666666666666666s;
+      -webkit-animation-delay: 0.6666666666666666s;
+    }
+  </style>
+  <style>
+    .boxes-widget_1663399129122-3 .animate__animated {
+      animation-delay: 1.0s;
+      -webkit-animation-delay: 1.0s;
+    }
+  </style>
+  <style>
+    .boxes-widget_1663399129122-4 .animate__animated {
+      animation-delay: 1.3333333333333333s;
+      -webkit-animation-delay: 1.3333333333333333s;
+    }
+  </style>
+  <style>
+    @media (min-width:992px) {
+      #hs_cos_wrapper_widget_1663399129122 .box-item__icon {
+        min-height: 100px;
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-box-align: end;
+        -ms-flex-align: end;
+        align-items: flex-end;
+      }
+    }
+  </style>
+  <style>
+    #hs_cos_wrapper_widget_1665975210459 .about-us-image-copy {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    #hs_cos_wrapper_widget_1665975210459 .about-us-image-copy .image-container img {
+      max-width: calc(70% + 265px);
+    }
+
+    #hs_cos_wrapper_widget_1665975210459 .about-us-image-copy a.cta_button {
+      display: inline-block;
+      text-align: center;
+      line-height: 1.25;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      font-size: 14px;
+      color: var(--s2-color-secondary_1);
+      font-weight: 700;
+      letter-spacing: .5px;
+      line-height: 1.25;
+      padding: 15px 30px;
+      background-color: var(--s2-color-primary);
+      border-radius: 10px;
+      border: 1px solid var(--s2-color-primary);
+      -webkit-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      position: relative;
+      text-transform: uppercase;
+      text-shadow: none;
+      font-family: rustica, sans-serif;
+      background-image: none;
+      box-shadow: none;
+    }
+
+    #hs_cos_wrapper_widget_1665975210459 .about-us-image-copy a.cta_button span {
+      color: var(--s2-color-secondary_1) !important;
+    }
+
+    #hs_cos_wrapper_widget_1665975210459 .about-us-image-copy a.cta_button:hover {
+      background-color: transparent !important;
+      color: var(--s2-color-primary) !important;
+    }
+
+    #hs_cos_wrapper_widget_1665975210459 .about-us-image-copy a.cta_button:hover span {
+      color: var(--s2-color-primary) !important;
+    }
+
+    @media (min-width:992px) {
+      #hs_cos_wrapper_widget_1665975210459 .about-us-image-copy {
+        padding-top: 70px;
+        padding-bottom: 70px;
+      }
+    }
+
+    #hs_cos_wrapper_widget_1665975210459 .about-us-image-copy__card .col-copy-inner {
+      padding-top: 30px;
+      padding-right: 0px;
+      padding-bottom: 40px;
+      padding-left: 0px;
+    }
+
+    @media (min-width:992px) {
+      #hs_cos_wrapper_widget_1665975210459 .about-us-image-copy__card .col-copy-inner {
+        padding-top: 70px;
+        padding-right: 120px;
+        padding-bottom: 70px;
+        padding-left: 0px;
+      }
+    }
+
+    #hs_cos_wrapper_widget_1665975210459 .about-us-image-copy__rtext {
+      font-weight: 350;
+    }
+
+    .about-us-image-copy .container {
+      position: relative;
+    }
+
+    .about-us-image-copy .about-us-image-copy__pattern {
+      position: absolute;
+      right: 0px;
+      top: 50px;
+      overflow: hidden;
+      width: 230px;
+    }
+
+    .about-us-image-copy .about-us-image-copy__card-inner {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      height: 80%;
+      width: 100%;
+      z-index: -1;
+      border-radius: 0px 10px 80px 0px;
+    }
+
+    .about-us-image-copy .about-us-image-copy__card-inner:before {
+      background-color: inherit;
+      content: "";
+      width: 50vw;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 100%;
+    }
+
+    .about-us-image-copy .about-us-image-copy__pattern img {
+      margin-right: 0px;
+      width: 100%;
+    }
+
+    .about-us-image-copy .image-container {
+      cursor: pointer;
+    }
+
+    .about-us-image-copy .col-image .image-container {
+      position: relative;
+    }
+
+    .about-us-image-copy .image-container img {
+      height: auto;
+      width: 50vw;
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+    }
+
+    @media (max-width:992px) {
+
+      .about-us-image-copy .image-container img {
+        max-width: 100%;
+        width: 100%;
+        position: relative;
+        right: 0px;
+        transform: translateY(0%) translateX(-30px);
+        -webkit-transform: translateY(0%) translateX(-30px);
+        min-width: unset;
+      }
+    }
+
+    @media (min-width:992px) {
+      .about-us-image-copy .about-us-image-copy__card-inner {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        height: 100%;
+        width: 95%;
+        z-index: -1;
+        border-radius: 0px 10px 200px 0px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="hs-fs/hub/491011/hub_generated/module_assets/85016275839/1710828176552/module_85016275839_02-copy-image.min.css">
+
+  <style>
+    #hs_cos_wrapper_widget_1663409884749 .copy-image-mod {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    @media (min-width:992px) {
+      #hs_cos_wrapper_widget_1663409884749 .copy-image-mod {
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+
+      #hs_cos_wrapper_widget_1663409884749 .copy-image__copy {}
+    }
+  </style>
+
+  <link rel="stylesheet" href="hs-fs/hub/491011/hub_generated/template_assets/85015200625/1677083097813/lsretail-s2/css/components/_post-item-card.min.css">
+  <link rel="stylesheet" href="hs-fs/hub/491011/hub_generated/module_assets/85015200636/1695297760117/module_85015200636_10-recommended-readings.min.css">
+
+  <style>
+    #hs_cos_wrapper_widget_1663410382241 .related-posts {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    @media (min-width:992px) {
+      #hs_cos_wrapper_widget_1663410382241 .related-posts {
+        padding-top: 75px;
+        padding-bottom: 130px;
+      }
+    }
+  </style>
+
+  <link rel="stylesheet" href="hs-fs/hub/491011/hub_generated/module_assets/85014835865/1690981524143/module_85014835865_04-cta-banner.min.css">
+
+  <style>
+    #hs_cos_wrapper_widget_1663413143076 .cta-banner {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    @media (min-width:992px) {
+      #hs_cos_wrapper_widget_1663413143076 .cta-banner {
+        padding-top: 83px;
+        padding-bottom: 83px;
+      }
+    }
+  </style>
+
+  <link rel="stylesheet" href="hs-fs/hub/491011/hub_generated/module_assets/137728726659/1696374353843/module_137728726659_search-input.min.css">
+
+  <style>
+    #hs_cos_wrapper_module_16960148376863 .hs-search-field__bar>form {
+      border-radius: px;
+    }
+
+    #hs_cos_wrapper_module_16960148376863 .hs-search-field__bar>form>label {}
+
+    #hs_cos_wrapper_module_16960148376863 .hs-search-field__bar>form>.hs-search-field__input {
+      border-radius: px;
+    }
+
+    #hs_cos_wrapper_module_16960148376863 .hs-search-field__button {
+      border-radius: px;
+    }
+
+    #hs_cos_wrapper_module_16960148376863 .hs-search-field__button:hover,
+    #hs_cos_wrapper_module_16960148376863 .hs-search-field__button:focus {}
+
+    #hs_cos_wrapper_module_16960148376863 .hs-search-field__button:active {}
+
+    #hs_cos_wrapper_module_16960148376863 .hs-search-field--open .hs-search-field__suggestions {
+      border-radius: px;
+    }
+
+    #hs_cos_wrapper_module_16960148376863 .hs-search-field--open .hs-search-field__suggestions a {}
+
+    #hs_cos_wrapper_module_16960148376863 .hs-search-field--open .hs-search-field__suggestions a:hover {}
+  </style>
+
+  <link rel="stylesheet" href="hs-fs/hub/491011/hub_generated/module_assets/85130754714/1695655456065/module_85130754714_social.min.css">
+
+  <style>
+    #hs_cos_wrapper_social_links .social {
+      column-gap: 30px;
+      -webkit-column-gap: 30px;
+    }
+
+    #hs_cos_wrapper_social_links .social li {
+      width: auto;
+    }
+
+    #hs_cos_wrapper_social_links .social li a {
+      width: 40px;
+      height: 40px;
+    }
+
+    #hs_cos_wrapper_social_links .social li a svg {
+      fill: rgba(255, 255, 255, 1.0);
+    }
+
+    #hs_cos_wrapper_social_links .social li a:hover svg,
+    #hs_cos_wrapper_social_links .social li a:hover svg path {
+      fill: rgba(246, 195, 112, 1.0);
+    }
+  </style>
+
+
+  <script data-search_input-config="config_module_16960148376863" type="application/json">
+{
+  "autosuggest_results_message": "Results for “[[search_term]]”",
+  "autosuggest_no_results_message": "There are no autosuggest results for “[[search_term]]”",
+  "sr_empty_search_field_message": "There are no suggestions because the search field is empty.",
+  "sr_autosuggest_results_message": "There are currently [[number_of_results]] auto-suggested results for [[search_term]]. Navigate to the results list by pressing the down arrow key, or press return to search for all results.",
+  "sr_search_field_aria_label": "This is a search field with an auto-suggest feature attached.",
+  "sr_search_button_aria_label": "Search"
 }
-.customError{
-  font-size: 1.2rem !important;
-}
-.services-wraper .text-checkbox {
-  padding-left: 1rem;
-    padding-right: 1rem;
-    border: 1px solid #636363;
-    border-radius: 2rem;
-    font-size: 1.4rem;
-    line-height: 3rem;
-    font-weight: 600;
-    color: #636363;
-    cursor: default;
-}
-.services-wraper .text-checkbox:has(input[type=checkbox]:checked){
-  color: var(--white) !important;
-    background-color: var(--primaryblue4);
-    border: 1px solid var(--primaryblue4);
-
-}
-.services-wraper .text-checkbox:has(input[type=checkbox]:checked) span{
-  color: var(--white) !important;
-
-}
-
-.services-wraper .text-checkbox input{
-  display: none;
-}
-  .zapta-loader {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-.loader-loading {
-  height: 170px;
-  width: 170px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 6px solid #ccc;
-  border-right-color: #005BAA;
-  border-radius: 50%;
-  -webkit-animation: rotate 1s infinite linear;
-}
-
-@-webkit-keyframes rotate {
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
-}
-
-.absolute-logo{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.upload-document label.error {
-            bottom: unset !important;
-        }
-   </style>
-    
-  </head>
-  <body>
-
-<div class="zapta-loader">
-      <div class="position-relative" style="height: 170px; width:170px;transform:scale(0.7);">
-       <div class="loader-loading"></div>
-
-       <img src="images/Netaicon.png" alt="" class="absolute-logo" style="width:80px">
-       
+</script>
 
 
 
+
+
+
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+<body class="body-overflow">
+
+
+  <div class="body-wrapper   hs-content-id-93880510270 hs-site-page page ">
+
+
+    <div data-global-resource-path="lsretail-s2/templates/partials/popup.html"><!-- Begin partial -->
+      <div id="hs_cos_wrapper_module_16687767440336"
+        class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=""
+        data-hs-cos-general-type="widget" data-hs-cos-type="module">
+      </div>
+      <div id="hs_cos_wrapper_module_16922444524723"
+        class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=""
+        data-hs-cos-general-type="widget" data-hs-cos-type="module">
 
       </div>
+      <!-- End partial -->
     </div>
-
-
-<!-- Navigation / Header  -->
-
-<header class="nav-bar  " style="background-color:white">
-    <div class="container" style="position: relative;">
-      <div class="zapta-navbar">
-      
-        <a href="/" aria-label="navigation">
-        <img src="images/NetaLogo.png" alt="" style="width:150px"> 
-        </a>
-
-        <div class="nav-items">
-          <a href="index.html" class="nav-link active text-primary" >Home</a>
-          <a href="about-us.html" class="nav-link " style="color:black">About Us</a>
-          <a href="services.html" class="nav-link " style="color:black">Services</a>
-          <a href="projects.html" class="nav-link " style="color:black">Projects</a>
-          <a href="blogs.html" class="nav-link " style="color:black">Blogs</a>
-          <a href="https://career.zaptatech.com/job-openings" class="nav-link" style="color:black">Careers</a>
-          <a href="contact-us.html" class="nav-link nav-btn component-btn">Contact Us</a>
-        </div>
-        
-        <svg id="nav-toggler" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none"  data-bs-toggle="offcanvas" data-bs-target="#navTogglerCanvas" aria-controls="navTogglerCanvas">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.00012 8.67188V6.67188H21.0001V8.67188H3.00012ZM3.00012 13.6719H21.0001V11.6719H3.00012V13.6719ZM3.00012 18.6719H21.0001V16.6719H3.00012V18.6719Z" fill="#005BAA"/>
-        </svg>
-      </div>
-    </div>
-  </header>
-
-
-  <!-- Mobile menu -->
-
-
-<div class="offcanvas offcanvas-end" id="navTogglerCanvas" aria-labelledby="navTogglerCanvasLabel" style="width: fit-content;">
-  <div class="mobile-menu">
-      <button type="button" class="btnClose border-0 bg-transparent"data-bs-dismiss="offcanvas" aria-label="Close">
-
-        <span style="font-size:15px">X</span>
-      
-      </button>
-      <a href="index.html" aria-label="navigation" class="mb-3">
-   
-      <img src="images/NetaLogo.png"    class="zapta-logo" alt="" style="width:150px">
-       
-      </a>
-      <a href="index.html" class="nav-link active">Home</a>
-      <a href="about-us.html" class="nav-link ">About Us</a>
-      <a href="services.html" class="nav-link ">Services</a>
-      <a href="projects.html" class="nav-link ">Projects</a>
-      <a href="blogs.html" class="nav-link ">Blogs</a>
-      <a href="https://career.zaptatech.com/job-openings" class="nav-link">Careers</a>
-      <a href="contact-us.html" class="nav-link nav-btn">Contact Us</a>
-  </div>
-</div>
-
-
-
-<!-- Content Wrapper -->
-
-    <!-- ********** Hero Section Start ********** -->
-<section class="hero-section position-relative overflow-hidden" style=" background-image: url('images/home2.jpg')">
-        <div class="container" >
-            <div class="content">
-                <div class="main-heading">
-                    <p class="zone">We provide</p>
-                    <p class="plate-form">Prominent IT Services </p>
-                    <p class="tech">And Tech Applications</p>
-                </div>
-                <p class="custom-software">
-                    Custom Software Design & Development
-                
-            </p>
-                <div class="position-relative">
-                    <a class="consultaion-btn hover-effect wave-btn clicked" id="consultToZapta">
-                        Read our story 
-                    </a>
-                </div>
-
+    <div data-global-resource-path="lsretail-s2/templates/partials/header.html">
+      <header class="header header--floating">
+        <a href="#main-content" class="header__skip">Skip to content</a>
+        <div class="container-fluid content-wrapper">
+          <div class="row-fluid-wrapper">
+            <div class="row-fluid">
+              <div class="span12 widget-span widget-type-cell " style="" data-widget-type="cell" data-x="0" data-w="12">
+              </div><!--end widget-span -->
             </div>
+          </div>
         </div>
-        
-    </section>
+
+        <div class="header__wrapper">
+          <div class="container">
+            <div class="header__inner">
+
+
+
+              <div class="header__logo">
+                <div class="header__logo-main">
 
 
 
 
 
 
-    <section class="do-cards-sec">
-        <div class="container">
-            <h1 class="we-doHeading mx-auto  mb-0" style="max-width:800px;text-align:center">Explore <span>Our Services</span></h1>
-           
-           <p class="one-line-text text-center pbottom-60">
-               
-            </p>
 
-
-
-            <div class="do-card-wraper">
-                
-              <!-- Card 1 -->
-              <a href="services/ui-ux-design.html" class="do-card">
-                    <img width="60" height="60" src="frontend-assets/images/icons/ui-icon.svg"
-                        alt="UI icon" loading="lazy" defer>
-                    <h2 class="cardTitle">UI UX Design</h2>
-                    <p class="card-text">Crafting a data-driven and user centered UI UX design to provide the greatest user
-                        experience and satisfaction.</p>
-                </a>
-
-
-
-        
-              
-                <!-- Card 2 -->
-                <a href="services/web-development.html" class="do-card">
-                    <img width="60" height="60" src="frontend-assets/images/icons/web-icon.svg"
-                        alt="UI icon" loading="lazy" defer>
-                    <h2 class="cardTitle">Web Development</h2>
-                    <p class="card-text">Achieve business objectives and build a strong online presence by our web
-                        development solutions for customers.</p>
-                </a>
-
-                <!-- Card 3 -->
-                <a href="services/mobile-development.html" class="do-card">
-                    <img width="60" height="60" src="frontend-assets/images/icons/mobile-icon.svg"
-                        alt="UI icon" loading="lazy" defer>
-                    <h2 class="cardTitle">Mobile Development</h2>
-                    <p class="card-text">Well-engineered, AI-driven native and hybrid applications for all your business
-                        needs with a seamless experience.</p>
-                </a>
-
-                <!-- Card 4 -->
-                <a href="services/quality-assurance.html" class="do-card">
-                    <img width="60" height="60" src="frontend-assets/images/icons/Quality.svg"
-                        alt="UI icon" loading="lazy" defer>
-                    <h2 class="cardTitle">Quality Assurance</h2>
-                    <p class="card-text">Providing well-tested and bug-free web and mobile apps, ensuring high-quality and
-                        the best user experience.</p>
-                </a>
-
-                <!-- Card 5 -->
-                <a href="services/mvp-builder.html" class="do-card">
-                    <img width="60" height="60" src="frontend-assets/images/icons/mvp-builder.svg"
-                        alt="UI icon" loading="lazy" defer>
-                    <h2 class="cardTitle">MVP Builder</h2>
-                    <p class="card-text">Streamlined MVPs of development expedites the product journey and validates market
-                        potential while insuring well engineering.</p>
-                </a>
-
-                <!-- Card 6 -->
-                <a href="services/dedicated-teams.html" class="do-card">
-                    <img width="60" height="60" src="frontend-assets/images/icons/teams.svg"
-                        alt="UI icon" loading="lazy" defer>
-                    <h2 class="cardTitle">Dedicated Teams</h2>
-                    <p class="card-text">Onboard our dedicated designers, developers and skilled engineers on a full-time
-                        basis to achieve your business objectives.</p>
-                </a>
-
-               
-            </div>
-        </div>
-    </section>
-
-  
-    
-    <div class="swiper testiSwiper">
-    <div class="swiper-wrapper">
-      
-      <div class="swiper-slide">
-        <div class="main-testi">
-            <div class="container">
-                <div class="testi-content d-flex align-items-center ">
-                    <div class="teti-text">
-                      <p class="zapta-team-p" style="text-align: justify">
-                        “ZAPTA's meticulous attention to detail and unwavering commitment to deadlines fueled a fantastic project collaboration. Each deliverable exceeded expectations, highlighting their impressive technical skills and creative problem-solving. Their consistent quality output showcases their reliability and deep understanding of the project, making them a true partner, not just a vendor. Bravo, ZAPTA!”
-                      </p>
-                      <p class="redha-client">Terry Peterson</p>
-                      <p class="legal-p">Founder & CEO of DrBroker.com</p>
-                    </div>
-                   <div class="testi-img video-pop position-relative" data-type="youtube" data-id="aLf9aaMdAiE" data-autoplay='true'>
-                        <img src="images/NetaLogo.png"  alt="">
-                       
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-      
-     
-    </div>
-    <div class="swiper-pagination"></div>
-  </div>
-
-
-
-
-    <section class="studies-section position-relative pt-6 " >
-        <div class="container">
-            <h2 class="we-doHeading mb-0">Our <span>Previous work</span></h2>
-            <p class="one-line-text pbottom-60">Preferred by Entrepreneurs and Business Innovators.</p>
-            <div class="excellence-cards">
-                <a href="https://clutch.co/profile/zapta-technologies#highlights" target="_blank"
-                    class="excellence d-flex justify-content-center align-items-center">
-                    <img width="117" height="158"
-                        src="frontend-assets/images/awards/top-clutch-1.webp" alt="Top cluth award">
-                </a>
-
-                <a href="https://clutch.co/profile/zapta-technologies#highlights" target="_blank"
-                    class="excellence d-flex justify-content-center align-items-center">
-                    <img width="146" height="158"
-                        src="frontend-assets/images/awards/top-clutch-2.webp" alt="Top cluth award">
-                </a>
-
-                <a href="https://clutch.co/profile/zapta-technologies#highlights" target="_blank"
-                    class="excellence d-flex justify-content-center align-items-center">
-                    <img width="146" height="158"
-                        src="frontend-assets/images/awards/top-clutch-3.webp" alt="Top cluth award">
-                </a>
-
-                <a href="https://clutch.co/profile/zapta-technologies#highlights" target="_blank"
-                    class="excellence d-flex justify-content-center align-items-center">
-                    <img width="146" height="158"
-                        src="frontend-assets/images/awards/top-clutch-4.webp" alt="Top cluth award">
-                </a>
-
-                <a href="https://clutch.co/profile/zapta-technologies#highlights" target="_blank"
-                    class="excellence d-flex justify-content-center align-items-center">
-                    <img width="146" height="158"
-                        src="frontend-assets/images/awards/top-clutch-5.webp" alt="Top cluth award">
-                </a>
-
-                <a href="https://clutch.co/profile/zapta-technologies#highlights" target="_blank"
-                    class="excellence d-flex justify-content-center align-items-center">
-                    <img width="146" height="158"
-                        src="frontend-assets/images/awards/top-clutch-6.webp" alt="Top cluth award">
-                </a>
-
-                <a href="https://techbehemoths.com/company/zapta-technologies" target="_blank"
-                    class="excellence d-flex justify-content-center align-items-center">
-                    <img width="179" height="148"
-                        src="frontend-assets/images/awards/banner-award-1.webp" alt="Banner award">
-                </a>
-
-                <a href="https://techbehemoths.com/company/zapta-technologies" target="_blank"
-                    class="excellence d-flex justify-content-center align-items-center">
-                    <img width="179" height="147"
-                        src="frontend-assets/images/awards/banner-award-2.webp" alt="Banner award">
-                </a>
-
-                <a href="https://techbehemoths.com/company/zapta-technologies" target="_blank"
-                    class="excellence d-flex justify-content-center align-items-center">
-                    <img width="175" height="144"
-                        src="frontend-assets/images/awards/banner-award-3.webp" alt="Banner award">
-                </a>
-
-                <a href="https://techbehemoths.com/company/zapta-technologies" target="_blank"
-                    class="excellence d-flex justify-content-center align-items-center">
-                    <img width="182" height="126"
-                        src="frontend-assets/images/awards/banner-award-4.webp" alt="Banner award">
-                </a>
-
-                <a href="https://techbehemoths.com/company/zapta-technologies" target="_blank"
-                    class="excellence d-flex justify-content-center align-items-center">
-                    <img width="182" height="126"
-                        src="frontend-assets/images/awards/banner-award-5.webp" alt="Banner award">
-                </a>
-
-                <a href="https://techbehemoths.com/company/zapta-technologies" target="_blank"
-                    class="excellence d-flex justify-content-center align-items-center">
-                    <img width="182" height="126"
-                        src="frontend-assets/images/awards/banner-award-6.webp" alt="Banner award">
-                </a>
-
-                <a href="https://techbehemoths.com/company/zapta-technologies" target="_blank"
-                    class="excellence d-flex justify-content-center align-items-center">
-                    <img width="164" height="158"
-                        src="frontend-assets/images/awards/banner-award-7.webp" alt="Banner award">
-                </a>
-
-                <a href="https://techbehemoths.com/company/zapta-technologies" target="_blank"
-                    class="excellence d-flex justify-content-center align-items-center">
-                    <img width="164" height="158"
-                        src="frontend-assets/images/awards/banner-award-8.webp" alt="Banner award">
-                </a>
-
-                <a href="https://www.appfutura.com/companies/zapta-technologies" target="_blank"
-                    class="excellence d-flex justify-content-center align-items-center">
-                    <img width="164" height="148"
-                        src="frontend-assets/images/awards/appfutura-badge-1.webp" alt="Appfutura badge">
-                </a>
-
-                <a href="https://www.appfutura.com/companies/zapta-technologies" target="_blank"
-                    class="excellence d-flex justify-content-center align-items-center">
-                    <img width="164" height="148"
-                        src="frontend-assets/images/awards/appfutura-badge-2.webp" alt="Appfutura badge">
-                </a>
-
-                <a href="https://www.appfutura.com/companies/zapta-technologies" target="_blank"
-                    class="excellence d-flex justify-content-center align-items-center">
-                    <img width="164" height="148"
-                        src="frontend-assets/images/awards/appfutura-badge-3.webp" alt="Appfutura badge">
-                </a>
-
-                <a href="https://trusteditfirms.com/company/zapta-technologies-2/" target="_blank"
-                    class="excellence d-flex justify-content-center align-items-center">
-                    <img width="167" height="148"
-                        src="frontend-assets/images/awards/trusted-it-firm-1.webp" alt="Trusted-It-Firm">
-                </a>
-
-            </div>
-            <div class="swiper clientsSwiper excellence-carosoul">
-                
-                <div class="swiper-wrapper align-items-center">
-
-                    <a href="https://clutch.co/profile/zapta-technologies#highlights" target="_blank"
-                        class="swiper-slide text-decoration-none">
-                        <img width="117" height="158"
-                            src="frontend-assets/images/awards/top-clutch-1.webp" alt="Top cluth award">
-                    </a>
-                    <a href="https://clutch.co/profile/zapta-technologies#highlights" target="_blank"
-                        class="swiper-slide text-decoration-none">
-                        <img width="146" height="158"
-                            src="frontend-assets/images/awards/top-clutch-2.webp" alt="Top cluth award">
-                    </a>
-
-                    <a href="https://clutch.co/profile/zapta-technologies#highlights" target="_blank"
-                        class="swiper-slide text-decoration-none">
-                        <img width="146" height="158"
-                            src="frontend-assets/images/awards/top-clutch-3.webp" alt="Top cluth award">
-                    </a>
-
-                    <a href="https://clutch.co/profile/zapta-technologies#highlights" target="_blank"
-                        class="swiper-slide text-decoration-none">
-                        <img width="146" height="158"
-                            src="frontend-assets/images/awards/top-clutch-4.webp" alt="Top cluth award">
-                    </a>
-
-                    <a href="https://clutch.co/profile/zapta-technologies#highlights" target="_blank"
-                        class="swiper-slide text-decoration-none">
-                        <img width="146" height="158"
-                            src="frontend-assets/images/awards/top-clutch-5.webp" alt="Top cluth award">
-                    </a>
-
-                    <a href="https://clutch.co/profile/zapta-technologies#highlights" target="_blank"
-                        class="swiper-slide text-decoration-none">
-                        <img width="146" height="158"
-                            src="frontend-assets/images/awards/top-clutch-6.webp" alt="Top cluth award">
-                    </a>
-
-                    <a href="https://techbehemoths.com/company/zapta-technologies" target="_blank"
-                        class="swiper-slide text-decoration-none">
-                        <img width="179" height="148"
-                            src="frontend-assets/images/awards/banner-award-1.webp" alt="Banner award">
-                    </a>
-
-                    <a href="https://techbehemoths.com/company/zapta-technologies" target="_blank"
-                        class="swiper-slide text-decoration-none">
-                        <img width="179" height="147"
-                            src="frontend-assets/images/awards/banner-award-2.webp" alt="Banner award">
-                    </a>
-
-                    <a href="https://techbehemoths.com/company/zapta-technologies" target="_blank"
-                        class="swiper-slide text-decoration-none">
-                        <img width="175" height="144"
-                            src="frontend-assets/images/awards/banner-award-3.webp" alt="Banner award">
-                    </a>
-
-                    <a href="https://techbehemoths.com/company/zapta-technologies" target="_blank"
-                        class="swiper-slide text-decoration-none">
-                        <img width="182" height="126"
-                            src="frontend-assets/images/awards/banner-award-4.webp" alt="Banner award">
-                    </a>
-
-                    <a href="https://techbehemoths.com/company/zapta-technologies" target="_blank"
-                        class="swiper-slide text-decoration-none">
-                        <img width="182" height="126"
-                            src="frontend-assets/images/awards/banner-award-5.webp" alt="Banner award">
-                    </a>
-
-                    <a href="https://techbehemoths.com/company/zapta-technologies" target="_blank"
-                        class="swiper-slide text-decoration-none">
-                        <img width="182" height="126"
-                            src="frontend-assets/images/awards/banner-award-6.webp" alt="Banner award">
-                    </a>
-
-                    <a href="https://techbehemoths.com/company/zapta-technologies" target="_blank"
-                        class="swiper-slide text-decoration-none">
-                        <img width="164" height="158"
-                            src="frontend-assets/images/awards/banner-award-7.webp" alt="Banner award">
-                    </a>
-
-                    <a href="https://techbehemoths.com/company/zapta-technologies" target="_blank"
-                        class="swiper-slide text-decoration-none">
-                        <img width="164" height="158"
-                            src="frontend-assets/images/awards/banner-award-8.webp" alt="Banner award">
-                    </a>
-
-                    <a href="https://www.appfutura.com/companies/zapta-technologies" target="_blank"
-                        class="swiper-slide text-decoration-none">
-                        <img width="164" height="148"
-                            src="frontend-assets/images/awards/appfutura-badge-1.webp"
-                            alt="Appfutura badge">
-                    </a>
-
-                    <a href="https://www.appfutura.com/companies/zapta-technologies" target="_blank"
-                        class="swiper-slide text-decoration-none">
-                        <img width="164" height="148"
-                            src="frontend-assets/images/awards/appfutura-badge-2.webp"
-                            alt="Appfutura badge">
-                    </a>
-
-                    <a href="https://www.appfutura.com/companies/zapta-technologies" target="_blank"
-                        class="swiper-slide text-decoration-none">
-                        <img width="164" height="148"
-                            src="frontend-assets/images/awards/appfutura-badge-3.webp"
-                            alt="Appfutura badge">
-                    </a>
-
-                    <a href="https://trusteditfirms.com/company/zapta-technologies-2/" target="_blank"
-                        class="swiper-slide text-decoration-none">
-                        <img width="167" height="148"
-                            src="frontend-assets/images/awards/trusted-it-firm-1.webp"
-                            alt="Trusted-It-Firm">
-                    </a>
-
+                  <span id="hs_cos_wrapper_site_logo_hs_logo_widget"
+                    class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_logo" style=""
+                    data-hs-cos-general-type="widget" data-hs-cos-type="logo"><a href="index.html"
+                      id="hs-link-site_logo_hs_logo_widget" style="border-width:0px;border:0px;"><img
+                        src="hubfs/s2_assets/logo/ls-retail-logo-white.svg" class="hs-image-widget " height="41"
+                        style="height: auto;width:135px;border-width:0px;border:0px;" width="135"
+                        alt="ls-retail-logo-white" title="ls-retail-logo-white"></a></span>
 
                 </div>
-            </div>
-        </div>
-    </section>
+              </div>
+              <div class="header__nav">
 
-<!-- Footer -->
-<!-- Get In Touch -->
-    <style>
-        .services-wraper label span {
-            color: #636363 !important;
-        }
-    </style>
-    <section class="getInTouch-sec">
-        <div class="container">
-            <div class="contect-detail">
-                <div class="offices background-image-placeholder">
-                    <h2 class="office-h2">Offices</h2>
-                    <div>
-                        <h3 class="office-county">Pakistan</h3>
-                        <a href="https://goo.gl/maps/cN7aP8JwwjECKLhL8" target="_blank" class="office-address">144/2, Block
-                            B, Bankers Society Near DHA Phase 4, Lahore, Pakistan</a>
-                        
-                    </div>
 
-                    <div>
-                        <h3 class="office-county">UAE</h3>
-                        <a target="_blank" class="office-address" href="https://goo.gl/maps/LMkkiAxv7kUNaHVb8">61-51
-                            26B St, Jumeirah - Jumeirah 2 - Dubai - United Arab Emirates</a>
-                    </div>
 
-                    <div>
-                        <h3 class="office-county">UK</h3>
-                        <a target="_blank" class="office-address" href="https://goo.gl/maps/K4hbC5jfN675ZxSj8">West
-                            Tower, 371 Deansgate, Manchester M15 4UP, United Kingdom</a>
-                    </div>
-                    <div>
-                        <h3 class="office-county">Saudi Arabia</h3>
-                        <a target="_blank" class="office-address" href="https://maps.app.goo.gl/XiTzS9mJ97EzgTsc6">8640 Umat Al Karim, 4006, Al Majd District, Yanbu Al Bahr 46431</a>
-                    </div>
-
+                <div class="header--toggle header__nav-toggle">
+                  <span></span>
+                  <span></span>
+                  <span></span>
                 </div>
-                <form action="https://zaptatech.com/get-in-touch/store" class="get-in-touch global-ajax-submit"
-                    id="contactForm" data-success-fn='getInTouchSuccess' data-recaptcha-id="contact"
-                    data-error-fn='getInTouchError' data-check-validate="false">
-                    <h2 class="we-doHeading mb-0">We’re just a <span>message away!</span></h2>
-                    <div class="fields-wrap mt-20">
-                        <label class="contact-label">I am looking to</label>
-                        <div class="services-wraper d-flex flex-wrap  position-relative" style="gap: 12px;">
-                            <label for="new-project" class="text-checkbox">
-                                <span class="">Start a new project</span>
-                                <input type="checkbox" id="new-project" name="looking_for[]"
-                                    value="Start a new project">
-                            </label>
-                            <label for="revamp-devp" class="text-checkbox">
-                                <span class="">Revamp Existing Development</span>
-                                <input type="checkbox" id="revamp-devp" name="looking_for[]"
-                                    value="Revamp Existing Development">
-                            </label>
-                            <label for="consultation" class="text-checkbox">
-                                <span class="">Consultation</span>
-                                <input type="checkbox" id="consultation" name="looking_for[]" value="Consultation">
-                            </label>
-                            <label for="dedicated-team" class="text-checkbox">
-                                <span class="">Dedicated Team</span>
-                                <input type="checkbox" id="dedicated-team" name="looking_for[]" value="Dedicated Team">
-                            </label>
-                            <label class="error" style="font-size: 1.2rem" id="looking_for_error"></label>
-                        </div>
 
-                    </div>
-                    <div class="postion-relative " style="margin-block: 36px">
-                        <label class="contact-label mt-20 d-block">Service I need</label>
-                        <div class="services-wraper d-flex flex-wrap position-relative" style="gap: 12px;">
-                            <label for="uiux" class="text-checkbox">
-                                <span class="">UI UX Design</span>
-                                <input type="checkbox" id="uiux" name="services[]" value="UI UX Design">
-                            </label>
-                            <label for="web-development" class="text-checkbox">
-                                <span class="">Web Development</span>
-                                <input type="checkbox" id="web-development" name="services[]" value="Web Development">
-                            </label>
-                            <label for="mobile-development" class="text-checkbox">
-                                <span class="">Mobile Development</span>
-                                <input type="checkbox" id="mobile-development" name="services[]"
-                                    value="Mobile Development">
-                            </label>
-                            <label for="qa" class="text-checkbox">
-                                <span class="">Quality Assurance</span>
-                                <input type="checkbox" id="qa" name="services[]" value="Quality Assurance">
-                            </label>
-                            <label for="mvp-builder" class="text-checkbox">
-                                <span class="">MVP Builder</span>
-                                <input type="checkbox" id="mvp-builder" name="services[]" value="MVP Builder">
-                            </label>
-                            <label for="d-team" class="text-checkbox">
-                                <span class="">Dedicated Teams</span>
-                                <input type="checkbox" id="d-team" name="services[]" value="Dedicated Teams">
-                            </label>
-                            <label for="h-app" class="text-checkbox">
-                                <span class="">Hybrid Applications Development</span>
-                                <input type="checkbox" id="h-app" name="services[]"
-                                    value="Hybrid Applications Development">
-                            </label>
-                            <label for="data-analytics" class="text-checkbox">
-                                <span class="">Data Analytics</span>
-                                <input type="checkbox" id="data-analytics" name="services[]" value="Data Analytics">
-                            </label>
-                            <label for="sof-automation" class="text-checkbox">
-                                <span class="">Software Automation</span>
-                                <input type="checkbox" id="sof-automation" name="services[]"
-                                    value="Software Automation">
-                            </label>
-                            <label for="no-code" class="text-checkbox">
-                                <span class="">No-Code & Low-Code Development</span>
-                                <input type="checkbox" id="no-code" name="services[]"
-                                    value="No-Code & Low-Code Development">
-                            </label>
-                            <label for="ai-application" class="text-checkbox">
-                                <span class="">AI Embedded Applications</span>
-                                <input type="checkbox" id="ai-application" name="services[]"
-                                    value="AI Embedded Applications">
-                            </label>
-                        </div>
-                        <label class="error" style="font-size: 1.2rem" id="services_error"
-                            style="bottom: unset !important"></label>
+                <div class="header__navigation header--element">
+                  <div class="header__mainnav">
+                    <div id="hs_cos_wrapper_navigation-primary"
+                      class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=""
+                      data-hs-cos-general-type="widget" data-hs-cos-type="module">
 
-                    </div>
-                    <div class="form-detail pt-0 mt-20 d-block">
-                        <div class="contact-information-wraper">
-                            <div class="fields-wrap">
-                                <label for="c_name" class="contact-label">Full Name<span
-                                        class="steric">*</span></label>
-                                <input class="contact-field" type="text" id="c_name" placeholder="John Deo"
-                                    name="name" minlength="2" maxlength="50" required>
-                            </div>
-                            <div class="fields-wrap">
-                                <label for="c_email" class="contact-label">Email<span
-                                        class="steric">*</span></label>
-                                <input class="contact-field" type="email" id="c_email"
-                                    placeholder="example@xyz.com" name="email" required>
-                            </div>
 
-                            <div class="budget-selector-main">
-                                <div class="fields-wrap">
-                                    <label for="c_email" class="contact-label">Estimated Budget<span
-                                            class="steric">*</span></label>
-                                    <select name="estimated_budget" class="budget-selector w-100" id="c_email">
-                                        <option value="" selected>Please Select</option>
-                                        <option value="< 5,000 USD">&lt; 5,000 USD</option>
-                                        <option value="5,000 USD - 10,000 USD">5,000 USD - 10,000 USD</option>
-                                        <option value="10,000 USD - 20,000 USD">10,000 USD - 20,000 USD</option>
-                                        <option value="> 20,000 USD">&gt; 20,000 USD</option>
-                                    </select>
-                                    <input type="text" class="position-absolute bottom-0 opacity-0"
-                                        style="z-index: -4" name="selected_budget" id="selectBudget" required>
+
+                      <nav class="menu menu--desktop" aria-label="Main menu">
+                        <ul class="menu__wrapper no-list">
+
+
+                          <li id="products"
+                            class="menu__item menu__item--depth-1 menu__item--idex-1 menu__item--has-submenu hs-skip-lang-url-rewrite">
+                            <span data-click="false" class="menu__link">Products</span><button
+                              class="menu__child-toggle no-button" aria-expanded="false">
+                              <span class="show-for-sr">Show submenu for Products</span>
+                              <span class="menu__child-toggle-icon">
+                                <svg width="10" height="6" viewbox="0 0 10 6" fill="none"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1 1L5 4.99234L9 1" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                              </span>
+                            </button>
+                            <div class="mega-menu__dropdown mega-menu__dropdown--level-2 ">
+
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col-xl-4 pt-3 pb-4 pt-xl-0 pb-xl-0 mb-2 mb-lg-0">
+                                    <div class="mega-menu__text">
+                                      <h5>Products</h5>
+                                      <div class="mega-menu__links--desc">
+                                        Not sure which LS Retail product is right for you?
+                                      </div><a href="products.html" class="link">
+                                        View all products
+                                        <svg width="17" height="14" viewbox="0 0 17 14" fill="none"
+                                          xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M10.2901 1L15.8901 7L10.2901 13M15.8901 7H1.89014H15.8901Z"
+                                            stroke="#FCD873" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        </svg>
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div class="col-xl-8">
+                                    <div class="mega-menu__links">
+                                      <div class="mega-menu__links--item"><span class="mega-menu__links--title">LS
+                                          Central</span>
+                                        <div class="mega-menu__links--desc">Our most popular unified commerce solution:
+                                          all-in-one POS &amp; ERP software</div>
+                                        <div class="mega-menu__quickLinks">
+                                          <span id="hs_cos_wrapper_navigation-primary_"
+                                            class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu"
+                                            style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu">
+                                            <div id="hs_menu_wrapper_navigation-primary_"
+                                              class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal"
+                                              role="navigation" data-sitemap-name="" data-menu-id=""
+                                              aria-label="Navigation Menu">
+                                              <ul role="menu">
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/ls-central-for-retail.html" role="menuitem"
+                                                    target="_self">LS Central for retail</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/ls-central-for-restaurants.html" role="menuitem"
+                                                    target="_self">LS Central for restaurants</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/ls-central-for-hotels.html" role="menuitem"
+                                                    target="_self">LS Central for hotels</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/ls-central-for-pharmacies.html" role="menuitem"
+                                                    target="_self">LS Central for pharmacies</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/forecourt-c-store/index.html" role="menuitem"
+                                                    target="_self">LS Central for forecourt</a></li>
+                                              </ul>
+                                            </div>
+                                          </span>
+                                        </div>
+                                      </div>
+                                      <div class="mega-menu__links--item"><span class="mega-menu__links--title">LS
+                                          Express</span>
+                                        <div class="mega-menu__links--desc">Online small business retail POS for
+                                          Microsoft Dynamics 365 BC</div>
+                                        <div class="mega-menu__quickLinks">
+                                          <span id="hs_cos_wrapper_navigation-primary_"
+                                            class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu"
+                                            style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu">
+                                            <div id="hs_menu_wrapper_navigation-primary_"
+                                              class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal"
+                                              role="navigation" data-sitemap-name="" data-menu-id=""
+                                              aria-label="Navigation Menu">
+                                              <ul role="menu">
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/ls-express.html" role="menuitem" target="_self">LS
+                                                    Express for retail</a></li>
+                                              </ul>
+                                            </div>
+                                          </span>
+                                        </div>
+                                      </div>
+                                      <div class="mega-menu__links--item"><a href="products/software-enhancers.html"
+                                          class="mega-menu__links--title ">
+                                          Software enhancers
+                                        </a><strong class="mb-2"
+                                          style="font-size:16px;display: block;line-height: 1.5;"></strong>
+                                        <div class="mega-menu__links--desc">Add even more functionalities to your
+                                          retail, restaurant, hotel or pharmacy suite</div>
+                                        <div class="mega-menu__quickLinks">
+                                          <span id="hs_cos_wrapper_navigation-primary_"
+                                            class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu"
+                                            style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu">
+                                            <div id="hs_menu_wrapper_navigation-primary_"
+                                              class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal"
+                                              role="navigation" data-sitemap-name="" data-menu-id=""
+                                              aria-label="Navigation Menu">
+                                              <ul role="menu">
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/reports-analytics.html" role="menuitem"
+                                                    target="_self">Analytics for LS Central</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/bookings-software.html" role="menuitem"
+                                                    target="_self">Bookings for LS Central</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/ecommerce-for-retail.html" role="menuitem"
+                                                    target="_self">eCommerce for LS Central</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/ecommerce-for-restaurants.html" role="menuitem"
+                                                    target="_self">eCommerce for restaurants</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/ls-pay-payment-processing.html" role="menuitem"
+                                                    target="_self">LS Pay</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/staff-management.html" role="menuitem"
+                                                    target="_self">Staff Management</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/scanpaygo.html" role="menuitem"
+                                                    target="_self">ScanPayGo</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/self-checkout-for-retail.html" role="menuitem"
+                                                    target="_self">Self-checkout for retail </a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/restaurant-self-ordering.html" role="menuitem"
+                                                    target="_self">Restaurant self-ordering</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/kitchen-management-system.html" role="menuitem"
+                                                    target="_self">Kitchen Display System</a></li>
+                                              </ul>
+                                            </div>
+                                          </span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
+                              </div>
+
+
                             </div>
-                        </div>
+                          </li>
 
-                        <div class="fields-wrap mt-20">
-                            <label for="c_comments" class="contact-label">Message<span
-                                    class="steric">*</span></label>
-                            <textarea class="contact-field txtarea" name="message" placeholder="Tell us what you’re looking for" id="c_comments"
-                                rows="2"></textarea>
-                        </div>
+                          <li id="industries"
+                            class="menu__item menu__item--depth-1 menu__item--idex-2 menu__item--has-submenu hs-skip-lang-url-rewrite">
+                            <span data-click="false" class="menu__link">Industries</span><button
+                              class="menu__child-toggle no-button" aria-expanded="false">
+                              <span class="show-for-sr">Show submenu for Industries</span>
+                              <span class="menu__child-toggle-icon">
+                                <svg width="10" height="6" viewbox="0 0 10 6" fill="none"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1 1L5 4.99234L9 1" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                              </span>
+                            </button>
+                            <div class="mega-menu__dropdown mega-menu__dropdown--level-2 ">
 
-                        <div class="d-flex mt-20 gap-2 align-items-center">
-                            <input class="dna-checkbox" type="checkbox" id="DNA" value="1"
-                                name="dna">
-                            <label for="DNA" class="contact-label">This project requires an NDA</label>
-                        </div>
-                        
-                        <div class="fields-wrap mt-5 mb-2">
-                            <label for="document" class="contact-label">Upload Document (Optional)</label>
-                            <div class="upload-document">
-                                <div class="uploadDocument">
-                                    <span class="upload-label" id="file-name">Choose file to upload</span>
-                                    <span class="upload-label-browse">Browse File</span>
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col-xl-4 pt-3 pb-4 pt-xl-0 pb-xl-0 mb-2 mb-lg-0">
+                                    <div class="mega-menu__text">
+                                      <h5>Industries</h5>
+                                      <div class="mega-menu__links--desc">
+                                        Choose your industry to see how LS Retail can help.
+                                      </div><a href="industries.html" class="link">
+                                        View all industries
+                                        <svg width="17" height="14" viewbox="0 0 17 14" fill="none"
+                                          xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M10.2901 1L15.8901 7L10.2901 13M15.8901 7H1.89014H15.8901Z"
+                                            stroke="#FCD873" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        </svg>
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div class="col-xl-8">
+                                    <div class="mega-menu__links">
+                                      <div class="mega-menu__links--item"><a href="industries/retail.html"
+                                          class="mega-menu__links--title ">
+                                          Retail
+                                        </a>
+                                        <div class="mega-menu__quickLinks">
+                                          <span id="hs_cos_wrapper_navigation-primary_"
+                                            class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu"
+                                            style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu">
+                                            <div id="hs_menu_wrapper_navigation-primary_"
+                                              class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal"
+                                              role="navigation" data-sitemap-name="" data-menu-id=""
+                                              aria-label="Navigation Menu">
+                                              <ul role="menu">
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/bookstores-stationery-shop-software.html"
+                                                    role="menuitem" target="_self">Bookstores &amp; stationery
+                                                    stores</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/diy-stores-garden-centers-software.html"
+                                                    role="menuitem" target="_self">DIY stores &amp; garden centers</a>
+                                                </li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/travel-retail-and-duty-free-software.html"
+                                                    role="menuitem" target="_self">Duty free &amp; travel retail </a>
+                                                </li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/electronics-store-software.html" role="menuitem"
+                                                    target="_self">Electronics stores</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/apparel-management-software.html" role="menuitem"
+                                                    target="_self">Fashion &amp; footwear stores</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/furniture-store-software.html" role="menuitem"
+                                                    target="_self">Furniture stores</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/software-for-supermarkets-and-grocery-stores.html"
+                                                    role="menuitem" target="_self">Grocery stores &amp; supermarkets</a>
+                                                </li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/software-jewelries-and-luxury-items-stores.html"
+                                                    role="menuitem" target="_self">Jewelry &amp; luxury stores</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/pet-store-pos-erp-software.html" role="menuitem"
+                                                    target="_self">Pet stores</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/software-for-sporting-goods-stores.html"
+                                                    role="menuitem" target="_self">Sporting goods stores</a></li>
+                                              </ul>
+                                            </div>
+                                          </span>
+                                        </div>
+                                      </div>
+                                      <div class="mega-menu__links--item"><a href="industries/hospitality-software.html"
+                                          class="mega-menu__links--title ">
+                                          Hospitality
+                                        </a>
+                                        <div class="mega-menu__quickLinks">
+                                          <span id="hs_cos_wrapper_navigation-primary_"
+                                            class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu"
+                                            style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu">
+                                            <div id="hs_menu_wrapper_navigation-primary_"
+                                              class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal"
+                                              role="navigation" data-sitemap-name="" data-menu-id=""
+                                              aria-label="Navigation Menu">
+                                              <ul role="menu">
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/restaurants-food-service.html" role="menuitem"
+                                                    target="_self">Food service</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/software-hotels-resorts-casinos.html"
+                                                    role="menuitem" target="_self">Hotels, resorts &amp; entertainment
+                                                    facilities</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/quick-service-and-fast-casual-restaurants.html"
+                                                    role="menuitem" target="_self">Quick-service &amp; fast-casual
+                                                    restaurants</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/fine-dining-restaurants.html" role="menuitem"
+                                                    target="_self">Full-service restaurants</a></li>
+                                              </ul>
+                                            </div>
+                                          </span>
+                                        </div>
+                                      </div>
+                                      <div class="mega-menu__links--item"><span class="mega-menu__links--title">Health
+                                          and beauty</span>
+                                        <div class="mega-menu__quickLinks">
+                                          <span id="hs_cos_wrapper_navigation-primary_"
+                                            class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu"
+                                            style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu">
+                                            <div id="hs_menu_wrapper_navigation-primary_"
+                                              class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal"
+                                              role="navigation" data-sitemap-name="" data-menu-id=""
+                                              aria-label="Navigation Menu">
+                                              <ul role="menu">
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/ls-central-for-pharmacies.html" role="menuitem"
+                                                    target="_self">Pharmacies</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/spa-beauty-salon-wellness.html" role="menuitem"
+                                                    target="_self">Beauty salons, wellness and spa centers</a></li>
+                                              </ul>
+                                            </div>
+                                          </span>
+                                        </div>
+                                      </div>
+                                      <div class="mega-menu__links--item"><span
+                                          class="mega-menu__links--title">Forecourt / Gas Station</span>
+                                        <div class="mega-menu__quickLinks">
+                                          <span id="hs_cos_wrapper_navigation-primary_"
+                                            class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu"
+                                            style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu">
+                                            <div id="hs_menu_wrapper_navigation-primary_"
+                                              class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal"
+                                              role="navigation" data-sitemap-name="" data-menu-id=""
+                                              aria-label="Navigation Menu">
+                                              <ul role="menu">
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/forecourt-c-store.html" role="menuitem"
+                                                    target="_self">Forecourts, gas stations &amp; C-stores</a></li>
+                                              </ul>
+                                            </div>
+                                          </span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
-                                <label for="document_file" class="d-none"></label>
-                                <input class="form-control" type="file" id="document_file" name="document"
-                                    accept=".doc,.docx,.pdf">
+                              </div>
+
+
                             </div>
-                        </div>
+                          </li>
+
+                          <li id="success-stories"
+                            class="menu__item menu__item--depth-1 menu__item--idex-3 menu__item--has-submenu hs-skip-lang-url-rewrite">
+                            <a href="customers.html" class="menu__link no-dropdown">
+                              Success Stories
+                            </a>
+                            <ul class="menu__submenu menu__submenu--level-2 no-list"></ul>
+                          </li>
+
+                          <li id="partners"
+                            class="menu__item menu__item--depth-1 menu__item--idex-4 menu__item--has-submenu hs-skip-lang-url-rewrite">
+                            <span data-click="false" class="menu__link">Partners</span><button
+                              class="menu__child-toggle no-button" aria-expanded="false">
+                              <span class="show-for-sr">Show submenu for Partners</span>
+                              <span class="menu__child-toggle-icon">
+                                <svg width="10" height="6" viewbox="0 0 10 6" fill="none"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1 1L5 4.99234L9 1" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                              </span>
+                            </button>
+                            <ul class="menu__submenu menu__submenu--level-2 no-list">
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-1  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   " href="find-a-partner.html">Find a partner</a>
+                              </li>
+
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-2  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   " href="become-a-partner.html">Become a partner
+                                  / reseller</a></li>
+
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-3  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   "
+                                  href="partners/partner-success-stories.html">Partner success stories</a></li>
+
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-4  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   "
+                                  href="https://portal.lsretail.com/why-ls-retail-academy/">Academy training courses</a>
+                              </li>
+
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-5  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   "
+                                  href="products/services-consulting.html">Services &amp; consulting</a></li>
+
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-6  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   "
+                                  href="https://authentication.lsretail.com/Account/Login">Portal access and login</a>
+                              </li>
+
+                            </ul>
+                          </li>
+
+                          <li id="about-us"
+                            class="menu__item menu__item--depth-1 menu__item--idex-5 menu__item--has-submenu hs-skip-lang-url-rewrite">
+                            <span data-click="false" class="menu__link">About us</span><button
+                              class="menu__child-toggle no-button" aria-expanded="false">
+                              <span class="show-for-sr">Show submenu for About us</span>
+                              <span class="menu__child-toggle-icon">
+                                <svg width="10" height="6" viewbox="0 0 10 6" fill="none"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1 1L5 4.99234L9 1" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                              </span>
+                            </button>
+                            <ul class="menu__submenu menu__submenu--level-2 no-list">
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-1  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   " href="about-us.html">About us</a></li>
+
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-2  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   "
+                                  href="about-usd41d.html?#management">Management</a></li>
+
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-3  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   " href="https://careers.lsretail.com/">Jobs /
+                                  Career opportunities</a></li>
+
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-4  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   " href="events.html">Events</a></li>
+
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-5  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   " href="talk-ls-retail-experts.html">Talk to
+                                  our experts</a></li>
+
+                            </ul>
+                          </li>
+
+                          <li id="resources"
+                            class="menu__item menu__item--depth-1 menu__item--idex-6 menu__item--has-submenu hs-skip-lang-url-rewrite">
+                            <span data-click="false" class="menu__link">Resources</span><button
+                              class="menu__child-toggle no-button" aria-expanded="false">
+                              <span class="show-for-sr">Show submenu for Resources</span>
+                              <span class="menu__child-toggle-icon">
+                                <svg width="10" height="6" viewbox="0 0 10 6" fill="none"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1 1L5 4.99234L9 1" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                              </span>
+                            </button>
+                            <div class="mega-menu__dropdown mega-menu__dropdown--level-2 ">
+
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col-xl-4 pt-3 pb-4 pt-xl-0 pb-xl-0 mb-2 mb-lg-0">
+                                    <div class="mega-menu__text">
+                                      <h5>Resources</h5>
+                                      <div class="mega-menu__links--desc">
+                                        See the latest industry trends, insights &amp; product updates
+                                      </div><a href="resources.html" class="link">
+                                        View all Resources
+                                        <svg width="17" height="14" viewbox="0 0 17 14" fill="none"
+                                          xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M10.2901 1L15.8901 7L10.2901 13M15.8901 7H1.89014H15.8901Z"
+                                            stroke="#FCD873" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        </svg>
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div class="col-xl-8">
+                                    <div class="mega-menu__links">
+                                      <div class="mega-menu__links--item"><span class="mega-menu__links--title">By
+                                          category</span>
+                                        <div class="mega-menu__quickLinks">
+                                          <span id="hs_cos_wrapper_navigation-primary_"
+                                            class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu"
+                                            style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu">
+                                            <div id="hs_menu_wrapper_navigation-primary_"
+                                              class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal"
+                                              role="navigation" data-sitemap-name="" data-menu-id=""
+                                              aria-label="Navigation Menu">
+                                              <ul role="menu">
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="resourcesb45c.html?content=blog" role="menuitem"
+                                                    target="_self">Blog articles</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="resourcesc41f.html?content=whitepaper" role="menuitem"
+                                                    target="_self">Ebooks &amp; whitepapers</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="events.html" role="menuitem" target="_self">Events</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="resourcesd551.html?content=news" role="menuitem"
+                                                    target="_self">News</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/services-consulting.html" role="menuitem"
+                                                    target="_self">Service &amp; consulting</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="https://portal.lsretail.com/why-ls-retail-academy/"
+                                                    role="menuitem" target="_self">LS Retail Academy</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="https://help.lsretail.com/" role="menuitem"
+                                                    target="_self">Help &amp; support</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="search.html" role="menuitem" target="_self">Search the
+                                                    website</a></li>
+                                              </ul>
+                                            </div>
+                                          </span>
+                                        </div>
+                                      </div>
+                                      <div class="mega-menu__links--item"><span
+                                          class="mega-menu__links--title">Latest</span>
+                                        <div class="mega-menu__img">
+                                          <img class="d-block py-3" height="114" width="165" loading="eager"
+                                            src="hs-fs/hubfs/Blog-Retail-trends-for-Latin-Americacaec.jpg?width=165&amp;height=114&amp;name=Blog-Retail-trends-for-Latin-America.jpg"
+                                            alt="4 technology trends defining retailers in Latin America"
+                                            srcset="https://www.lsretail.com/hs-fs/hubfs/Blog-Retail-trends-for-Latin-America.jpg?width=83&amp;height=57&amp;name=Blog-Retail-trends-for-Latin-America.jpg 83w, https://www.lsretail.com/hs-fs/hubfs/Blog-Retail-trends-for-Latin-America.jpg?width=165&amp;height=114&amp;name=Blog-Retail-trends-for-Latin-America.jpg 165w, https://www.lsretail.com/hs-fs/hubfs/Blog-Retail-trends-for-Latin-America.jpg?width=248&amp;height=171&amp;name=Blog-Retail-trends-for-Latin-America.jpg 248w, https://www.lsretail.com/hs-fs/hubfs/Blog-Retail-trends-for-Latin-America.jpg?width=330&amp;height=228&amp;name=Blog-Retail-trends-for-Latin-America.jpg 330w, https://www.lsretail.com/hs-fs/hubfs/Blog-Retail-trends-for-Latin-America.jpg?width=413&amp;height=285&amp;name=Blog-Retail-trends-for-Latin-America.jpg 413w, https://www.lsretail.com/hs-fs/hubfs/Blog-Retail-trends-for-Latin-America.jpg?width=495&amp;height=342&amp;name=Blog-Retail-trends-for-Latin-America.jpg 495w"
+                                            sizes="(max-width: 165px) 100vw, 165px">
+                                        </div><strong class="mb-2"
+                                          style="font-size:16px;display: block;line-height: 1.5;">4 technology trends
+                                          defining retailers in Latin America</strong><a
+                                          href="resources/technology-trends-defining-retailers-in-latin-america.html"
+                                          class="link">
+                                          Read Now
+                                          <svg width="17" height="14" viewbox="0 0 17 14" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10.2901 1L15.8901 7L10.2901 13M15.8901 7H1.89014H15.8901Z"
+                                              stroke="#FCD873" stroke-width="2" stroke-linecap="round"
+                                              stroke-linejoin="round" />
+                                          </svg>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+
+                            </div>
+                          </li>
+
+
+                        </ul>
+                      </nav>
+
+                      <nav class="menu menu--mobile" aria-label="Main menu">
+                        <ul class="menu__wrapper no-list">
+
+
+                          <li id="products"
+                            class="menu__item menu__item--depth-1 menu__item--idex-1 menu__item--has-submenu hs-skip-lang-url-rewrite">
+                            <span data-click="false" class="menu__link">Products</span><button
+                              class="menu__child-toggle no-button" aria-expanded="false">
+                              <span class="show-for-sr">Show submenu for Products</span>
+                              <span class="menu__child-toggle-icon">
+                                <svg width="10" height="6" viewbox="0 0 10 6" fill="none"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1 1L5 4.99234L9 1" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                              </span>
+                            </button>
+                            <div class="mega-menu__dropdown mega-menu__dropdown--level-2 ">
+
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col-xl-4 pt-3 pb-4 pt-xl-0 pb-xl-0 mb-2 mb-lg-0">
+                                    <div class="mega-menu__text">
+                                      <h5>Products</h5>
+                                      <div class="mega-menu__links--desc">
+                                        Not sure which LS Retail product is right for you?
+                                      </div><a href="products.html" class="link">
+                                        View all products
+                                        <svg width="17" height="14" viewbox="0 0 17 14" fill="none"
+                                          xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M10.2901 1L15.8901 7L10.2901 13M15.8901 7H1.89014H15.8901Z"
+                                            stroke="#FCD873" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        </svg>
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div class="col-xl-8">
+                                    <div class="mega-menu__links">
+                                      <div class="mega-menu__links--item"><span class="mega-menu__links--title">LS
+                                          Central</span>
+                                        <div class="mega-menu__links--desc">Our most popular unified commerce solution:
+                                          all-in-one POS &amp; ERP software</div>
+                                        <div class="mega-menu__quickLinks">
+                                          <span id="hs_cos_wrapper_navigation-primary_"
+                                            class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu"
+                                            style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu">
+                                            <div id="hs_menu_wrapper_navigation-primary_"
+                                              class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal"
+                                              role="navigation" data-sitemap-name="" data-menu-id=""
+                                              aria-label="Navigation Menu">
+                                              <ul role="menu">
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/ls-central-for-retail.html" role="menuitem"
+                                                    target="_self">LS Central for retail</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/ls-central-for-restaurants.html" role="menuitem"
+                                                    target="_self">LS Central for restaurants</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/ls-central-for-hotels.html" role="menuitem"
+                                                    target="_self">LS Central for hotels</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/ls-central-for-pharmacies.html" role="menuitem"
+                                                    target="_self">LS Central for pharmacies</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/forecourt-c-store/index.html" role="menuitem"
+                                                    target="_self">LS Central for forecourt</a></li>
+                                              </ul>
+                                            </div>
+                                          </span>
+                                        </div>
+                                      </div>
+                                      <div class="mega-menu__links--item"><span class="mega-menu__links--title">LS
+                                          Express</span>
+                                        <div class="mega-menu__links--desc">Online small business retail POS for
+                                          Microsoft Dynamics 365 BC</div>
+                                        <div class="mega-menu__quickLinks">
+                                          <span id="hs_cos_wrapper_navigation-primary_"
+                                            class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu"
+                                            style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu">
+                                            <div id="hs_menu_wrapper_navigation-primary_"
+                                              class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal"
+                                              role="navigation" data-sitemap-name="" data-menu-id=""
+                                              aria-label="Navigation Menu">
+                                              <ul role="menu">
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/ls-express.html" role="menuitem" target="_self">LS
+                                                    Express for retail</a></li>
+                                              </ul>
+                                            </div>
+                                          </span>
+                                        </div>
+                                      </div>
+                                      <div class="mega-menu__links--item"><a href="products/software-enhancers.html"
+                                          class="mega-menu__links--title ">
+                                          Software enhancers
+                                        </a><strong class="mb-2"
+                                          style="font-size:16px;display: block;line-height: 1.5;"></strong>
+                                        <div class="mega-menu__links--desc">Add even more functionalities to your
+                                          retail, restaurant, hotel or pharmacy suite</div>
+                                        <div class="mega-menu__quickLinks">
+                                          <span id="hs_cos_wrapper_navigation-primary_"
+                                            class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu"
+                                            style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu">
+                                            <div id="hs_menu_wrapper_navigation-primary_"
+                                              class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal"
+                                              role="navigation" data-sitemap-name="" data-menu-id=""
+                                              aria-label="Navigation Menu">
+                                              <ul role="menu">
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/reports-analytics.html" role="menuitem"
+                                                    target="_self">Analytics for LS Central</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/bookings-software.html" role="menuitem"
+                                                    target="_self">Bookings for LS Central</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/ecommerce-for-retail.html" role="menuitem"
+                                                    target="_self">eCommerce for LS Central</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/ecommerce-for-restaurants.html" role="menuitem"
+                                                    target="_self">eCommerce for restaurants</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/ls-pay-payment-processing.html" role="menuitem"
+                                                    target="_self">LS Pay</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/staff-management.html" role="menuitem"
+                                                    target="_self">Staff Management</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/scanpaygo.html" role="menuitem"
+                                                    target="_self">ScanPayGo</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/self-checkout-for-retail.html" role="menuitem"
+                                                    target="_self">Self-checkout for retail </a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/restaurant-self-ordering.html" role="menuitem"
+                                                    target="_self">Restaurant self-ordering</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/kitchen-management-system.html" role="menuitem"
+                                                    target="_self">Kitchen Display System</a></li>
+                                              </ul>
+                                            </div>
+                                          </span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+
+                            </div>
+                          </li>
+
+                          <li id="industries"
+                            class="menu__item menu__item--depth-1 menu__item--idex-2 menu__item--has-submenu hs-skip-lang-url-rewrite">
+                            <span data-click="false" class="menu__link">Industries</span><button
+                              class="menu__child-toggle no-button" aria-expanded="false">
+                              <span class="show-for-sr">Show submenu for Industries</span>
+                              <span class="menu__child-toggle-icon">
+                                <svg width="10" height="6" viewbox="0 0 10 6" fill="none"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1 1L5 4.99234L9 1" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                              </span>
+                            </button>
+                            <div class="mega-menu__dropdown mega-menu__dropdown--level-2 ">
+
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col-xl-4 pt-3 pb-4 pt-xl-0 pb-xl-0 mb-2 mb-lg-0">
+                                    <div class="mega-menu__text">
+                                      <h5>Industries</h5>
+                                      <div class="mega-menu__links--desc">
+                                        Choose your industry to see how LS Retail can help.
+                                      </div><a href="industries.html" class="link">
+                                        View all industries
+                                        <svg width="17" height="14" viewbox="0 0 17 14" fill="none"
+                                          xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M10.2901 1L15.8901 7L10.2901 13M15.8901 7H1.89014H15.8901Z"
+                                            stroke="#FCD873" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        </svg>
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div class="col-xl-8">
+                                    <div class="mega-menu__links">
+                                      <div class="mega-menu__links--item"><a href="industries/retail.html"
+                                          class="mega-menu__links--title ">
+                                          Retail
+                                        </a>
+                                        <div class="mega-menu__quickLinks">
+                                          <span id="hs_cos_wrapper_navigation-primary_"
+                                            class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu"
+                                            style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu">
+                                            <div id="hs_menu_wrapper_navigation-primary_"
+                                              class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal"
+                                              role="navigation" data-sitemap-name="" data-menu-id=""
+                                              aria-label="Navigation Menu">
+                                              <ul role="menu">
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/bookstores-stationery-shop-software.html"
+                                                    role="menuitem" target="_self">Bookstores &amp; stationery
+                                                    stores</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/diy-stores-garden-centers-software.html"
+                                                    role="menuitem" target="_self">DIY stores &amp; garden centers</a>
+                                                </li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/travel-retail-and-duty-free-software.html"
+                                                    role="menuitem" target="_self">Duty free &amp; travel retail </a>
+                                                </li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/electronics-store-software.html" role="menuitem"
+                                                    target="_self">Electronics stores</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/apparel-management-software.html" role="menuitem"
+                                                    target="_self">Fashion &amp; footwear stores</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/furniture-store-software.html" role="menuitem"
+                                                    target="_self">Furniture stores</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/software-for-supermarkets-and-grocery-stores.html"
+                                                    role="menuitem" target="_self">Grocery stores &amp; supermarkets</a>
+                                                </li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/software-jewelries-and-luxury-items-stores.html"
+                                                    role="menuitem" target="_self">Jewelry &amp; luxury stores</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/pet-store-pos-erp-software.html" role="menuitem"
+                                                    target="_self">Pet stores</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/software-for-sporting-goods-stores.html"
+                                                    role="menuitem" target="_self">Sporting goods stores</a></li>
+                                              </ul>
+                                            </div>
+                                          </span>
+                                        </div>
+                                      </div>
+                                      <div class="mega-menu__links--item"><a href="industries/hospitality-software.html"
+                                          class="mega-menu__links--title ">
+                                          Hospitality
+                                        </a>
+                                        <div class="mega-menu__quickLinks">
+                                          <span id="hs_cos_wrapper_navigation-primary_"
+                                            class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu"
+                                            style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu">
+                                            <div id="hs_menu_wrapper_navigation-primary_"
+                                              class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal"
+                                              role="navigation" data-sitemap-name="" data-menu-id=""
+                                              aria-label="Navigation Menu">
+                                              <ul role="menu">
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/restaurants-food-service.html" role="menuitem"
+                                                    target="_self">Food service</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/software-hotels-resorts-casinos.html"
+                                                    role="menuitem" target="_self">Hotels, resorts &amp; entertainment
+                                                    facilities</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/quick-service-and-fast-casual-restaurants.html"
+                                                    role="menuitem" target="_self">Quick-service &amp; fast-casual
+                                                    restaurants</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/fine-dining-restaurants.html" role="menuitem"
+                                                    target="_self">Full-service restaurants</a></li>
+                                              </ul>
+                                            </div>
+                                          </span>
+                                        </div>
+                                      </div>
+                                      <div class="mega-menu__links--item"><span class="mega-menu__links--title">Health
+                                          and beauty</span>
+                                        <div class="mega-menu__quickLinks">
+                                          <span id="hs_cos_wrapper_navigation-primary_"
+                                            class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu"
+                                            style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu">
+                                            <div id="hs_menu_wrapper_navigation-primary_"
+                                              class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal"
+                                              role="navigation" data-sitemap-name="" data-menu-id=""
+                                              aria-label="Navigation Menu">
+                                              <ul role="menu">
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/ls-central-for-pharmacies.html" role="menuitem"
+                                                    target="_self">Pharmacies</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/spa-beauty-salon-wellness.html" role="menuitem"
+                                                    target="_self">Beauty salons, wellness and spa centers</a></li>
+                                              </ul>
+                                            </div>
+                                          </span>
+                                        </div>
+                                      </div>
+                                      <div class="mega-menu__links--item"><span
+                                          class="mega-menu__links--title">Forecourt / Gas Station</span>
+                                        <div class="mega-menu__quickLinks">
+                                          <span id="hs_cos_wrapper_navigation-primary_"
+                                            class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu"
+                                            style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu">
+                                            <div id="hs_menu_wrapper_navigation-primary_"
+                                              class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal"
+                                              role="navigation" data-sitemap-name="" data-menu-id=""
+                                              aria-label="Navigation Menu">
+                                              <ul role="menu">
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="industries/forecourt-c-store.html" role="menuitem"
+                                                    target="_self">Forecourts, gas stations &amp; C-stores</a></li>
+                                              </ul>
+                                            </div>
+                                          </span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+
+                            </div>
+                          </li>
+
+                          <li id="success-stories"
+                            class="menu__item menu__item--depth-1 menu__item--idex-3 menu__item--has-submenu hs-skip-lang-url-rewrite">
+                            <a href="customers.html" class="menu__link no-dropdown">
+                              Success Stories
+                            </a>
+                            <ul class="menu__submenu menu__submenu--level-2 no-list"></ul>
+                          </li>
+
+                          <li id="partners"
+                            class="menu__item menu__item--depth-1 menu__item--idex-4 menu__item--has-submenu hs-skip-lang-url-rewrite">
+                            <span data-click="false" class="menu__link">Partners</span><button
+                              class="menu__child-toggle no-button" aria-expanded="false">
+                              <span class="show-for-sr">Show submenu for Partners</span>
+                              <span class="menu__child-toggle-icon">
+                                <svg width="10" height="6" viewbox="0 0 10 6" fill="none"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1 1L5 4.99234L9 1" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                              </span>
+                            </button>
+                            <ul class="menu__submenu menu__submenu--level-2 no-list">
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-1  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   " href="find-a-partner.html">Find a partner</a>
+                              </li>
+
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-2  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   " href="become-a-partner.html">Become a partner
+                                  / reseller</a></li>
+
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-3  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   "
+                                  href="partners/partner-success-stories.html">Partner success stories</a></li>
+
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-4  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   "
+                                  href="https://portal.lsretail.com/why-ls-retail-academy/">Academy training courses</a>
+                              </li>
+
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-5  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   "
+                                  href="products/services-consulting.html">Services &amp; consulting</a></li>
+
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-6  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   "
+                                  href="https://authentication.lsretail.com/Account/Login">Portal access and login</a>
+                              </li>
+
+                            </ul>
+                          </li>
+
+                          <li id="about-us"
+                            class="menu__item menu__item--depth-1 menu__item--idex-5 menu__item--has-submenu hs-skip-lang-url-rewrite">
+                            <span data-click="false" class="menu__link">About us</span><button
+                              class="menu__child-toggle no-button" aria-expanded="false">
+                              <span class="show-for-sr">Show submenu for About us</span>
+                              <span class="menu__child-toggle-icon">
+                                <svg width="10" height="6" viewbox="0 0 10 6" fill="none"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1 1L5 4.99234L9 1" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                              </span>
+                            </button>
+                            <ul class="menu__submenu menu__submenu--level-2 no-list">
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-1  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   " href="about-us.html">About us</a></li>
+
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-2  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   "
+                                  href="about-usd41d.html?#management">Management</a></li>
+
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-3  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   " href="https://careers.lsretail.com/">Jobs /
+                                  Career opportunities</a></li>
+
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-4  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   " href="events.html">Events</a></li>
+
+                              <li id=""
+                                class="menu__item menu__item--depth-2 menu__item--idex-5  hs-skip-lang-url-rewrite"><a
+                                  data-click="false" class="menu__link   " href="talk-ls-retail-experts.html">Talk to
+                                  our experts</a></li>
+
+                            </ul>
+                          </li>
+
+                          <li id="resources"
+                            class="menu__item menu__item--depth-1 menu__item--idex-6 menu__item--has-submenu hs-skip-lang-url-rewrite">
+                            <span data-click="false" class="menu__link">Resources</span><button
+                              class="menu__child-toggle no-button" aria-expanded="false">
+                              <span class="show-for-sr">Show submenu for Resources</span>
+                              <span class="menu__child-toggle-icon">
+                                <svg width="10" height="6" viewbox="0 0 10 6" fill="none"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1 1L5 4.99234L9 1" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                              </span>
+                            </button>
+                            <div class="mega-menu__dropdown mega-menu__dropdown--level-2 ">
+
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col-xl-4 pt-3 pb-4 pt-xl-0 pb-xl-0 mb-2 mb-lg-0">
+                                    <div class="mega-menu__text">
+                                      <h5>Resources</h5>
+                                      <div class="mega-menu__links--desc">
+                                        See the latest industry trends, insights &amp; product updates
+                                      </div><a href="resources.html" class="link">
+                                        View all Resources
+                                        <svg width="17" height="14" viewbox="0 0 17 14" fill="none"
+                                          xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M10.2901 1L15.8901 7L10.2901 13M15.8901 7H1.89014H15.8901Z"
+                                            stroke="#FCD873" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        </svg>
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div class="col-xl-8">
+                                    <div class="mega-menu__links">
+                                      <div class="mega-menu__links--item"><span class="mega-menu__links--title">By
+                                          category</span>
+                                        <div class="mega-menu__quickLinks">
+                                          <span id="hs_cos_wrapper_navigation-primary_"
+                                            class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu"
+                                            style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu">
+                                            <div id="hs_menu_wrapper_navigation-primary_"
+                                              class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal"
+                                              role="navigation" data-sitemap-name="" data-menu-id=""
+                                              aria-label="Navigation Menu">
+                                              <ul role="menu">
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="resourcesb45c.html?content=blog" role="menuitem"
+                                                    target="_self">Blog articles</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="resourcesc41f.html?content=whitepaper" role="menuitem"
+                                                    target="_self">Ebooks &amp; whitepapers</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="events.html" role="menuitem" target="_self">Events</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="resourcesd551.html?content=news" role="menuitem"
+                                                    target="_self">News</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="products/services-consulting.html" role="menuitem"
+                                                    target="_self">Service &amp; consulting</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="https://portal.lsretail.com/why-ls-retail-academy/"
+                                                    role="menuitem" target="_self">LS Retail Academy</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="https://help.lsretail.com/" role="menuitem"
+                                                    target="_self">Help &amp; support</a></li>
+                                                <li class="hs-menu-item hs-menu-depth-1" role="none"><a
+                                                    href="search.html" role="menuitem" target="_self">Search the
+                                                    website</a></li>
+                                              </ul>
+                                            </div>
+                                          </span>
+                                        </div>
+                                      </div>
+                                      <div class="mega-menu__links--item"><span
+                                          class="mega-menu__links--title">Latest</span>
+                                        <div class="mega-menu__img">
+                                          <img class="d-block py-3" height="114" width="165" loading="eager"
+                                            src="hs-fs/hubfs/Blog-Retail-trends-for-Latin-Americacaec.jpg?width=165&amp;height=114&amp;name=Blog-Retail-trends-for-Latin-America.jpg"
+                                            alt="4 technology trends defining retailers in Latin America"
+                                            srcset="https://www.lsretail.com/hs-fs/hubfs/Blog-Retail-trends-for-Latin-America.jpg?width=83&amp;height=57&amp;name=Blog-Retail-trends-for-Latin-America.jpg 83w, https://www.lsretail.com/hs-fs/hubfs/Blog-Retail-trends-for-Latin-America.jpg?width=165&amp;height=114&amp;name=Blog-Retail-trends-for-Latin-America.jpg 165w, https://www.lsretail.com/hs-fs/hubfs/Blog-Retail-trends-for-Latin-America.jpg?width=248&amp;height=171&amp;name=Blog-Retail-trends-for-Latin-America.jpg 248w, https://www.lsretail.com/hs-fs/hubfs/Blog-Retail-trends-for-Latin-America.jpg?width=330&amp;height=228&amp;name=Blog-Retail-trends-for-Latin-America.jpg 330w, https://www.lsretail.com/hs-fs/hubfs/Blog-Retail-trends-for-Latin-America.jpg?width=413&amp;height=285&amp;name=Blog-Retail-trends-for-Latin-America.jpg 413w, https://www.lsretail.com/hs-fs/hubfs/Blog-Retail-trends-for-Latin-America.jpg?width=495&amp;height=342&amp;name=Blog-Retail-trends-for-Latin-America.jpg 495w"
+                                            sizes="(max-width: 165px) 100vw, 165px">
+                                        </div><strong class="mb-2"
+                                          style="font-size:16px;display: block;line-height: 1.5;">4 technology trends
+                                          defining retailers in Latin America</strong><a
+                                          href="resources/technology-trends-defining-retailers-in-latin-america.html"
+                                          class="link">
+                                          Read Now
+                                          <svg width="17" height="14" viewbox="0 0 17 14" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10.2901 1L15.8901 7L10.2901 13M15.8901 7H1.89014H15.8901Z"
+                                              stroke="#FCD873" stroke-width="2" stroke-linecap="round"
+                                              stroke-linejoin="round" />
+                                          </svg>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+
+                            </div>
+                          </li>
+
+
+                        </ul>
+                      </nav>
                     </div>
+                  </div>
+                  <div class="header__cta">
+                    <div class="container-fluid header__cta-wrapper">
+                      <div class="row-fluid-wrapper">
+                        <div class="row-fluid">
+                          <div class="span12 widget-span widget-type-cell " style="" data-widget-type="cell" data-x="0"
+                            data-w="12">
 
-                    <button type="submit" class="component-btn submit-button hover-effect loader-btn mt-20">Send us a
-                        message!</button>
-                </form>
-            </div>
-        </div>
-    </section>
+                            <div class="row-fluid-wrapper row-depth-1 row-number-1 dnd-section">
+                              <div class="row-fluid ">
+                                <div class="span12 widget-span widget-type-custom_widget dnd-module" style=""
+                                  data-widget-type="custom_widget" data-x="0" data-w="12">
+                                  <div id="hs_cos_wrapper_header-cta-dnd-module-1"
+                                    class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=""
+                                    data-hs-cos-general-type="widget" data-hs-cos-type="module">
 
-    <section class="job-section">
-        <div class="container">
-            <h2 class="we-doHeading mb-0 pb-0" style="text-align: center !important">Looking for a <span>job</span>
-            </h2>
-            <a href="https://career.zaptatech.com/" class="component-btn job-button">Apply here</a>
-        </div>
-    </section>
 
-<!-- Footer Section -->
 
-<footer class="zapta-footer">
-    <div class="container">
-        <div class="footer-cards">
 
-            <div class="footer-card">
-                <a href="index.html" aria-label="NavigationToHome"><img
-                        src="frontend-assets/images/icons/footer-logo.svg" loading="lazy"
-                        width="150" height="46" alt="fotter logo"></a>
-                <p class="footer-content">ZAPTA Technologies is a leading software design and development company
-                    working in HealthCare, FinTech, Education, ERP, eCommerce, Compliance Management, Telecommunication,
-                    MarketPlace, Logistics and Supply Chain Management domains. We are specialised in AI embedded
-                    software solutions and Enterprise Business Solutions.</p>
-            </div>
 
-            <div class="footer-card">
-                <h2 class="footer-headings">Services</h2>
-                <span data-href-value="services/ui-ux-design.html"
-                    class="footer-link span-link">UI UX Design</span>
-                <span data-href-value="services/web-development.html"
-                    class="footer-link span-link">Web Development</span>
-                <span data-href-value="services/mobile-development.html"
-                    class="footer-link span-link">Mobile Development</span>
-                <span data-href-value="services/quality-assurance.html"
-                    class="footer-link span-link">Quality Assurance</span>
-                <span data-href-value="services/mvp-builder.html"
-                    class="footer-link span-link">MVP Builder</span>
-                <span data-href-value="services/dedicated-teams.html"
-                    class="footer-link span-link">Dedicated Teams</span>
-            </div>
 
-            <div class="footer-card">
-                <h2 class="footer-headings">Quick Links</h2>
-                <span data-href-value="https://zaptatech.com/about-us" class="footer-link span-link">About Us</span>
-                <span data-href-value="services.html"
-                    class="footer-link span-link">Services</span>
-                <span data-href-value="projects.html"
-                    class="footer-link span-link">Projects</span>
-                <span data-href-value="https://zaptatech.com/blogs" class="footer-link span-link">Blogs</span>
-                <span data-href-value="https://career.zaptatech.com/job-openings"
-                    class="footer-link span-link">Careers</span>
-                <span data-href-value="https://zaptatech.com/contact-us" class="footer-link span-link">Contact
-                    Us</span>
-                
-            </div>
 
-            <div class="footer-card">
-                <h2 class="footer-headings">Contact Us</h2>
 
-                <div class="link-icons">
-                    <img width="16" height="16" src="frontend-assets/images/icons/phone.svg"
-                        alt="phone icon">
-                    <a href="tel:042-37888403" class="footer-link"> 042-37888403</a>
-                </div>
 
-                <div class="link-icons">
-                    <img width="16" height="16" src="frontend-assets/images/icons/envelop.svg"
-                        alt="envelop icon">
-                    <a href="mailto:contact@zaptatech.com" class="footer-link">contact@zaptatech.com</a>
-                </div>
+                                    <div class="btn-wrapper">
+                                      <a class="btn btn-h-outline" href="contact-us.html">
+                                        Contact us
+                                      </a>
+                                    </div>
+                                  </div>
 
-                <div class="link-icons">
-                    <img width="16" height="16"
-                        src="frontend-assets/images/icons/location.svg" alt="location icon">
-                    <a href="https://goo.gl/maps/v5kwTnd24vVbEnGQ6" target="_blank" class="footer-link">144/2, Block
-                        B, Bankers Society Near DHA Phase 4, Lahore, 54792</a>
-                </div>
+                                </div><!--end widget-span -->
+                              </div><!--end row-->
+                            </div><!--end row-wrapper -->
 
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/zaptatech" target="_blank" class="social-link"
-                        aria-label="navigateToFacebook">
-                        <svg width="11" height="21" viewBox="0 0 11 21" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M8.82765 3.78265H10.6442V0.6149C10.3308 0.571734 9.25298 0.474609 7.99771 0.474609C5.37856 0.474609 3.58437 2.12406 3.58437 5.15567V7.94571H0.694092V11.487H3.58437V20.3975H7.12798V11.4878H9.90135L10.3416 7.94654H7.12715V5.50681C7.12798 4.48327 7.40324 3.78265 8.82765 3.78265Z"
-                                fill="#005BAA" />
-                        </svg>
-                    </a>
-                    <a href="https://www.linkedin.com/company/zaptatech/mycompany/" target="_blank"
-                        class="social-link" aria-label="navigateToLinkedIn">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="19px" width="19px" viewBox="0 0 448 512">
-                            <path
-                                d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
-                                fill="#005BAA" />
-                        </svg>
-                    </a>
-                    <a href="https://twitter.com/zaptatech" target="_blank" class="social-link"
-                        aria-label="navigateToTwitter">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 20 19"
-                            fill="none">
-                            <path
-                                d="M0.78734 0.973206L7.9275 10.5224L0.742188 18.2829H2.35933L8.65032 11.4873L13.7347 18.2833H19.2365L11.6941 8.19874L18.3824 0.973206H16.7652L10.9717 7.23081L6.29025 0.973206H0.78734ZM3.16562 2.16462H5.69378L16.8571 17.0915H14.3297L3.16562 2.16462Z"
-                                fill="#005BAA" />
-                        </svg>
-
-                    </a>
-                    <a href="https://www.instagram.com/zaptatech/" target="_blank" class="social-link"
-                        aria-label="navigateToInstagram">
-                        <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M8.67097 6.38428C7.86107 6.38428 7.08435 6.70601 6.51166 7.27869C5.93898 7.85137 5.61725 8.6281 5.61725 9.43799C5.61725 10.2479 5.93898 11.0246 6.51166 11.5973C7.08435 12.17 7.86107 12.4917 8.67097 12.4917C9.48086 12.4917 10.2576 12.17 10.8303 11.5973C11.403 11.0246 11.7247 10.2479 11.7247 9.43799C11.7247 8.6281 11.403 7.85137 10.8303 7.27869C10.2576 6.70601 9.48086 6.38428 8.67097 6.38428Z"
-                                fill="#005BAA" />
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M3.75684 1.05863C7.02293 0.696602 10.319 0.696602 13.5851 1.05863C15.3694 1.25783 16.808 2.66254 17.0175 4.45343C17.4048 7.76521 17.4048 11.1109 17.0175 14.4226C16.808 16.2135 15.3694 17.6182 13.5861 17.8184C10.3197 18.1805 7.02324 18.1805 3.75684 17.8184C1.97253 17.6182 0.533997 16.2135 0.324465 14.4236C-0.0629077 11.1115 -0.0629077 7.76552 0.324465 4.45343C0.533997 2.66254 1.97253 1.25783 3.75684 1.05863ZM13.369 3.8004C13.1198 3.8004 12.8808 3.89939 12.7046 4.0756C12.5284 4.25181 12.4294 4.49081 12.4294 4.74001C12.4294 4.9892 12.5284 5.2282 12.7046 5.40441C12.8808 5.58062 13.1198 5.67961 13.369 5.67961C13.6182 5.67961 13.8572 5.58062 14.0334 5.40441C14.2096 5.2282 14.3086 4.9892 14.3086 4.74001C14.3086 4.49081 14.2096 4.25181 14.0334 4.0756C13.8572 3.89939 13.6182 3.8004 13.369 3.8004ZM4.20785 9.43803C4.20785 8.25434 4.67808 7.11912 5.51507 6.28213C6.35207 5.44513 7.48729 4.97491 8.67098 4.97491C9.85468 4.97491 10.9899 5.44513 11.8269 6.28213C12.6639 7.11912 13.1341 8.25434 13.1341 9.43803C13.1341 10.6217 12.6639 11.7569 11.8269 12.5939C10.9899 13.4309 9.85468 13.9012 8.67098 13.9012C7.48729 13.9012 6.35207 13.4309 5.51507 12.5939C4.67808 11.7569 4.20785 10.6217 4.20785 9.43803Z"
-                                fill="#005BAA" />
-                        </svg>
-                    </a>
-                    <a href="https://www.youtube.com/@ZAPTATechnologies" target="_blank" class="social-link"
-                        aria-label="navigateToYouTube">
-                        <svg width="20" height="14" viewBox="0 0 20 14" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M19.12 2.93766C19.0136 2.5426 18.8054 2.1824 18.5161 1.89311C18.2268 1.60382 17.8666 1.39559 17.4716 1.28926C16.0167 0.895508 10.1706 0.895508 10.1706 0.895508C10.1706 0.895508 4.32442 0.895508 2.86955 1.28926C2.4745 1.39559 2.1143 1.60382 1.82501 1.89311C1.53572 2.1824 1.32749 2.5426 1.22115 2.93766C0.949498 4.42139 0.817672 5.92735 0.827406 7.43572C0.817672 8.94409 0.949498 10.45 1.22115 11.9338C1.32749 12.3288 1.53572 12.689 1.82501 12.9783C2.1143 13.2676 2.4745 13.4758 2.86955 13.5822C4.32442 13.9759 10.1706 13.9759 10.1706 13.9759C10.1706 13.9759 16.0167 13.9759 17.4716 13.5822C17.8666 13.4758 18.2268 13.2676 18.5161 12.9783C18.8054 12.689 19.0136 12.3288 19.12 11.9338C19.3916 10.45 19.5235 8.94409 19.5137 7.43572C19.5235 5.92735 19.3916 4.42139 19.12 2.93766ZM8.30193 10.2387V4.63277L13.1537 7.43572L8.30193 10.2387Z"
-                                fill="#005BAA" />
-                            <path d="M8.31012 4.62988V10.2472L13.1588 7.4386L8.31012 4.62988Z" fill="white" />
-                        </svg>
-                    </a>
+                          </div><!--end widget-span -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
                 </div>
-
+              </div>
             </div>
+          </div>
 
         </div>
-        <p class="copy-rights">© 2023 Copyrights ZAPTA Technologies. All rights are reserved.</p>
+
+
+
+        <div class="container-fluid content-wrapper">
+          <div class="row-fluid-wrapper">
+            <div class="row-fluid">
+              <div class="span12 widget-span widget-type-cell " style="" data-widget-type="cell" data-x="0" data-w="12">
+
+              </div><!--end widget-span -->
+            </div>
+          </div>
+        </div>
+
+      </header>
+      <div class="header-proxy"></div>
     </div>
-</footer>
 
 
-<!--Scripts -->
-
-<!-- Hide Logs -->
-<script>
-    var isLogTrue = '1';
-
-    var customCurrentRouteName="frontend.home";
-    var baseUrl = "index.html";
-
-    // if(isLogTrue != true){
-    //   console.log = () => {}
-    //   console.error = () => {}
-    //   console.debug = () => {}
-    // }
-</script>
-<!-- End Hide Logs -->
 
 
-<!-- Jquery -->
-<script src="frontend-assets/libraries/js/jquery.js"></script>
-<!--Jquery Ends -->
+    <main id="main-content" class="body-container-wrapper">
 
-<!-- Popper Js -->
-<script src="frontend-assets/libraries/js/popper.js" defer></script>
-<!-- Popper Js Ends -->
+      <main class="body-container-wrapper">
+        <div class="container-fluid body-container">
+          <div class="row-fluid-wrapper">
+            <div class="row-fluid">
+              <div class="span12 widget-span widget-type-cell " style="" data-widget-type="cell" data-x="0" data-w="12">
 
-<!-- Bootstrap 5 JS -->
-<script src="frontend-assets/libraries/js/bootstrap.js" defer></script>
-<!-- Bootstrap 5 JS Ends-->
-
-<!-- Toaster JS -->
-<script cache-files="cached" src="../cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<!-- Toaster JS Ends-->
-
-
-<script cache-files="cached" src="frontend-assets/libraries/js/select2.js"></script>
+                <div class="row-fluid-wrapper row-depth-1 row-number-1 dnd-section">
+                  <div class="row-fluid ">
+                    <div class="span12 widget-span widget-type-custom_widget dnd-module" style=""
+                      data-widget-type="custom_widget" data-x="0" data-w="12">
+                      <div id="hs_cos_wrapper_dnd_area-module-1"
+                        class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=""
+                        data-hs-cos-general-type="widget" data-hs-cos-type="module">
 
 
-<!-- Include FontFaceObserver from a CDN -->
-<script src="../cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.0.13/fontfaceobserver.standalone.js"></script>
 
-<script type="text/javascript" defer>
-    const proximaNova = new FontFaceObserver('Proxima Nova');
+                        <div class="hero-banner bg-image  none">
 
-    proximaNova.load().then(() => {
-        document.documentElement.classList.add('proxima-nova-loaded');
-    }).catch(() => {
-        console.log('Proxima Nova failed to load');
+
+                          <div class="container">
+                            <div class="hero-banner__inner">
+                              <div class="row  align-items-lg-center">
+                                <div class="col-lg-6  order-lg-last copy-image ">
+
+
+                                  <div class="hero-banner__image text-center  text-lg-center float ">
+                                    <div class="hero-banner__imageWrap custom hero-img__custom ">
+                                      <div class="hero-banner__imageInner">
+
+                                        <div data-ani="animate__fadeInUp" class="animate__animated  ">
+
+
+
+
+                                          <img fetchpriority="high" class="hero-img d-none d-sm-block img-desktopView"
+                                            src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/hero-homepagebd6a.jpg?upsize=true&amp;upscale=true&amp;width=539&amp;height=600&amp;name=hero-homepage.jpg"
+                                            alt="hero-homepage" width="539" height="600"
+                                            srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/hero-homepage.jpg?upsize=true&amp;upscale=true&amp;width=270&amp;height=300&amp;name=hero-homepage.jpg 270w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/hero-homepage.jpg?upsize=true&amp;upscale=true&amp;width=539&amp;height=600&amp;name=hero-homepage.jpg 539w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/hero-homepage.jpg?upsize=true&amp;upscale=true&amp;width=809&amp;height=900&amp;name=hero-homepage.jpg 809w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/hero-homepage.jpg?upsize=true&amp;upscale=true&amp;width=1078&amp;height=1200&amp;name=hero-homepage.jpg 1078w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/hero-homepage.jpg?upsize=true&amp;upscale=true&amp;width=1348&amp;height=1500&amp;name=hero-homepage.jpg 1348w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/hero-homepage.jpg?upsize=true&amp;upscale=true&amp;width=1617&amp;height=1800&amp;name=hero-homepage.jpg 1617w"
+                                            sizes="(max-width: 539px) 100vw, 539px">
+                                          <img fetchpriority="high" class="hero-img  d-block d-sm-none img-mobileView"
+                                            src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/hero-homepage266b.jpg?upsize=true&amp;upscale=true&amp;width=425&amp;height=600&amp;name=hero-homepage.jpg"
+                                            alt="hero-homepage" width="425" height="600"
+                                            srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/hero-homepage.jpg?upsize=true&amp;upscale=true&amp;width=213&amp;height=300&amp;name=hero-homepage.jpg 213w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/hero-homepage.jpg?upsize=true&amp;upscale=true&amp;width=425&amp;height=600&amp;name=hero-homepage.jpg 425w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/hero-homepage.jpg?upsize=true&amp;upscale=true&amp;width=638&amp;height=900&amp;name=hero-homepage.jpg 638w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/hero-homepage.jpg?upsize=true&amp;upscale=true&amp;width=850&amp;height=1200&amp;name=hero-homepage.jpg 850w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/hero-homepage.jpg?upsize=true&amp;upscale=true&amp;width=1063&amp;height=1500&amp;name=hero-homepage.jpg 1063w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/hero-homepage.jpg?upsize=true&amp;upscale=true&amp;width=1275&amp;height=1800&amp;name=hero-homepage.jpg 1275w"
+                                            sizes="(max-width: 425px) 100vw, 425px">
+
+                                        </div>
+
+
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                </div>
+                                <div class="col-lg-6 mt-4 mt-lg-0">
+
+
+                                  <div class="hero-banner__copy text-left text-lg-left">
+
+
+
+
+                                    <h1 class="text-secondary_1 hero-banner__title font-bold ">We are a software 
+                                        and hardware supplying company in Malawi
+                                      </h1>
+
+
+                                    <div class="hero-banner__rtext text-body-lg text-text">
+                                        Manage your businesses, insititutions, organizations , companies and many more with our cutting edge
+                                         tech solutions.
+                                    </div>
+                                    <div class="hero-banner__cta pt-4 pe-2 d-inline-block">
+
+                                    <span class="hs-cta-wrapper" id="hs-cta-wrapper-dec7cb80-1011-4692-b633-2f241b6a2cdc">
+                                        
+
+
+                                    <a class="btn btn-h-outline" href="contact-us.html"    onMouseOver="this.style.color='#F6C370 ';this.style.backgroundColor='#361D5C'"  onMouseOut="this.style.color='#361D5C ';this.style.backgroundColor='#F6C370'" >
+                                        Read our story
+                                     </a>
+
+
+                                   
+
+
+                                      
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+
+                    </div><!--end widget-span -->
+                  </div><!--end row-->
+                </div><!--end row-wrapper -->
+
+
+
+                <div class="row-fluid-wrapper row-depth-1 row-number-2 dnd-section">
+                  <div class="row-fluid ">
+                    <div class="span12 widget-span widget-type-cell dnd-column" style="" data-widget-type="cell"
+                      data-x="0" data-w="12">
+
+                      <div class="row-fluid-wrapper row-depth-1 row-number-3 dnd-row">
+                        <div class="row-fluid ">
+                          <div class="span12 widget-span widget-type-custom_widget dnd-module" style=""
+                            data-widget-type="custom_widget" data-x="0" data-w="12">
+                            <div id="hs_cos_wrapper_widget_1663369318873"
+                              class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=""
+                              data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+                              <div class="widget_1663369318873 logos-mod bg-image  none">
+
+
+                                <div class="container">
+
+                                  <div class="logos-mod__inner">
+                                    <div class="row justify-content-center">
+                                      <div class="col-sm-8 col-lg-10">
+
+                                        <div class="logos-mod__heading text-center text-center">
+
+
+
+
+                                          <h5
+                                            class="text-secondary_3 logos-mod__title mb-3 font-regular  text-uppercase">
+                                            Trusted by</h5>
+
+
+                                        </div>
+
+
+                                        <div class="logos-mod__logos pt-2 ">
+                                          <div
+                                            class="row justify-content-evenly align-items-center logos-mod__logos-wrap">
+                                            <div class="col-auto col-item-logo px-4 py-2 ">
+                                              <div class="logos-mod__logo logo-item text-center ">
+                                                <span class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                                  <img height="76" width="120" loading="lazy"
+                                                    data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/english-heritag-copy1.png"
+                                                    src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/english-heritag-copy13604.png?width=120&amp;height=76&amp;name=english-heritag-copy1.png"
+                                                    alt="English Heritage"
+                                                    srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/english-heritag-copy1.png?width=60&amp;height=38&amp;name=english-heritag-copy1.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/english-heritag-copy1.png?width=120&amp;height=76&amp;name=english-heritag-copy1.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/english-heritag-copy1.png?width=180&amp;height=114&amp;name=english-heritag-copy1.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/english-heritag-copy1.png?width=240&amp;height=152&amp;name=english-heritag-copy1.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/english-heritag-copy1.png?width=300&amp;height=190&amp;name=english-heritag-copy1.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/english-heritag-copy1.png?width=360&amp;height=228&amp;name=english-heritag-copy1.png 360w"
+                                                    sizes="(max-width: 120px) 100vw, 120px">
+                                                </span>
+                                              </div>
+                                            </div>
+                                            <div class="col-auto col-item-logo px-4 py-2 ">
+                                              <div class="logos-mod__logo logo-item text-center "><a
+                                                  href="customers/road-cafe-drive-in-coffee-outlets.html"
+                                                  class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                                  <img height="76" width="120" loading="lazy"
+                                                    data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/logo-roadcafe.png"
+                                                    src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-roadcafe9215.png?width=120&amp;height=76&amp;name=logo-roadcafe.png"
+                                                    alt="Road Café drive-in coffee outlets"
+                                                    srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-roadcafe.png?width=60&amp;height=38&amp;name=logo-roadcafe.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-roadcafe.png?width=120&amp;height=76&amp;name=logo-roadcafe.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-roadcafe.png?width=180&amp;height=114&amp;name=logo-roadcafe.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-roadcafe.png?width=240&amp;height=152&amp;name=logo-roadcafe.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-roadcafe.png?width=300&amp;height=190&amp;name=logo-roadcafe.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-roadcafe.png?width=360&amp;height=228&amp;name=logo-roadcafe.png 360w"
+                                                    sizes="(max-width: 120px) 100vw, 120px">
+
+                                                </a></div>
+                                            </div>
+                                            <div class="col-auto col-item-logo px-4 py-2 ">
+                                              <div class="logos-mod__logo logo-item text-center "><a
+                                                  href="customers/routine-vietnam-limited-company.html"
+                                                  class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                                  <img height="76" width="120" loading="lazy"
+                                                    data-src="https://cdn2.hubspot.net/hubfs/491011/CS_Routine%20Vietnam%20Limited%20company_Logo.jpg"
+                                                    src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS_Routine%20Vietnam%20Limited%20company_Logo6a0b.jpg?width=120&amp;height=76&amp;name=CS_Routine%20Vietnam%20Limited%20company_Logo.jpg"
+                                                    alt="Routine Vietnam Limited company"
+                                                    srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS_Routine%20Vietnam%20Limited%20company_Logo.jpg?width=60&amp;height=38&amp;name=CS_Routine%20Vietnam%20Limited%20company_Logo.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS_Routine%20Vietnam%20Limited%20company_Logo.jpg?width=120&amp;height=76&amp;name=CS_Routine%20Vietnam%20Limited%20company_Logo.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS_Routine%20Vietnam%20Limited%20company_Logo.jpg?width=180&amp;height=114&amp;name=CS_Routine%20Vietnam%20Limited%20company_Logo.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS_Routine%20Vietnam%20Limited%20company_Logo.jpg?width=240&amp;height=152&amp;name=CS_Routine%20Vietnam%20Limited%20company_Logo.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS_Routine%20Vietnam%20Limited%20company_Logo.jpg?width=300&amp;height=190&amp;name=CS_Routine%20Vietnam%20Limited%20company_Logo.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS_Routine%20Vietnam%20Limited%20company_Logo.jpg?width=360&amp;height=228&amp;name=CS_Routine%20Vietnam%20Limited%20company_Logo.jpg 360w"
+                                                    sizes="(max-width: 120px) 100vw, 120px">
+
+                                                </a></div>
+                                            </div>
+                                            <div class="col-auto col-item-logo px-4 py-2 ">
+                                              <div class="logos-mod__logo logo-item text-center "><a
+                                                  href="customers/spudshed.html"
+                                                  class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                                  <img height="76" width="120" loading="lazy"
+                                                    data-src="https://491011.fs1.hubspotusercontent-na1.net/hubfs/491011/CS%20Spudshed%20logo.jpg"
+                                                    src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20Spudshed%20logobada.jpg?width=120&amp;height=76&amp;name=CS%20Spudshed%20logo.jpg"
+                                                    alt="Spudshed"
+                                                    srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20Spudshed%20logo.jpg?width=60&amp;height=38&amp;name=CS%20Spudshed%20logo.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20Spudshed%20logo.jpg?width=120&amp;height=76&amp;name=CS%20Spudshed%20logo.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20Spudshed%20logo.jpg?width=180&amp;height=114&amp;name=CS%20Spudshed%20logo.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20Spudshed%20logo.jpg?width=240&amp;height=152&amp;name=CS%20Spudshed%20logo.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20Spudshed%20logo.jpg?width=300&amp;height=190&amp;name=CS%20Spudshed%20logo.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20Spudshed%20logo.jpg?width=360&amp;height=228&amp;name=CS%20Spudshed%20logo.jpg 360w"
+                                                    sizes="(max-width: 120px) 100vw, 120px">
+
+                                                </a></div>
+                                            </div>
+                                            <div class="col-auto col-item-logo px-4 py-2 ">
+                                              <div class="logos-mod__logo logo-item text-center "><a
+                                                  href="customers/focus-point-malaysia.html"
+                                                  class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                                  <img height="76" width="120" loading="lazy"
+                                                    data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/focuspoint-logo.png"
+                                                    src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/focuspoint-logo45c4.png?width=120&amp;height=76&amp;name=focuspoint-logo.png"
+                                                    alt="Focus Point - Malaysia"
+                                                    srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/focuspoint-logo.png?width=60&amp;height=38&amp;name=focuspoint-logo.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/focuspoint-logo.png?width=120&amp;height=76&amp;name=focuspoint-logo.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/focuspoint-logo.png?width=180&amp;height=114&amp;name=focuspoint-logo.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/focuspoint-logo.png?width=240&amp;height=152&amp;name=focuspoint-logo.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/focuspoint-logo.png?width=300&amp;height=190&amp;name=focuspoint-logo.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/focuspoint-logo.png?width=360&amp;height=228&amp;name=focuspoint-logo.png 360w"
+                                                    sizes="(max-width: 120px) 100vw, 120px">
+
+                                                </a></div>
+                                            </div>
+                                            <div class="col-auto col-item-logo px-4 py-2 ">
+                                              <div class="logos-mod__logo logo-item text-center "><a
+                                                  href="customers/vierumaeki.html"
+                                                  class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                                  <img height="76" width="120" loading="lazy"
+                                                    data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/Vierumki.jpg"
+                                                    src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Vierumki4ec0.jpg?width=120&amp;height=76&amp;name=Vierumki.jpg"
+                                                    alt="Vierumäki"
+                                                    srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Vierumki.jpg?width=60&amp;height=38&amp;name=Vierumki.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Vierumki.jpg?width=120&amp;height=76&amp;name=Vierumki.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Vierumki.jpg?width=180&amp;height=114&amp;name=Vierumki.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Vierumki.jpg?width=240&amp;height=152&amp;name=Vierumki.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Vierumki.jpg?width=300&amp;height=190&amp;name=Vierumki.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Vierumki.jpg?width=360&amp;height=228&amp;name=Vierumki.jpg 360w"
+                                                    sizes="(max-width: 120px) 100vw, 120px">
+
+                                                </a></div>
+                                            </div>
+                                            <div class="col-auto col-item-logo px-4 py-2 ">
+                                              <div class="logos-mod__logo logo-item text-center "><a
+                                                  href="customers/kristiana-cosmetics.html"
+                                                  class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                                  <img height="76" width="120" loading="lazy"
+                                                    data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/kristianalogo-Recovered-copy.png"
+                                                    src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/kristianalogo-Recovered-copy930a.png?width=120&amp;height=76&amp;name=kristianalogo-Recovered-copy.png"
+                                                    alt="Kristiana Cosmetics"
+                                                    srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/kristianalogo-Recovered-copy.png?width=60&amp;height=38&amp;name=kristianalogo-Recovered-copy.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/kristianalogo-Recovered-copy.png?width=120&amp;height=76&amp;name=kristianalogo-Recovered-copy.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/kristianalogo-Recovered-copy.png?width=180&amp;height=114&amp;name=kristianalogo-Recovered-copy.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/kristianalogo-Recovered-copy.png?width=240&amp;height=152&amp;name=kristianalogo-Recovered-copy.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/kristianalogo-Recovered-copy.png?width=300&amp;height=190&amp;name=kristianalogo-Recovered-copy.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/kristianalogo-Recovered-copy.png?width=360&amp;height=228&amp;name=kristianalogo-Recovered-copy.png 360w"
+                                                    sizes="(max-width: 120px) 100vw, 120px">
+
+                                                </a></div>
+                                            </div>
+                                            <div class="col-auto col-item-logo px-4 py-2 ">
+                                              <div class="logos-mod__logo logo-item text-center "><a
+                                                  href="customers/bellon.html"
+                                                  class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                                  <img height="76" width="120" loading="lazy"
+                                                    data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/logo-bellon.jpg"
+                                                    src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-bellon8230.jpg?width=120&amp;height=76&amp;name=logo-bellon.jpg"
+                                                    alt="Bellon"
+                                                    srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-bellon.jpg?width=60&amp;height=38&amp;name=logo-bellon.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-bellon.jpg?width=120&amp;height=76&amp;name=logo-bellon.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-bellon.jpg?width=180&amp;height=114&amp;name=logo-bellon.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-bellon.jpg?width=240&amp;height=152&amp;name=logo-bellon.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-bellon.jpg?width=300&amp;height=190&amp;name=logo-bellon.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-bellon.jpg?width=360&amp;height=228&amp;name=logo-bellon.jpg 360w"
+                                                    sizes="(max-width: 120px) 100vw, 120px">
+
+                                                </a></div>
+                                            </div>
+                                            <div class="col-auto col-item-logo px-4 py-2 ">
+                                              <div class="logos-mod__logo logo-item text-center ">
+                                                <span class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                                  <img height="76" width="120" loading="lazy"
+                                                    data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/JNP-Group.jpg"
+                                                    src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/JNP-Group703c.jpg?width=120&amp;height=76&amp;name=JNP-Group.jpg"
+                                                    alt=""
+                                                    srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/JNP-Group.jpg?width=60&amp;height=38&amp;name=JNP-Group.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/JNP-Group.jpg?width=120&amp;height=76&amp;name=JNP-Group.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/JNP-Group.jpg?width=180&amp;height=114&amp;name=JNP-Group.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/JNP-Group.jpg?width=240&amp;height=152&amp;name=JNP-Group.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/JNP-Group.jpg?width=300&amp;height=190&amp;name=JNP-Group.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/JNP-Group.jpg?width=360&amp;height=228&amp;name=JNP-Group.jpg 360w"
+                                                    sizes="(max-width: 120px) 100vw, 120px">
+                                                </span>
+                                              </div>
+                                            </div>
+                                            <div class="col-auto col-item-logo px-4 py-2 ">
+                                              <div class="logos-mod__logo logo-item text-center "><a
+                                                  href="customers/gourmandise.html"
+                                                  class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                                  <img height="76" width="120" loading="lazy"
+                                                    data-src="https://f.hubspotusercontent10.net/hubfs/491011/CS%20logo%20Gourmandise.jpg"
+                                                    src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Gourmandise2866.jpg?width=120&amp;height=76&amp;name=CS%20logo%20Gourmandise.jpg"
+                                                    alt="Gourmandise"
+                                                    srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Gourmandise.jpg?width=60&amp;height=38&amp;name=CS%20logo%20Gourmandise.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Gourmandise.jpg?width=120&amp;height=76&amp;name=CS%20logo%20Gourmandise.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Gourmandise.jpg?width=180&amp;height=114&amp;name=CS%20logo%20Gourmandise.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Gourmandise.jpg?width=240&amp;height=152&amp;name=CS%20logo%20Gourmandise.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Gourmandise.jpg?width=300&amp;height=190&amp;name=CS%20logo%20Gourmandise.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Gourmandise.jpg?width=360&amp;height=228&amp;name=CS%20logo%20Gourmandise.jpg 360w"
+                                                    sizes="(max-width: 120px) 100vw, 120px">
+
+                                                </a></div>
+                                            </div>
+                                            <div class="col-auto col-item-logo px-4 py-2 ">
+                                              <div class="logos-mod__logo logo-item text-center "><a
+                                                  href="customers/shoes-palace-trading.html"
+                                                  class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                                  <img height="76" width="120" loading="lazy"
+                                                    data-src="https://f.hubspotusercontent10.net/hubfs/491011/Nettside_2018/Customer%20logos/shobra-logo.png"
+                                                    src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/shobra-logo5b27.png?width=120&amp;height=76&amp;name=shobra-logo.png"
+                                                    alt="Shoes Palace Trading LLC"
+                                                    srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/shobra-logo.png?width=60&amp;height=38&amp;name=shobra-logo.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/shobra-logo.png?width=120&amp;height=76&amp;name=shobra-logo.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/shobra-logo.png?width=180&amp;height=114&amp;name=shobra-logo.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/shobra-logo.png?width=240&amp;height=152&amp;name=shobra-logo.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/shobra-logo.png?width=300&amp;height=190&amp;name=shobra-logo.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/shobra-logo.png?width=360&amp;height=228&amp;name=shobra-logo.png 360w"
+                                                    sizes="(max-width: 120px) 100vw, 120px">
+
+                                                </a></div>
+                                            </div>
+                                            <div class="col-auto col-item-logo px-4 py-2 ">
+                                              <div class="logos-mod__logo logo-item text-center "><a
+                                                  href="customers/gosselin-photos.html"
+                                                  class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                                  <img height="76" width="120" loading="lazy"
+                                                    data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/Gosselin-logo.png"
+                                                    src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gosselin-logob3de.png?width=120&amp;height=76&amp;name=Gosselin-logo.png"
+                                                    alt="Gosselin Photo Vidéo"
+                                                    srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gosselin-logo.png?width=60&amp;height=38&amp;name=Gosselin-logo.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gosselin-logo.png?width=120&amp;height=76&amp;name=Gosselin-logo.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gosselin-logo.png?width=180&amp;height=114&amp;name=Gosselin-logo.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gosselin-logo.png?width=240&amp;height=152&amp;name=Gosselin-logo.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gosselin-logo.png?width=300&amp;height=190&amp;name=Gosselin-logo.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gosselin-logo.png?width=360&amp;height=228&amp;name=Gosselin-logo.png 360w"
+                                                    sizes="(max-width: 120px) 100vw, 120px">
+
+                                                </a></div>
+                                            </div>
+                                            <div class="col-auto col-item-logo px-4 py-2 ">
+                                              <div class="logos-mod__logo logo-item text-center "><a
+                                                  href="customers/alsaif-gallery.html"
+                                                  class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                                  <img height="76" width="120" loading="lazy"
+                                                    data-src="https://491011.fs1.hubspotusercontent-na1.net/hubfs/491011/CS%20logo%20Alsaif%20Gallery.jpg"
+                                                    src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Alsaif%20Gallery3812.jpg?width=120&amp;height=76&amp;name=CS%20logo%20Alsaif%20Gallery.jpg"
+                                                    alt="Alsaif Gallery "
+                                                    srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Alsaif%20Gallery.jpg?width=60&amp;height=38&amp;name=CS%20logo%20Alsaif%20Gallery.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Alsaif%20Gallery.jpg?width=120&amp;height=76&amp;name=CS%20logo%20Alsaif%20Gallery.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Alsaif%20Gallery.jpg?width=180&amp;height=114&amp;name=CS%20logo%20Alsaif%20Gallery.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Alsaif%20Gallery.jpg?width=240&amp;height=152&amp;name=CS%20logo%20Alsaif%20Gallery.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Alsaif%20Gallery.jpg?width=300&amp;height=190&amp;name=CS%20logo%20Alsaif%20Gallery.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Alsaif%20Gallery.jpg?width=360&amp;height=228&amp;name=CS%20logo%20Alsaif%20Gallery.jpg 360w"
+                                                    sizes="(max-width: 120px) 100vw, 120px">
+
+                                                </a></div>
+                                            </div>
+                                            <div class="col-auto col-item-logo px-4 py-2 ">
+                                              <div class="logos-mod__logo logo-item text-center "><a
+                                                  href="customers/smycka.html"
+                                                  class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                                  <img height="76" width="120" loading="lazy"
+                                                    data-src="https://f.hubspotusercontent10.net/hubfs/491011/Nettside_2018/Customer%20logos/smycka.png"
+                                                    src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/smyckaa536.jpg?width=120&amp;height=76&amp;name=smycka.png"
+                                                    alt="Smycka"
+                                                    srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/smycka.png?width=60&amp;height=38&amp;name=smycka.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/smycka.png?width=120&amp;height=76&amp;name=smycka.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/smycka.png?width=180&amp;height=114&amp;name=smycka.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/smycka.png?width=240&amp;height=152&amp;name=smycka.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/smycka.png?width=300&amp;height=190&amp;name=smycka.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/smycka.png?width=360&amp;height=228&amp;name=smycka.png 360w"
+                                                    sizes="(max-width: 120px) 100vw, 120px">
+
+                                                </a></div>
+                                            </div>
+                                            <div class="col-auto col-item-logo px-4 py-2 ">
+                                              <div class="logos-mod__logo logo-item text-center "><a
+                                                  href="customers/juventus-f-c.html"
+                                                  class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                                  <img height="76" width="120" loading="lazy"
+                                                    data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/Juventus-logo.jpg"
+                                                    src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo2cd4.jpg?width=120&amp;height=76&amp;name=Juventus-logo.jpg"
+                                                    alt="Juventus F.C."
+                                                    srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo.jpg?width=60&amp;height=38&amp;name=Juventus-logo.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo.jpg?width=120&amp;height=76&amp;name=Juventus-logo.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo.jpg?width=180&amp;height=114&amp;name=Juventus-logo.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo.jpg?width=240&amp;height=152&amp;name=Juventus-logo.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo.jpg?width=300&amp;height=190&amp;name=Juventus-logo.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo.jpg?width=360&amp;height=228&amp;name=Juventus-logo.jpg 360w"
+                                                    sizes="(max-width: 120px) 100vw, 120px">
+
+                                                </a></div>
+                                            </div>
+                                            <div class="col-auto col-item-logo px-4 py-2 ">
+                                              <div class="logos-mod__logo logo-item text-center ">
+                                                <span class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                                  <img height="76" width="120" loading="lazy"
+                                                    data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/bikeshop-2-copy.png"
+                                                    src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/bikeshop-2-copya47d.png?width=120&amp;height=76&amp;name=bikeshop-2-copy.png"
+                                                    alt=""
+                                                    srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/bikeshop-2-copy.png?width=60&amp;height=38&amp;name=bikeshop-2-copy.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/bikeshop-2-copy.png?width=120&amp;height=76&amp;name=bikeshop-2-copy.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/bikeshop-2-copy.png?width=180&amp;height=114&amp;name=bikeshop-2-copy.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/bikeshop-2-copy.png?width=240&amp;height=152&amp;name=bikeshop-2-copy.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/bikeshop-2-copy.png?width=300&amp;height=190&amp;name=bikeshop-2-copy.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/bikeshop-2-copy.png?width=360&amp;height=228&amp;name=bikeshop-2-copy.png 360w"
+                                                    sizes="(max-width: 120px) 100vw, 120px">
+                                                </span>
+                                              </div>
+                                            </div>
+                                            <div class="col-auto col-item-logo px-4 py-2 ">
+                                              <div class="logos-mod__logo logo-item text-center ">
+                                                <span class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                                  <img height="76" width="120" loading="lazy"
+                                                    data-src="https://491011.fs1.hubspotusercontent-na1.net/hubfs/491011/CS%20logo%20Titan22.jpg"
+                                                    src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Titan227b55.jpg?width=120&amp;height=76&amp;name=CS%20logo%20Titan22.jpg"
+                                                    alt="Titan22"
+                                                    srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Titan22.jpg?width=60&amp;height=38&amp;name=CS%20logo%20Titan22.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Titan22.jpg?width=120&amp;height=76&amp;name=CS%20logo%20Titan22.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Titan22.jpg?width=180&amp;height=114&amp;name=CS%20logo%20Titan22.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Titan22.jpg?width=240&amp;height=152&amp;name=CS%20logo%20Titan22.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Titan22.jpg?width=300&amp;height=190&amp;name=CS%20logo%20Titan22.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Titan22.jpg?width=360&amp;height=228&amp;name=CS%20logo%20Titan22.jpg 360w"
+                                                    sizes="(max-width: 120px) 100vw, 120px">
+                                                </span>
+                                              </div>
+                                            </div>
+                                            <div class="col-auto col-item-logo px-4 py-2 ">
+                                              <div class="logos-mod__logo logo-item text-center "><a
+                                                  href="customers/eurokangas.html"
+                                                  class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                                  <img height="76" width="120" loading="lazy"
+                                                    data-src="https://f.hubspotusercontent10.net/hubfs/491011/CS%20logo%20Eurokangas.jpg"
+                                                    src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Eurokangase425.jpg?width=120&amp;height=76&amp;name=CS%20logo%20Eurokangas.jpg"
+                                                    alt="Eurokangas"
+                                                    srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Eurokangas.jpg?width=60&amp;height=38&amp;name=CS%20logo%20Eurokangas.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Eurokangas.jpg?width=120&amp;height=76&amp;name=CS%20logo%20Eurokangas.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Eurokangas.jpg?width=180&amp;height=114&amp;name=CS%20logo%20Eurokangas.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Eurokangas.jpg?width=240&amp;height=152&amp;name=CS%20logo%20Eurokangas.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Eurokangas.jpg?width=300&amp;height=190&amp;name=CS%20logo%20Eurokangas.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Eurokangas.jpg?width=360&amp;height=228&amp;name=CS%20logo%20Eurokangas.jpg 360w"
+                                                    sizes="(max-width: 120px) 100vw, 120px">
+
+                                                </a></div>
+                                            </div>
+                                            <div class="col-auto col-item-logo px-4 py-2 ">
+                                              <div class="logos-mod__logo logo-item text-center ">
+                                                <span class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                                  <img height="76" width="120" loading="lazy"
+                                                    data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/Le-coq-sportif-logo.png"
+                                                    src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Le-coq-sportif-logo4353.png?width=120&amp;height=76&amp;name=Le-coq-sportif-logo.png"
+                                                    alt=""
+                                                    srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Le-coq-sportif-logo.png?width=60&amp;height=38&amp;name=Le-coq-sportif-logo.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Le-coq-sportif-logo.png?width=120&amp;height=76&amp;name=Le-coq-sportif-logo.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Le-coq-sportif-logo.png?width=180&amp;height=114&amp;name=Le-coq-sportif-logo.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Le-coq-sportif-logo.png?width=240&amp;height=152&amp;name=Le-coq-sportif-logo.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Le-coq-sportif-logo.png?width=300&amp;height=190&amp;name=Le-coq-sportif-logo.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Le-coq-sportif-logo.png?width=360&amp;height=228&amp;name=Le-coq-sportif-logo.png 360w"
+                                                    sizes="(max-width: 120px) 100vw, 120px">
+                                                </span>
+                                              </div>
+                                            </div>
+                                            <div class="col-auto col-item-logo px-4 py-2 ">
+                                              <div class="logos-mod__logo logo-item text-center "><a
+                                                  href="customers/gieves-hawkes.html"
+                                                  class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                                  <img height="76" width="120" loading="lazy"
+                                                    data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/gieves-and-hawkes-Recovered-copy.png"
+                                                    src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/gieves-and-hawkes-Recovered-copybd4d.png?width=120&amp;height=76&amp;name=gieves-and-hawkes-Recovered-copy.png"
+                                                    alt="Gieves &amp; Hawkes"
+                                                    srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/gieves-and-hawkes-Recovered-copy.png?width=60&amp;height=38&amp;name=gieves-and-hawkes-Recovered-copy.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/gieves-and-hawkes-Recovered-copy.png?width=120&amp;height=76&amp;name=gieves-and-hawkes-Recovered-copy.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/gieves-and-hawkes-Recovered-copy.png?width=180&amp;height=114&amp;name=gieves-and-hawkes-Recovered-copy.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/gieves-and-hawkes-Recovered-copy.png?width=240&amp;height=152&amp;name=gieves-and-hawkes-Recovered-copy.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/gieves-and-hawkes-Recovered-copy.png?width=300&amp;height=190&amp;name=gieves-and-hawkes-Recovered-copy.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/gieves-and-hawkes-Recovered-copy.png?width=360&amp;height=228&amp;name=gieves-and-hawkes-Recovered-copy.png 360w"
+                                                    sizes="(max-width: 120px) 100vw, 120px">
+
+                                                </a></div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        
+                                        <div class="text-center mt-5 pt-4 pt-lg-0 mt-lg-3"><span
+                                            id="hs_cos_wrapper_widget_1663369318873_"
+                                            class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_cta"
+                                            style="" data-hs-cos-general-type="widget"
+                                            data-hs-cos-type="cta"><!--HubSpot Call-to-Action Code --><span
+                                              class="hs-cta-wrapper"
+                                              id="hs-cta-wrapper-94ae75a5-57fc-48c2-a1af-58d47b4040d6"><span
+                                                class="hs-cta-node hs-cta-94ae75a5-57fc-48c2-a1af-58d47b4040d6"
+                                                id="hs-cta-94ae75a5-57fc-48c2-a1af-58d47b4040d6"><!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]--><a
+                                                  href="https://cta-redirect.hubspot.com/cta/redirect/491011/94ae75a5-57fc-48c2-a1af-58d47b4040d6"
+                                                  target="_blank" rel="noopener"><img class="hs-cta-img"
+                                                    id="hs-cta-img-94ae75a5-57fc-48c2-a1af-58d47b4040d6"
+                                                    style="border-width:0px;"
+                                                    src="../no-cache.hubspot.com/cta/default/491011/94ae75a5-57fc-48c2-a1af-58d47b4040d6.png"
+                                                    alt="More customer success stories"></a></span>
+                                              <script charset="utf-8" src="hs/cta/cta/current.js"></script>
+                                              <script
+                                                type="text/javascript"> hbspt.cta._relativeUrls = true; hbspt.cta.load(491011, '94ae75a5-57fc-48c2-a1af-58d47b4040d6', { "useNewLoader": "true", "region": "na1" }); </script>
+                                            </span><!-- end HubSpot Call-to-Action Code --></span></div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+
+
+
+
+
+
+                              <div class="hidden-items-widget_1663369318873" style="display:none !important;">
+                                <div class="col-auto col-item-logo px-4 py-2 ">
+                                  <div class="logos-mod__logo logo-item text-center ">
+                                    <span class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                      <img height="76" width="120" loading="lazy"
+                                        data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/english-heritag-copy1.png"
+                                        src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/english-heritag-copy13604.png?width=120&amp;height=76&amp;name=english-heritag-copy1.png"
+                                        alt="English Heritage"
+                                        srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/english-heritag-copy1.png?width=60&amp;height=38&amp;name=english-heritag-copy1.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/english-heritag-copy1.png?width=120&amp;height=76&amp;name=english-heritag-copy1.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/english-heritag-copy1.png?width=180&amp;height=114&amp;name=english-heritag-copy1.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/english-heritag-copy1.png?width=240&amp;height=152&amp;name=english-heritag-copy1.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/english-heritag-copy1.png?width=300&amp;height=190&amp;name=english-heritag-copy1.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/english-heritag-copy1.png?width=360&amp;height=228&amp;name=english-heritag-copy1.png 360w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+                                    </span>
+                                  </div>
+                                </div>
+                                <div class="col-auto col-item-logo px-4 py-2 ">
+                                  <div class="logos-mod__logo logo-item text-center "><a
+                                      href="customers/road-cafe-drive-in-coffee-outlets.html"
+                                      class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                      <img height="76" width="120" loading="lazy"
+                                        data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/logo-roadcafe.png"
+                                        src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-roadcafe9215.png?width=120&amp;height=76&amp;name=logo-roadcafe.png"
+                                        alt="Road Café drive-in coffee outlets"
+                                        srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-roadcafe.png?width=60&amp;height=38&amp;name=logo-roadcafe.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-roadcafe.png?width=120&amp;height=76&amp;name=logo-roadcafe.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-roadcafe.png?width=180&amp;height=114&amp;name=logo-roadcafe.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-roadcafe.png?width=240&amp;height=152&amp;name=logo-roadcafe.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-roadcafe.png?width=300&amp;height=190&amp;name=logo-roadcafe.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-roadcafe.png?width=360&amp;height=228&amp;name=logo-roadcafe.png 360w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+
+                                    </a></div>
+                                </div>
+                                <div class="col-auto col-item-logo px-4 py-2 ">
+                                  <div class="logos-mod__logo logo-item text-center "><a
+                                      href="customers/routine-vietnam-limited-company.html"
+                                      class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                      <img height="76" width="120" loading="lazy"
+                                        data-src="https://cdn2.hubspot.net/hubfs/491011/CS_Routine%20Vietnam%20Limited%20company_Logo.jpg"
+                                        src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS_Routine%20Vietnam%20Limited%20company_Logo6a0b.jpg?width=120&amp;height=76&amp;name=CS_Routine%20Vietnam%20Limited%20company_Logo.jpg"
+                                        alt="Routine Vietnam Limited company"
+                                        srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS_Routine%20Vietnam%20Limited%20company_Logo.jpg?width=60&amp;height=38&amp;name=CS_Routine%20Vietnam%20Limited%20company_Logo.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS_Routine%20Vietnam%20Limited%20company_Logo.jpg?width=120&amp;height=76&amp;name=CS_Routine%20Vietnam%20Limited%20company_Logo.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS_Routine%20Vietnam%20Limited%20company_Logo.jpg?width=180&amp;height=114&amp;name=CS_Routine%20Vietnam%20Limited%20company_Logo.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS_Routine%20Vietnam%20Limited%20company_Logo.jpg?width=240&amp;height=152&amp;name=CS_Routine%20Vietnam%20Limited%20company_Logo.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS_Routine%20Vietnam%20Limited%20company_Logo.jpg?width=300&amp;height=190&amp;name=CS_Routine%20Vietnam%20Limited%20company_Logo.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS_Routine%20Vietnam%20Limited%20company_Logo.jpg?width=360&amp;height=228&amp;name=CS_Routine%20Vietnam%20Limited%20company_Logo.jpg 360w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+
+                                    </a></div>
+                                </div>
+                                <div class="col-auto col-item-logo px-4 py-2 ">
+                                  <div class="logos-mod__logo logo-item text-center "><a href="customers/spudshed.html"
+                                      class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                      <img height="76" width="120" loading="lazy"
+                                        data-src="https://491011.fs1.hubspotusercontent-na1.net/hubfs/491011/CS%20Spudshed%20logo.jpg"
+                                        src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20Spudshed%20logobada.jpg?width=120&amp;height=76&amp;name=CS%20Spudshed%20logo.jpg"
+                                        alt="Spudshed"
+                                        srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20Spudshed%20logo.jpg?width=60&amp;height=38&amp;name=CS%20Spudshed%20logo.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20Spudshed%20logo.jpg?width=120&amp;height=76&amp;name=CS%20Spudshed%20logo.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20Spudshed%20logo.jpg?width=180&amp;height=114&amp;name=CS%20Spudshed%20logo.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20Spudshed%20logo.jpg?width=240&amp;height=152&amp;name=CS%20Spudshed%20logo.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20Spudshed%20logo.jpg?width=300&amp;height=190&amp;name=CS%20Spudshed%20logo.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20Spudshed%20logo.jpg?width=360&amp;height=228&amp;name=CS%20Spudshed%20logo.jpg 360w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+
+                                    </a></div>
+                                </div>
+                                <div class="col-auto col-item-logo px-4 py-2 ">
+                                  <div class="logos-mod__logo logo-item text-center "><a
+                                      href="customers/focus-point-malaysia.html"
+                                      class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                      <img height="76" width="120" loading="lazy"
+                                        data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/focuspoint-logo.png"
+                                        src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/focuspoint-logo45c4.png?width=120&amp;height=76&amp;name=focuspoint-logo.png"
+                                        alt="Focus Point - Malaysia"
+                                        srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/focuspoint-logo.png?width=60&amp;height=38&amp;name=focuspoint-logo.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/focuspoint-logo.png?width=120&amp;height=76&amp;name=focuspoint-logo.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/focuspoint-logo.png?width=180&amp;height=114&amp;name=focuspoint-logo.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/focuspoint-logo.png?width=240&amp;height=152&amp;name=focuspoint-logo.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/focuspoint-logo.png?width=300&amp;height=190&amp;name=focuspoint-logo.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/focuspoint-logo.png?width=360&amp;height=228&amp;name=focuspoint-logo.png 360w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+
+                                    </a></div>
+                                </div>
+                                <div class="col-auto col-item-logo px-4 py-2 ">
+                                  <div class="logos-mod__logo logo-item text-center "><a
+                                      href="customers/vierumaeki.html"
+                                      class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                      <img height="76" width="120" loading="lazy"
+                                        data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/Vierumki.jpg"
+                                        src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Vierumki4ec0.jpg?width=120&amp;height=76&amp;name=Vierumki.jpg"
+                                        alt="Vierumäki"
+                                        srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Vierumki.jpg?width=60&amp;height=38&amp;name=Vierumki.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Vierumki.jpg?width=120&amp;height=76&amp;name=Vierumki.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Vierumki.jpg?width=180&amp;height=114&amp;name=Vierumki.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Vierumki.jpg?width=240&amp;height=152&amp;name=Vierumki.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Vierumki.jpg?width=300&amp;height=190&amp;name=Vierumki.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Vierumki.jpg?width=360&amp;height=228&amp;name=Vierumki.jpg 360w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+
+                                    </a></div>
+                                </div>
+                                <div class="col-auto col-item-logo px-4 py-2 ">
+                                  <div class="logos-mod__logo logo-item text-center "><a
+                                      href="customers/kristiana-cosmetics.html"
+                                      class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                      <img height="76" width="120" loading="lazy"
+                                        data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/kristianalogo-Recovered-copy.png"
+                                        src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/kristianalogo-Recovered-copy930a.png?width=120&amp;height=76&amp;name=kristianalogo-Recovered-copy.png"
+                                        alt="Kristiana Cosmetics"
+                                        srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/kristianalogo-Recovered-copy.png?width=60&amp;height=38&amp;name=kristianalogo-Recovered-copy.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/kristianalogo-Recovered-copy.png?width=120&amp;height=76&amp;name=kristianalogo-Recovered-copy.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/kristianalogo-Recovered-copy.png?width=180&amp;height=114&amp;name=kristianalogo-Recovered-copy.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/kristianalogo-Recovered-copy.png?width=240&amp;height=152&amp;name=kristianalogo-Recovered-copy.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/kristianalogo-Recovered-copy.png?width=300&amp;height=190&amp;name=kristianalogo-Recovered-copy.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/kristianalogo-Recovered-copy.png?width=360&amp;height=228&amp;name=kristianalogo-Recovered-copy.png 360w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+
+                                    </a></div>
+                                </div>
+                                <div class="col-auto col-item-logo px-4 py-2 ">
+                                  <div class="logos-mod__logo logo-item text-center "><a href="customers/bellon.html"
+                                      class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                      <img height="76" width="120" loading="lazy"
+                                        data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/logo-bellon.jpg"
+                                        src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-bellon8230.jpg?width=120&amp;height=76&amp;name=logo-bellon.jpg"
+                                        alt="Bellon"
+                                        srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-bellon.jpg?width=60&amp;height=38&amp;name=logo-bellon.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-bellon.jpg?width=120&amp;height=76&amp;name=logo-bellon.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-bellon.jpg?width=180&amp;height=114&amp;name=logo-bellon.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-bellon.jpg?width=240&amp;height=152&amp;name=logo-bellon.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-bellon.jpg?width=300&amp;height=190&amp;name=logo-bellon.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/logo-bellon.jpg?width=360&amp;height=228&amp;name=logo-bellon.jpg 360w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+
+                                    </a></div>
+                                </div>
+                                <div class="col-auto col-item-logo px-4 py-2 ">
+                                  <div class="logos-mod__logo logo-item text-center ">
+                                    <span class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                      <img height="76" width="120" loading="lazy"
+                                        data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/JNP-Group.jpg"
+                                        src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/JNP-Group703c.jpg?width=120&amp;height=76&amp;name=JNP-Group.jpg"
+                                        alt=""
+                                        srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/JNP-Group.jpg?width=60&amp;height=38&amp;name=JNP-Group.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/JNP-Group.jpg?width=120&amp;height=76&amp;name=JNP-Group.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/JNP-Group.jpg?width=180&amp;height=114&amp;name=JNP-Group.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/JNP-Group.jpg?width=240&amp;height=152&amp;name=JNP-Group.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/JNP-Group.jpg?width=300&amp;height=190&amp;name=JNP-Group.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/JNP-Group.jpg?width=360&amp;height=228&amp;name=JNP-Group.jpg 360w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+                                    </span>
+                                  </div>
+                                </div>
+                                <div class="col-auto col-item-logo px-4 py-2 ">
+                                  <div class="logos-mod__logo logo-item text-center "><a
+                                      href="customers/gourmandise.html"
+                                      class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                      <img height="76" width="120" loading="lazy"
+                                        data-src="https://f.hubspotusercontent10.net/hubfs/491011/CS%20logo%20Gourmandise.jpg"
+                                        src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Gourmandise2866.jpg?width=120&amp;height=76&amp;name=CS%20logo%20Gourmandise.jpg"
+                                        alt="Gourmandise"
+                                        srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Gourmandise.jpg?width=60&amp;height=38&amp;name=CS%20logo%20Gourmandise.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Gourmandise.jpg?width=120&amp;height=76&amp;name=CS%20logo%20Gourmandise.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Gourmandise.jpg?width=180&amp;height=114&amp;name=CS%20logo%20Gourmandise.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Gourmandise.jpg?width=240&amp;height=152&amp;name=CS%20logo%20Gourmandise.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Gourmandise.jpg?width=300&amp;height=190&amp;name=CS%20logo%20Gourmandise.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Gourmandise.jpg?width=360&amp;height=228&amp;name=CS%20logo%20Gourmandise.jpg 360w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+
+                                    </a></div>
+                                </div>
+                                <div class="col-auto col-item-logo px-4 py-2 ">
+                                  <div class="logos-mod__logo logo-item text-center "><a
+                                      href="customers/shoes-palace-trading.html"
+                                      class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                      <img height="76" width="120" loading="lazy"
+                                        data-src="https://f.hubspotusercontent10.net/hubfs/491011/Nettside_2018/Customer%20logos/shobra-logo.png"
+                                        src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/shobra-logo5b27.png?width=120&amp;height=76&amp;name=shobra-logo.png"
+                                        alt="Shoes Palace Trading LLC"
+                                        srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/shobra-logo.png?width=60&amp;height=38&amp;name=shobra-logo.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/shobra-logo.png?width=120&amp;height=76&amp;name=shobra-logo.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/shobra-logo.png?width=180&amp;height=114&amp;name=shobra-logo.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/shobra-logo.png?width=240&amp;height=152&amp;name=shobra-logo.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/shobra-logo.png?width=300&amp;height=190&amp;name=shobra-logo.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/shobra-logo.png?width=360&amp;height=228&amp;name=shobra-logo.png 360w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+
+                                    </a></div>
+                                </div>
+                                <div class="col-auto col-item-logo px-4 py-2 ">
+                                  <div class="logos-mod__logo logo-item text-center "><a
+                                      href="customers/gosselin-photos.html"
+                                      class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                      <img height="76" width="120" loading="lazy"
+                                        data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/Gosselin-logo.png"
+                                        src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gosselin-logob3de.png?width=120&amp;height=76&amp;name=Gosselin-logo.png"
+                                        alt="Gosselin Photo Vidéo"
+                                        srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gosselin-logo.png?width=60&amp;height=38&amp;name=Gosselin-logo.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gosselin-logo.png?width=120&amp;height=76&amp;name=Gosselin-logo.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gosselin-logo.png?width=180&amp;height=114&amp;name=Gosselin-logo.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gosselin-logo.png?width=240&amp;height=152&amp;name=Gosselin-logo.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gosselin-logo.png?width=300&amp;height=190&amp;name=Gosselin-logo.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gosselin-logo.png?width=360&amp;height=228&amp;name=Gosselin-logo.png 360w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+
+                                    </a></div>
+                                </div>
+                                <div class="col-auto col-item-logo px-4 py-2 ">
+                                  <div class="logos-mod__logo logo-item text-center "><a
+                                      href="customers/alsaif-gallery.html"
+                                      class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                      <img height="76" width="120" loading="lazy"
+                                        data-src="https://491011.fs1.hubspotusercontent-na1.net/hubfs/491011/CS%20logo%20Alsaif%20Gallery.jpg"
+                                        src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Alsaif%20Gallery3812.jpg?width=120&amp;height=76&amp;name=CS%20logo%20Alsaif%20Gallery.jpg"
+                                        alt="Alsaif Gallery "
+                                        srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Alsaif%20Gallery.jpg?width=60&amp;height=38&amp;name=CS%20logo%20Alsaif%20Gallery.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Alsaif%20Gallery.jpg?width=120&amp;height=76&amp;name=CS%20logo%20Alsaif%20Gallery.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Alsaif%20Gallery.jpg?width=180&amp;height=114&amp;name=CS%20logo%20Alsaif%20Gallery.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Alsaif%20Gallery.jpg?width=240&amp;height=152&amp;name=CS%20logo%20Alsaif%20Gallery.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Alsaif%20Gallery.jpg?width=300&amp;height=190&amp;name=CS%20logo%20Alsaif%20Gallery.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Alsaif%20Gallery.jpg?width=360&amp;height=228&amp;name=CS%20logo%20Alsaif%20Gallery.jpg 360w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+
+                                    </a></div>
+                                </div>
+                                <div class="col-auto col-item-logo px-4 py-2 ">
+                                  <div class="logos-mod__logo logo-item text-center "><a href="customers/smycka.html"
+                                      class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                      <img height="76" width="120" loading="lazy"
+                                        data-src="https://f.hubspotusercontent10.net/hubfs/491011/Nettside_2018/Customer%20logos/smycka.png"
+                                        src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/smyckaa536.jpg?width=120&amp;height=76&amp;name=smycka.png"
+                                        alt="Smycka"
+                                        srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/smycka.png?width=60&amp;height=38&amp;name=smycka.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/smycka.png?width=120&amp;height=76&amp;name=smycka.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/smycka.png?width=180&amp;height=114&amp;name=smycka.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/smycka.png?width=240&amp;height=152&amp;name=smycka.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/smycka.png?width=300&amp;height=190&amp;name=smycka.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/smycka.png?width=360&amp;height=228&amp;name=smycka.png 360w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+
+                                    </a></div>
+                                </div>
+                                <div class="col-auto col-item-logo px-4 py-2 ">
+                                  <div class="logos-mod__logo logo-item text-center "><a
+                                      href="customers/juventus-f-c.html"
+                                      class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                      <img height="76" width="120" loading="lazy"
+                                        data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/Juventus-logo.jpg"
+                                        src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo2cd4.jpg?width=120&amp;height=76&amp;name=Juventus-logo.jpg"
+                                        alt="Juventus F.C."
+                                        srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo.jpg?width=60&amp;height=38&amp;name=Juventus-logo.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo.jpg?width=120&amp;height=76&amp;name=Juventus-logo.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo.jpg?width=180&amp;height=114&amp;name=Juventus-logo.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo.jpg?width=240&amp;height=152&amp;name=Juventus-logo.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo.jpg?width=300&amp;height=190&amp;name=Juventus-logo.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo.jpg?width=360&amp;height=228&amp;name=Juventus-logo.jpg 360w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+
+                                    </a></div>
+                                </div>
+                                <div class="col-auto col-item-logo px-4 py-2 ">
+                                  <div class="logos-mod__logo logo-item text-center ">
+                                    <span class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                      <img height="76" width="120" loading="lazy"
+                                        data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/bikeshop-2-copy.png"
+                                        src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/bikeshop-2-copya47d.png?width=120&amp;height=76&amp;name=bikeshop-2-copy.png"
+                                        alt=""
+                                        srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/bikeshop-2-copy.png?width=60&amp;height=38&amp;name=bikeshop-2-copy.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/bikeshop-2-copy.png?width=120&amp;height=76&amp;name=bikeshop-2-copy.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/bikeshop-2-copy.png?width=180&amp;height=114&amp;name=bikeshop-2-copy.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/bikeshop-2-copy.png?width=240&amp;height=152&amp;name=bikeshop-2-copy.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/bikeshop-2-copy.png?width=300&amp;height=190&amp;name=bikeshop-2-copy.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/bikeshop-2-copy.png?width=360&amp;height=228&amp;name=bikeshop-2-copy.png 360w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+                                    </span>
+                                  </div>
+                                </div>
+                                <div class="col-auto col-item-logo px-4 py-2 ">
+                                  <div class="logos-mod__logo logo-item text-center ">
+                                    <span class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                      <img height="76" width="120" loading="lazy"
+                                        data-src="https://491011.fs1.hubspotusercontent-na1.net/hubfs/491011/CS%20logo%20Titan22.jpg"
+                                        src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Titan227b55.jpg?width=120&amp;height=76&amp;name=CS%20logo%20Titan22.jpg"
+                                        alt="Titan22"
+                                        srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Titan22.jpg?width=60&amp;height=38&amp;name=CS%20logo%20Titan22.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Titan22.jpg?width=120&amp;height=76&amp;name=CS%20logo%20Titan22.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Titan22.jpg?width=180&amp;height=114&amp;name=CS%20logo%20Titan22.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Titan22.jpg?width=240&amp;height=152&amp;name=CS%20logo%20Titan22.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Titan22.jpg?width=300&amp;height=190&amp;name=CS%20logo%20Titan22.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Titan22.jpg?width=360&amp;height=228&amp;name=CS%20logo%20Titan22.jpg 360w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+                                    </span>
+                                  </div>
+                                </div>
+                                <div class="col-auto col-item-logo px-4 py-2 ">
+                                  <div class="logos-mod__logo logo-item text-center "><a
+                                      href="customers/eurokangas.html"
+                                      class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                      <img height="76" width="120" loading="lazy"
+                                        data-src="https://f.hubspotusercontent10.net/hubfs/491011/CS%20logo%20Eurokangas.jpg"
+                                        src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Eurokangase425.jpg?width=120&amp;height=76&amp;name=CS%20logo%20Eurokangas.jpg"
+                                        alt="Eurokangas"
+                                        srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Eurokangas.jpg?width=60&amp;height=38&amp;name=CS%20logo%20Eurokangas.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Eurokangas.jpg?width=120&amp;height=76&amp;name=CS%20logo%20Eurokangas.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Eurokangas.jpg?width=180&amp;height=114&amp;name=CS%20logo%20Eurokangas.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Eurokangas.jpg?width=240&amp;height=152&amp;name=CS%20logo%20Eurokangas.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Eurokangas.jpg?width=300&amp;height=190&amp;name=CS%20logo%20Eurokangas.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%20Eurokangas.jpg?width=360&amp;height=228&amp;name=CS%20logo%20Eurokangas.jpg 360w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+
+                                    </a></div>
+                                </div>
+                                <div class="col-auto col-item-logo px-4 py-2 ">
+                                  <div class="logos-mod__logo logo-item text-center ">
+                                    <span class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                      <img height="76" width="120" loading="lazy"
+                                        data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/Le-coq-sportif-logo.png"
+                                        src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Le-coq-sportif-logo4353.png?width=120&amp;height=76&amp;name=Le-coq-sportif-logo.png"
+                                        alt=""
+                                        srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Le-coq-sportif-logo.png?width=60&amp;height=38&amp;name=Le-coq-sportif-logo.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Le-coq-sportif-logo.png?width=120&amp;height=76&amp;name=Le-coq-sportif-logo.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Le-coq-sportif-logo.png?width=180&amp;height=114&amp;name=Le-coq-sportif-logo.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Le-coq-sportif-logo.png?width=240&amp;height=152&amp;name=Le-coq-sportif-logo.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Le-coq-sportif-logo.png?width=300&amp;height=190&amp;name=Le-coq-sportif-logo.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Le-coq-sportif-logo.png?width=360&amp;height=228&amp;name=Le-coq-sportif-logo.png 360w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+                                    </span>
+                                  </div>
+                                </div>
+                                <div class="col-auto col-item-logo px-4 py-2 ">
+                                  <div class="logos-mod__logo logo-item text-center "><a
+                                      href="customers/gieves-hawkes.html"
+                                      class="logo-item__icon d-lg-inline-block py-2 logo-item--black">
+
+                                      <img height="76" width="120" loading="lazy"
+                                        data-src="https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/gieves-and-hawkes-Recovered-copy.png"
+                                        src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/gieves-and-hawkes-Recovered-copybd4d.png?width=120&amp;height=76&amp;name=gieves-and-hawkes-Recovered-copy.png"
+                                        alt="Gieves &amp; Hawkes"
+                                        srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/gieves-and-hawkes-Recovered-copy.png?width=60&amp;height=38&amp;name=gieves-and-hawkes-Recovered-copy.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/gieves-and-hawkes-Recovered-copy.png?width=120&amp;height=76&amp;name=gieves-and-hawkes-Recovered-copy.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/gieves-and-hawkes-Recovered-copy.png?width=180&amp;height=114&amp;name=gieves-and-hawkes-Recovered-copy.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/gieves-and-hawkes-Recovered-copy.png?width=240&amp;height=152&amp;name=gieves-and-hawkes-Recovered-copy.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/gieves-and-hawkes-Recovered-copy.png?width=300&amp;height=190&amp;name=gieves-and-hawkes-Recovered-copy.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/gieves-and-hawkes-Recovered-copy.png?width=360&amp;height=228&amp;name=gieves-and-hawkes-Recovered-copy.png 360w"
+                                        sizes="(max-width: 120px) 100vw, 120px">
+
+                                    </a></div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div><!--end widget-span -->
+                        </div><!--end row-->
+                      </div><!--end row-wrapper -->
+
+                    </div><!--end widget-span -->
+                  </div><!--end row-->
+                </div><!--end row-wrapper -->
+
+                <div class="row-fluid-wrapper row-depth-1 row-number-4 dnd-section">
+                  <div class="row-fluid ">
+                    <div class="span12 widget-span widget-type-cell dnd-column" style="" data-widget-type="cell"
+                      data-x="0" data-w="12">
+
+                      <div class="row-fluid-wrapper row-depth-1 row-number-5 dnd-row">
+                        <div class="row-fluid ">
+                          <div class="span12 widget-span widget-type-custom_widget dnd-module" style=""
+                            data-widget-type="custom_widget" data-x="0" data-w="12">
+                            <div id="hs_cos_wrapper_widget_1663376133416"
+                              class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=""
+                              data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+
+
+
+
+
+                              <div class="cards-mod bg-image  none">
+
+
+
+
+
+                                <div class="bg-image__wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                  <img class="bg-image__image  bg-image--contain bg-image--TOP_LEFT d-block"
+                                    src="hubfs/shape-15-left-A.svg" alt="background image" loading="lazy" width="3000">
+
+
+
+
+
+
+                                </div>
+
+
+                                <div class="container">
+                                  <div class="row justify-content-center">
+                                    <div class="col-lg-9">
+
+                                      <div class="cards-mod__heading text-center text-center">
+
+
+                                        <span
+                                          class="card-item__stitle overline d-block mb-2 text-secondary_3 text-uppercase">
+
+
+
+                                          PRODUCTS
+
+
+
+                                        </span>
+
+
+
+
+
+
+
+
+
+
+
+                                        <h2 class="text-secondary_1 h2 cards-mod__title mb-3 font-bold">Find your LS
+                                          Retail software solution</h2>
+
+
+
+
+
+
+
+
+
+                                        <div class="cards-mod__rtext text-body-lg none">
+
+
+
+                                          <p>We have a complete software platform, from POS to ERP, that meets your
+                                            needs — whatever your industry, business size or target market.</p>
+
+
+
+                                        </div>
+
+
+                                      </div>
+                                    </div>
+                                  </div>
+
+
+
+                                  <div class="cards-mod__cards cards-mod__cards--3cols pt-4 pt-lg-5">
+                                    <div class="row justify-content-lg-evenly">
+
+
+
+
+
+                                      <div class="col-md-6 col-lg-4 pb-3 mb-3">
+                                        <div class="cards-mod__box card-item bg_image text-left bg-white">
+
+
+
+
+
+
+
+                                          <div class="cards-mod__boxInner font-light">
+
+
+
+
+
+
+
+                                            <div class="card-item__icon mb-3">
+
+
+
+
+
+                                              <img class=""
+                                                src="hs-fs/hubfs/s2_assets/logo/ls-central-logo7775.png?width=225&amp;height=40&amp;name=ls-central-logo.png"
+                                                alt="ls-central-logo" loading="lazy" width="225" height="40"
+                                                srcset="https://www.lsretail.com/hs-fs/hubfs/s2_assets/logo/ls-central-logo.png?width=113&amp;height=20&amp;name=ls-central-logo.png 113w, https://www.lsretail.com/hs-fs/hubfs/s2_assets/logo/ls-central-logo.png?width=225&amp;height=40&amp;name=ls-central-logo.png 225w, https://www.lsretail.com/hs-fs/hubfs/s2_assets/logo/ls-central-logo.png?width=338&amp;height=60&amp;name=ls-central-logo.png 338w, https://www.lsretail.com/hs-fs/hubfs/s2_assets/logo/ls-central-logo.png?width=450&amp;height=80&amp;name=ls-central-logo.png 450w, https://www.lsretail.com/hs-fs/hubfs/s2_assets/logo/ls-central-logo.png?width=563&amp;height=100&amp;name=ls-central-logo.png 563w, https://www.lsretail.com/hs-fs/hubfs/s2_assets/logo/ls-central-logo.png?width=675&amp;height=120&amp;name=ls-central-logo.png 675w"
+                                                sizes="(max-width: 225px) 100vw, 225px">
+
+
+                                            </div>
+
+
+
+
+
+
+
+
+
+                                            <div class="card-item__subtext text-text">
+                                              <p><strong>Unified business management software (includes POS and
+                                                  ERP)</strong></p>
+                                              <p>LS Central is a fully integrated software solution that gives you a
+                                                complete overview of your business operations from the point of sale to
+                                                back-office and beyond.</p>
+                                            </div>
+
+
+                                          </div>
+
+                                          <div class="card-item__ctaWrap">
+
+
+                                            <span id="hs_cos_wrapper_widget_1663376133416_"
+                                              class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_cta"
+                                              style="" data-hs-cos-general-type="widget"
+                                              data-hs-cos-type="cta"><!--HubSpot Call-to-Action Code --><span
+                                                class="hs-cta-wrapper"
+                                                id="hs-cta-wrapper-a21b3544-03c3-4099-a5df-a8ccff051dd4"><span
+                                                  class="hs-cta-node hs-cta-a21b3544-03c3-4099-a5df-a8ccff051dd4"
+                                                  id="hs-cta-a21b3544-03c3-4099-a5df-a8ccff051dd4"><!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]--><a
+                                                    href="https://cta-redirect.hubspot.com/cta/redirect/491011/a21b3544-03c3-4099-a5df-a8ccff051dd4"><img
+                                                      class="hs-cta-img"
+                                                      id="hs-cta-img-a21b3544-03c3-4099-a5df-a8ccff051dd4"
+                                                      style="border-width:0px;"
+                                                      src="../no-cache.hubspot.com/cta/default/491011/a21b3544-03c3-4099-a5df-a8ccff051dd4.png"
+                                                      alt="LS Central for retail"></a></span>
+                                                <script charset="utf-8" src="hs/cta/cta/current.js"></script>
+                                                <script
+                                                  type="text/javascript"> hbspt.cta._relativeUrls = true; hbspt.cta.load(491011, 'a21b3544-03c3-4099-a5df-a8ccff051dd4', { "useNewLoader": "true", "region": "na1" }); </script>
+                                              </span><!-- end HubSpot Call-to-Action Code --></span>
+
+
+
+                                            <span id="hs_cos_wrapper_widget_1663376133416_"
+                                              class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_cta"
+                                              style="" data-hs-cos-general-type="widget" data-hs-cos-type="cta"></span>
+
+
+
+                                            <span id="hs_cos_wrapper_widget_1663376133416_"
+                                              class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_cta"
+                                              style="" data-hs-cos-general-type="widget"
+                                              data-hs-cos-type="cta"><!--HubSpot Call-to-Action Code --><span
+                                                class="hs-cta-wrapper"
+                                                id="hs-cta-wrapper-5b632840-400d-46d7-b194-35a41855b6b4"><span
+                                                  class="hs-cta-node hs-cta-5b632840-400d-46d7-b194-35a41855b6b4"
+                                                  id="hs-cta-5b632840-400d-46d7-b194-35a41855b6b4"><!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]--><a
+                                                    href="https://cta-redirect.hubspot.com/cta/redirect/491011/5b632840-400d-46d7-b194-35a41855b6b4"><img
+                                                      class="hs-cta-img"
+                                                      id="hs-cta-img-5b632840-400d-46d7-b194-35a41855b6b4"
+                                                      style="border-width:0px;"
+                                                      src="../no-cache.hubspot.com/cta/default/491011/5b632840-400d-46d7-b194-35a41855b6b4.png"
+                                                      alt="LS Central for restaurants"></a></span>
+                                                <script charset="utf-8" src="hs/cta/cta/current.js"></script>
+                                                <script
+                                                  type="text/javascript"> hbspt.cta._relativeUrls = true; hbspt.cta.load(491011, '5b632840-400d-46d7-b194-35a41855b6b4', { "useNewLoader": "true", "region": "na1" }); </script>
+                                              </span><!-- end HubSpot Call-to-Action Code --></span>
+
+
+
+                                            <span id="hs_cos_wrapper_widget_1663376133416_"
+                                              class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_cta"
+                                              style="" data-hs-cos-general-type="widget"
+                                              data-hs-cos-type="cta"><!--HubSpot Call-to-Action Code --><span
+                                                class="hs-cta-wrapper"
+                                                id="hs-cta-wrapper-28a58186-b278-4bae-a21e-3cc4b867f9f3"><span
+                                                  class="hs-cta-node hs-cta-28a58186-b278-4bae-a21e-3cc4b867f9f3"
+                                                  id="hs-cta-28a58186-b278-4bae-a21e-3cc4b867f9f3"><!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]--><a
+                                                    href="https://cta-redirect.hubspot.com/cta/redirect/491011/28a58186-b278-4bae-a21e-3cc4b867f9f3"><img
+                                                      class="hs-cta-img"
+                                                      id="hs-cta-img-28a58186-b278-4bae-a21e-3cc4b867f9f3"
+                                                      style="border-width:0px;"
+                                                      src="../no-cache.hubspot.com/cta/default/491011/28a58186-b278-4bae-a21e-3cc4b867f9f3.png"
+                                                      alt="LS Central for hotels"></a></span>
+                                                <script charset="utf-8" src="hs/cta/cta/current.js"></script>
+                                                <script
+                                                  type="text/javascript"> hbspt.cta._relativeUrls = true; hbspt.cta.load(491011, '28a58186-b278-4bae-a21e-3cc4b867f9f3', { "useNewLoader": "true", "region": "na1" }); </script>
+                                              </span><!-- end HubSpot Call-to-Action Code --></span>
+
+
+
+                                            <span id="hs_cos_wrapper_widget_1663376133416_"
+                                              class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_cta"
+                                              style="" data-hs-cos-general-type="widget"
+                                              data-hs-cos-type="cta"><!--HubSpot Call-to-Action Code --><span
+                                                class="hs-cta-wrapper"
+                                                id="hs-cta-wrapper-46b623c3-ec2d-4347-b2d5-66b3c6640063"><span
+                                                  class="hs-cta-node hs-cta-46b623c3-ec2d-4347-b2d5-66b3c6640063"
+                                                  id="hs-cta-46b623c3-ec2d-4347-b2d5-66b3c6640063"><!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]--><a
+                                                    href="https://cta-redirect.hubspot.com/cta/redirect/491011/46b623c3-ec2d-4347-b2d5-66b3c6640063"><img
+                                                      class="hs-cta-img"
+                                                      id="hs-cta-img-46b623c3-ec2d-4347-b2d5-66b3c6640063"
+                                                      style="border-width:0px;"
+                                                      src="../no-cache.hubspot.com/cta/default/491011/46b623c3-ec2d-4347-b2d5-66b3c6640063.png"
+                                                      alt="LS Central for pharmacies"></a></span>
+                                                <script charset="utf-8" src="hs/cta/cta/current.js"></script>
+                                                <script
+                                                  type="text/javascript"> hbspt.cta._relativeUrls = true; hbspt.cta.load(491011, '46b623c3-ec2d-4347-b2d5-66b3c6640063', { "useNewLoader": "true", "region": "na1" }); </script>
+                                              </span><!-- end HubSpot Call-to-Action Code --></span>
+
+
+
+                                            <span id="hs_cos_wrapper_widget_1663376133416_"
+                                              class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_cta"
+                                              style="" data-hs-cos-general-type="widget"
+                                              data-hs-cos-type="cta"><!--HubSpot Call-to-Action Code --><span
+                                                class="hs-cta-wrapper"
+                                                id="hs-cta-wrapper-8a64e08a-fe35-4b58-a595-99efb714bc39"><span
+                                                  class="hs-cta-node hs-cta-8a64e08a-fe35-4b58-a595-99efb714bc39"
+                                                  id="hs-cta-8a64e08a-fe35-4b58-a595-99efb714bc39"><!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]--><a
+                                                    href="https://cta-redirect.hubspot.com/cta/redirect/491011/8a64e08a-fe35-4b58-a595-99efb714bc39"><img
+                                                      class="hs-cta-img"
+                                                      id="hs-cta-img-8a64e08a-fe35-4b58-a595-99efb714bc39"
+                                                      style="border-width:0px;"
+                                                      src="../no-cache.hubspot.com/cta/default/491011/8a64e08a-fe35-4b58-a595-99efb714bc39.png"
+                                                      alt="LS Central for forecourt"></a></span>
+                                                <script charset="utf-8" src="hs/cta/cta/current.js"></script>
+                                                <script
+                                                  type="text/javascript"> hbspt.cta._relativeUrls = true; hbspt.cta.load(491011, '8a64e08a-fe35-4b58-a595-99efb714bc39', { "useNewLoader": "true", "region": "na1" }); </script>
+                                              </span><!-- end HubSpot Call-to-Action Code --></span>
+
+
+                                          </div>
+
+
+
+
+                                        </div>
+                                      </div>
+
+
+                                      <div class="col-md-6 col-lg-4 pb-3 mb-3">
+                                        <div class="cards-mod__box card-item bg_image text-left bg-white">
+
+
+
+
+
+
+
+                                          <div class="cards-mod__boxInner font-light">
+
+
+
+
+
+                                            <div class="card-item__icon mb-3">
+
+
+
+
+
+                                              <img class=""
+                                                src="hs-fs/hubfs/s2_assets/logo/ls-express-logo7b00.png?width=235&amp;height=40&amp;name=ls-express-logo.png"
+                                                alt="ls-express-logo" loading="lazy" width="235" height="40"
+                                                srcset="https://www.lsretail.com/hs-fs/hubfs/s2_assets/logo/ls-express-logo.png?width=118&amp;height=20&amp;name=ls-express-logo.png 118w, https://www.lsretail.com/hs-fs/hubfs/s2_assets/logo/ls-express-logo.png?width=235&amp;height=40&amp;name=ls-express-logo.png 235w, https://www.lsretail.com/hs-fs/hubfs/s2_assets/logo/ls-express-logo.png?width=353&amp;height=60&amp;name=ls-express-logo.png 353w, https://www.lsretail.com/hs-fs/hubfs/s2_assets/logo/ls-express-logo.png?width=470&amp;height=80&amp;name=ls-express-logo.png 470w, https://www.lsretail.com/hs-fs/hubfs/s2_assets/logo/ls-express-logo.png?width=588&amp;height=100&amp;name=ls-express-logo.png 588w, https://www.lsretail.com/hs-fs/hubfs/s2_assets/logo/ls-express-logo.png?width=705&amp;height=120&amp;name=ls-express-logo.png 705w"
+                                                sizes="(max-width: 235px) 100vw, 235px">
+
+
+                                            </div>
+
+
+
+
+
+
+
+
+
+                                            <div class="card-item__subtext text-text">
+                                              <p><strong>Retail system for small retailers (includes POS and
+                                                  ERP)</strong></p>
+                                              <p>LS Express is the online POS and retail software solution for one-store
+                                                retailers. It’s a native app for Microsoft Dynamics 365 Business
+                                                Central.</p>
+                                            </div>
+
+
+                                          </div>
+
+                                          <div class="card-item__ctaWrap">
+
+
+                                            <span id="hs_cos_wrapper_widget_1663376133416_"
+                                              class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_cta"
+                                              style="" data-hs-cos-general-type="widget"
+                                              data-hs-cos-type="cta"><!--HubSpot Call-to-Action Code --><span
+                                                class="hs-cta-wrapper"
+                                                id="hs-cta-wrapper-5f6356df-e6f0-4379-add9-ac1ca750e17d"><span
+                                                  class="hs-cta-node hs-cta-5f6356df-e6f0-4379-add9-ac1ca750e17d"
+                                                  id="hs-cta-5f6356df-e6f0-4379-add9-ac1ca750e17d"><!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]--><a
+                                                    href="https://cta-redirect.hubspot.com/cta/redirect/491011/5f6356df-e6f0-4379-add9-ac1ca750e17d"><img
+                                                      class="hs-cta-img"
+                                                      id="hs-cta-img-5f6356df-e6f0-4379-add9-ac1ca750e17d"
+                                                      style="border-width:0px;"
+                                                      src="../no-cache.hubspot.com/cta/default/491011/5f6356df-e6f0-4379-add9-ac1ca750e17d.png"
+                                                      alt="LS Express for retail"></a></span>
+                                                <script charset="utf-8" src="hs/cta/cta/current.js"></script>
+                                                <script
+                                                  type="text/javascript"> hbspt.cta._relativeUrls = true; hbspt.cta.load(491011, '5f6356df-e6f0-4379-add9-ac1ca750e17d', { "useNewLoader": "true", "region": "na1" }); </script>
+                                              </span><!-- end HubSpot Call-to-Action Code --></span>
+
+
+                                          </div>
+
+
+
+
+                                        </div>
+                                      </div>
+
+
+
+
+
+
+                                    </div>
+                                  </div>
+
+
+
+
+                                </div>
+
+                              </div>
+                            </div>
+
+                          </div><!--end widget-span -->
+                        </div><!--end row-->
+                      </div><!--end row-wrapper -->
+
+                    </div><!--end widget-span -->
+                  </div><!--end row-->
+                </div><!--end row-wrapper -->
+
+                <div class="row-fluid-wrapper row-depth-1 row-number-6 dnd-section">
+                  <div class="row-fluid ">
+                    <div class="span12 widget-span widget-type-cell dnd-column" style="" data-widget-type="cell"
+                      data-x="0" data-w="12">
+
+                      <div class="row-fluid-wrapper row-depth-1 row-number-7 dnd-row">
+                        <div class="row-fluid ">
+                          <div class="span12 widget-span widget-type-custom_widget dnd-module" style=""
+                            data-widget-type="custom_widget" data-x="0" data-w="12">
+                            <div id="hs_cos_wrapper_widget_1675239261847"
+                              class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=""
+                              data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+
+
+
+
+
+
+                              <div class="tabbed-mod  ">
+
+
+
+
+
+                                <div class="bg-image__wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                  <img class="bg-image__image  bg-image--contain bg-image--TOP_RIGHT d-block"
+                                    src="hubfs/shape-15-right-A.svg" alt="background image" loading="" width="3000">
+
+
+
+
+
+
+                                </div>
+
+
+                                <div class="container">
+                                  <div class="entry">
+
+                                    <div class="tm-header text-center">
+
+                                      <span class="overline d-block text-secondary_3 text-uppercase">
+
+
+
+                                        Why LS Retail software solutions
+
+
+
+                                      </span>
+
+
+
+
+
+
+
+
+
+                                      <h2 class="text-secondary_1 section-title font-bold ">Designed for your business
+                                      </h2>
+
+
+
+
+
+                                      <div class="section-blub pb-4 mb-2">
+
+
+
+                                        Our high-quality, cost-effective and highly configurable software solutions help
+                                        <br>retailers, hospitality and forecourt businesses worldwide.
+
+
+
+                                      </div>
+
+                                    </div>
+                                    <div class="tm__navWrap">
+                                      <div class="d-block d-lg-none tm__navHeight"></div>
+
+
+
+                                      <div class="tm__nav">
+                                        <span class="selected-item">
+
+
+                                          <span class="tm-nav-lbl">Stores</span>
+
+
+
+
+
+
+
+
+                                          <span class="arrow">
+                                            <svg width="12" height="6" viewbox="0 0 12 6" fill="none"
+                                              xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M1.34473 1L6.17231 5L10.9999 1" stroke="#361D5C"
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                          </span>
+                                        </span>
+                                        <ul>
+
+                                          <li data-id="item-1" class="is-active nav-item">Stores</li>
+
+                                          <li data-id="item-2" class=" nav-item">Chains</li>
+
+                                          <li data-id="item-3" class=" nav-item">CEOs</li>
+
+                                          <li data-id="item-4" class=" nav-item">CFOs</li>
+
+                                        </ul>
+                                      </div>
+
+                                      <div class="tm-items">
+
+                                        <span id="tm-item-1" class="tm-item-wrap is-active">
+                                          <div class="tm-item ">
+                                            <div class="tm-row tm-header  ">
+
+
+
+                                              <span class="tm-item-img text-center">
+                                                <img
+                                                  src="hs-fs/hubfs/pt-homepage-stores4825.png?width=825&amp;height=600&amp;name=pt-homepage-stores.png"
+                                                  alt="pt-homepage-stores" loading="lazy" width="825" height="600"
+                                                  srcset="https://www.lsretail.com/hs-fs/hubfs/pt-homepage-stores.png?width=413&amp;height=300&amp;name=pt-homepage-stores.png 413w, https://www.lsretail.com/hs-fs/hubfs/pt-homepage-stores.png?width=825&amp;height=600&amp;name=pt-homepage-stores.png 825w, https://www.lsretail.com/hs-fs/hubfs/pt-homepage-stores.png?width=1238&amp;height=900&amp;name=pt-homepage-stores.png 1238w, https://www.lsretail.com/hs-fs/hubfs/pt-homepage-stores.png?width=1650&amp;height=1200&amp;name=pt-homepage-stores.png 1650w, https://www.lsretail.com/hs-fs/hubfs/pt-homepage-stores.png?width=2063&amp;height=1500&amp;name=pt-homepage-stores.png 2063w, https://www.lsretail.com/hs-fs/hubfs/pt-homepage-stores.png?width=2475&amp;height=1800&amp;name=pt-homepage-stores.png 2475w"
+                                                  sizes="(max-width: 825px) 100vw, 825px">
+                                              </span>
+
+                                              <span class="tm-col-ti ">
+                                                <div class="tm-ti none">
+                                                  <h3 class="h3 item-title text-secondary_1">Stores</h3>
+
+                                                  <div class="item-intro">
+                                                    <p>Enhance your staff’s performance, offer exceptional customer
+                                                      service and increase sales and loyalty.</p>
+                                                    <ul>
+                                                      <li>Manage your staff effectively</li>
+                                                      <li>Always have the right products in-store</li>
+                                                      <li>Increase your revenue with up-selling and cross-selling tools
+                                                        directly from your POS</li>
+                                                      <li>Diminish stock-outs</li>
+                                                      <li>Sell faster and more</li>
+                                                      <li>Reduce fraud and shrinkage</li>
+                                                      <li>Cut staff training times</li>
+                                                      <li>Increase loyalty across&nbsp;the channels</li>
+                                                    </ul>
+                                                  </div>
+
+
+                                                  <div class="cta-wrapper">
+
+
+
+                                                    <span id="hs_cos_wrapper_widget_1675239261847_"
+                                                      class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_cta"
+                                                      style="" data-hs-cos-general-type="widget"
+                                                      data-hs-cos-type="cta"></span>
+
+
+
+
+
+
+                                                    <span id="hs_cos_wrapper_widget_1675239261847_"
+                                                      class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_cta"
+                                                      style="" data-hs-cos-general-type="widget"
+                                                      data-hs-cos-type="cta"></span>
+
+
+
+
+
+
+                                                    <span id="hs_cos_wrapper_widget_1675239261847_"
+                                                      class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_cta"
+                                                      style="" data-hs-cos-general-type="widget"
+                                                      data-hs-cos-type="cta"></span>
+
+
+
+
+                                                  </div>
+
+                                                </div>
+                                              </span>
+                                            </div>
+                                            <div class="tm-content column-1">
+
+
+
+                                            </div>
+
+                                          </div>
+                                        </span>
+
+                                        <span id="tm-item-2" class="tm-item-wrap ">
+                                          <div class="tm-item ">
+                                            <div class="tm-row tm-header  ">
+
+
+
+                                              <span class="tm-item-img text-center">
+                                                <img
+                                                  src="hs-fs/hubfs/pt-homepage-chains658e.png?width=824&amp;height=600&amp;name=pt-homepage-chains.png"
+                                                  alt="pt-homepage-chains" loading="lazy" width="824" height="600"
+                                                  srcset="https://www.lsretail.com/hs-fs/hubfs/pt-homepage-chains.png?width=412&amp;height=300&amp;name=pt-homepage-chains.png 412w, https://www.lsretail.com/hs-fs/hubfs/pt-homepage-chains.png?width=824&amp;height=600&amp;name=pt-homepage-chains.png 824w, https://www.lsretail.com/hs-fs/hubfs/pt-homepage-chains.png?width=1236&amp;height=900&amp;name=pt-homepage-chains.png 1236w, https://www.lsretail.com/hs-fs/hubfs/pt-homepage-chains.png?width=1648&amp;height=1200&amp;name=pt-homepage-chains.png 1648w, https://www.lsretail.com/hs-fs/hubfs/pt-homepage-chains.png?width=2060&amp;height=1500&amp;name=pt-homepage-chains.png 2060w, https://www.lsretail.com/hs-fs/hubfs/pt-homepage-chains.png?width=2472&amp;height=1800&amp;name=pt-homepage-chains.png 2472w"
+                                                  sizes="(max-width: 824px) 100vw, 824px">
+                                              </span>
+
+                                              <span class="tm-col-ti ">
+                                                <div class="tm-ti none">
+                                                  <h3 class="h3 item-title text-secondary_1">Chains</h3>
+
+                                                  <div class="item-intro">
+                                                    <p>Use our software solutions to gain:</p>
+                                                    <ul>
+                                                      <li>Control over your own locations and franchisees</li>
+                                                      <li>Total overview of stock</li>
+                                                      <li>Central administration of products and prices</li>
+                                                      <li>Cost-effective purchasing and replenishment</li>
+                                                      <li>Flexibility to add POS and deploy new stores</li>
+                                                      <li>Optimal allocation of items and products</li>
+                                                      <li>Performance measurements per location</li>
+                                                      <li>Central management of campaigns, special offers and promotions
+                                                        for all your locations and sales channels.</li>
+                                                    </ul>
+                                                  </div>
+
+
+                                                  <div class="cta-wrapper">
+
+
+
+                                                    <span id="hs_cos_wrapper_widget_1675239261847_"
+                                                      class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_cta"
+                                                      style="" data-hs-cos-general-type="widget"
+                                                      data-hs-cos-type="cta"></span>
+
+
+
+
+
+
+                                                    <span id="hs_cos_wrapper_widget_1675239261847_"
+                                                      class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_cta"
+                                                      style="" data-hs-cos-general-type="widget"
+                                                      data-hs-cos-type="cta"></span>
+
+
+
+
+
+
+                                                    <span id="hs_cos_wrapper_widget_1675239261847_"
+                                                      class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_cta"
+                                                      style="" data-hs-cos-general-type="widget"
+                                                      data-hs-cos-type="cta"></span>
+
+
+
+
+                                                  </div>
+
+                                                </div>
+                                              </span>
+                                            </div>
+                                            <div class="tm-content column-1">
+
+
+
+                                            </div>
+
+                                          </div>
+                                        </span>
+
+                                        <span id="tm-item-3" class="tm-item-wrap ">
+                                          <div class="tm-item ">
+                                            <div class="tm-row tm-header  ">
+
+
+
+                                              <span class="tm-item-img text-center">
+                                                <img
+                                                  src="hs-fs/hubfs/pt-homepage-ceo14ad.png?width=824&amp;height=600&amp;name=pt-homepage-ceo.png"
+                                                  alt="pt-homepage-ceo" loading="lazy" width="824" height="600"
+                                                  srcset="https://www.lsretail.com/hs-fs/hubfs/pt-homepage-ceo.png?width=412&amp;height=300&amp;name=pt-homepage-ceo.png 412w, https://www.lsretail.com/hs-fs/hubfs/pt-homepage-ceo.png?width=824&amp;height=600&amp;name=pt-homepage-ceo.png 824w, https://www.lsretail.com/hs-fs/hubfs/pt-homepage-ceo.png?width=1236&amp;height=900&amp;name=pt-homepage-ceo.png 1236w, https://www.lsretail.com/hs-fs/hubfs/pt-homepage-ceo.png?width=1648&amp;height=1200&amp;name=pt-homepage-ceo.png 1648w, https://www.lsretail.com/hs-fs/hubfs/pt-homepage-ceo.png?width=2060&amp;height=1500&amp;name=pt-homepage-ceo.png 2060w, https://www.lsretail.com/hs-fs/hubfs/pt-homepage-ceo.png?width=2472&amp;height=1800&amp;name=pt-homepage-ceo.png 2472w"
+                                                  sizes="(max-width: 824px) 100vw, 824px">
+                                              </span>
+
+                                              <span class="tm-col-ti ">
+                                                <div class="tm-ti none">
+                                                  <h3 class="h3 item-title text-secondary_1">CEOs</h3>
+
+                                                  <div class="item-intro">
+                                                    <ul>
+                                                      <li>Get control over your business and grow it in the most
+                                                        profitable direction</li>
+                                                      <li>Reduce risks, as the business is driven by procedures and KPIs
+                                                        rather than core people</li>
+                                                      <li>Oversee the whole value chain</li>
+                                                      <li>Expand your business&nbsp;into different industries and
+                                                        geographies</li>
+                                                      <li>Manage your business wherever you are: our software solutions
+                                                        are cloud-enabled</li>
+                                                      <li>React to change nimbly and gain a competitive edge</li>
+                                                    </ul>
+                                                  </div>
+
+
+                                                  <div class="cta-wrapper">
+
+
+
+                                                    <span id="hs_cos_wrapper_widget_1675239261847_"
+                                                      class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_cta"
+                                                      style="" data-hs-cos-general-type="widget"
+                                                      data-hs-cos-type="cta"></span>
+
+
+
+
+
+
+                                                    <span id="hs_cos_wrapper_widget_1675239261847_"
+                                                      class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_cta"
+                                                      style="" data-hs-cos-general-type="widget"
+                                                      data-hs-cos-type="cta"></span>
+
+
+
+
+
+
+                                                    <span id="hs_cos_wrapper_widget_1675239261847_"
+                                                      class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_cta"
+                                                      style="" data-hs-cos-general-type="widget"
+                                                      data-hs-cos-type="cta"></span>
+
+
+
+
+                                                  </div>
+
+                                                </div>
+                                              </span>
+                                            </div>
+                                            <div class="tm-content column-1">
+
+
+
+                                            </div>
+
+                                          </div>
+                                        </span>
+
+                                        <span id="tm-item-4" class="tm-item-wrap ">
+                                          <div class="tm-item ">
+                                            <div class="tm-row tm-header  ">
+
+
+
+                                              <span class="tm-item-img text-center">
+                                                <img
+                                                  src="hs-fs/hubfs/pt-homepage-cfo8327.png?width=825&amp;height=600&amp;name=pt-homepage-cfo.png"
+                                                  alt="pt-homepage-cfo" loading="lazy" width="825" height="600"
+                                                  srcset="https://www.lsretail.com/hs-fs/hubfs/pt-homepage-cfo.png?width=413&amp;height=300&amp;name=pt-homepage-cfo.png 413w, https://www.lsretail.com/hs-fs/hubfs/pt-homepage-cfo.png?width=825&amp;height=600&amp;name=pt-homepage-cfo.png 825w, https://www.lsretail.com/hs-fs/hubfs/pt-homepage-cfo.png?width=1238&amp;height=900&amp;name=pt-homepage-cfo.png 1238w, https://www.lsretail.com/hs-fs/hubfs/pt-homepage-cfo.png?width=1650&amp;height=1200&amp;name=pt-homepage-cfo.png 1650w, https://www.lsretail.com/hs-fs/hubfs/pt-homepage-cfo.png?width=2063&amp;height=1500&amp;name=pt-homepage-cfo.png 2063w, https://www.lsretail.com/hs-fs/hubfs/pt-homepage-cfo.png?width=2475&amp;height=1800&amp;name=pt-homepage-cfo.png 2475w"
+                                                  sizes="(max-width: 825px) 100vw, 825px">
+                                              </span>
+
+                                              <span class="tm-col-ti ">
+                                                <div class="tm-ti none">
+                                                  <h3 class="h3 item-title text-secondary_1">CFOs</h3>
+
+                                                  <div class="item-intro">
+                                                    <p>Gain an in-depth view of all aspects of your whole operation,
+                                                      including stores, inventory, basket size and financials analysis:
+                                                    </p>
+                                                    <ul>
+                                                      <li>Total visibility of all transactions from POS to accounting
+                                                      </li>
+                                                      <li>Stock management</li>
+                                                      <li>Reports on store performance</li>
+                                                      <li>Sales reports and statistics</li>
+                                                      <li>Management of payable and receivable accounts</li>
+                                                      <li>Basket and profit &amp; loss analysis</li>
+                                                      <li>Detailed balance sheet analysis tools</li>
+                                                      <li>Reduced system management costs</li>
+                                                    </ul>
+                                                  </div>
+
+
+                                                  <div class="cta-wrapper">
+
+
+
+                                                    <span id="hs_cos_wrapper_widget_1675239261847_"
+                                                      class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_cta"
+                                                      style="" data-hs-cos-general-type="widget"
+                                                      data-hs-cos-type="cta"></span>
+
+
+
+
+
+
+                                                    <span id="hs_cos_wrapper_widget_1675239261847_"
+                                                      class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_cta"
+                                                      style="" data-hs-cos-general-type="widget"
+                                                      data-hs-cos-type="cta"></span>
+
+
+
+
+
+
+                                                    <span id="hs_cos_wrapper_widget_1675239261847_"
+                                                      class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_cta"
+                                                      style="" data-hs-cos-general-type="widget"
+                                                      data-hs-cos-type="cta"></span>
+
+
+
+
+                                                  </div>
+
+                                                </div>
+                                              </span>
+                                            </div>
+                                            <div class="tm-content column-1">
+
+
+
+                                            </div>
+
+                                          </div>
+                                        </span>
+
+                                      </div>
+
+
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+
+                            </div>
+
+                          </div><!--end widget-span -->
+                        </div><!--end row-->
+                      </div><!--end row-wrapper -->
+
+                    </div><!--end widget-span -->
+                  </div><!--end row-->
+                </div><!--end row-wrapper -->
+
+                <div class="row-fluid-wrapper row-depth-1 row-number-8 dnd-section">
+                  <div class="row-fluid ">
+                    <div class="span12 widget-span widget-type-cell dnd-column" style="" data-widget-type="cell"
+                      data-x="0" data-w="12">
+
+                      <div class="row-fluid-wrapper row-depth-1 row-number-9 dnd-row">
+                        <div class="row-fluid ">
+                          <div class="span12 widget-span widget-type-custom_widget dnd-module" style=""
+                            data-widget-type="custom_widget" data-x="0" data-w="12">
+                            <div id="hs_cos_wrapper_widget_1663391336813"
+                              class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=""
+                              data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+
+
+
+
+
+
+
+
+
+                              <div class="testimonials bg-image  bg-muted">
+
+
+
+
+
+
+                                <div class="container">
+                                  <div class="row justify-content-center">
+                                    <div class="col-lg-9">
+
+                                      <div class="testimonials__heading text-center text-center">
+
+                                        <span class="card-item__stitle overline d-block mb-4 text-secondary_3 ">
+
+
+
+                                          testimonials
+
+
+
+                                        </span>
+
+
+
+
+
+
+
+
+
+
+
+                                        <h2 class="text-secondary_1 h2 testimonials__title mb-3 font-bold">What our
+                                          customers say about our software solutions</h2>
+
+
+
+
+
+
+
+
+
+
+                                      </div>
+                                    </div>
+                                  </div>
+
+
+
+                                  <div class="testimonials__cards pt-4 pt-lg-5">
+                                    <div class="row testimonials__cards-wrap">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                      <div class="col-md-4">
+                                        <div
+                                          class="testimonials__box testimonials__box1 px-3 bg_image text-center text-lg-center">
+
+
+
+
+
+                                          <div class="testimonials__box testimonials__box--inner">
+                                            <div class="testimonials__box--copy">
+                                              <div class="card-item__icon mb-3">
+                                                <img height="76" width="120" loading="lazy" style="margin:0 auto"
+                                                  data-src=" https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/Gran-Jonquera-logo.jpg"
+                                                  src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gran-Jonquera-logoc45a.jpg?width=120&amp;height=76&amp;name=Gran-Jonquera-logo.jpg"
+                                                  alt="Gran Jonquera Outlet &amp; Shopping"
+                                                  srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gran-Jonquera-logo.jpg?width=60&amp;height=38&amp;name=Gran-Jonquera-logo.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gran-Jonquera-logo.jpg?width=120&amp;height=76&amp;name=Gran-Jonquera-logo.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gran-Jonquera-logo.jpg?width=180&amp;height=114&amp;name=Gran-Jonquera-logo.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gran-Jonquera-logo.jpg?width=240&amp;height=152&amp;name=Gran-Jonquera-logo.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gran-Jonquera-logo.jpg?width=300&amp;height=190&amp;name=Gran-Jonquera-logo.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Gran-Jonquera-logo.jpg?width=360&amp;height=228&amp;name=Gran-Jonquera-logo.jpg 360w"
+                                                  sizes="(max-width: 120px) 100vw, 120px">
+                                              </div>
+
+
+                                              <div class="card-item__subtext font-regular text-text">
+                                                <div class="card-item__subtext--inner">
+                                                  <p>Managing over 11,000 product codes, more than 20,000 annual
+                                                    deliveries and thousands of product lines, required to have a
+                                                    reliable and robust software system that minimizes the chances of
+                                                    error.</p>
+                                                </div>
+                                              </div>
+
+                                            </div>
+                                            <div class="testimonials__box--info">
+                                              <div class="card-item__infoWrap">
+
+                                                <div class="card-item__info ">
+
+                                                  <strong class="card-item__name text-secondary_2">Albert
+                                                    Puigvert</strong>
+
+
+                                                  <span class="card-item__jobTitle d-block text-secondary_1">Project
+                                                    Manager</span>
+
+                                                </div>
+
+                                              </div>
+                                              <a href="customers/gran-jonquera-outlet-shopping.html" class="btn mt-4">
+                                                Read Success Story
+
+                                              </a>
+                                            </div>
+                                          </div>
+
+
+
+                                        </div>
+                                      </div>
+
+
+
+
+                                      <div class="col-md-4">
+                                        <div
+                                          class="testimonials__box testimonials__box2 px-3 bg_image text-center text-lg-center">
+
+
+
+
+
+                                          <div class="testimonials__box testimonials__box--inner">
+                                            <div class="testimonials__box--copy">
+                                              <div class="card-item__icon mb-3">
+                                                <img height="76" width="120" loading="lazy" style="margin:0 auto"
+                                                  data-src=" https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/MayaMaya-logo.jpg"
+                                                  src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/MayaMaya-logob099.jpg?width=120&amp;height=76&amp;name=MayaMaya-logo.jpg"
+                                                  alt="Maya Maya"
+                                                  srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/MayaMaya-logo.jpg?width=60&amp;height=38&amp;name=MayaMaya-logo.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/MayaMaya-logo.jpg?width=120&amp;height=76&amp;name=MayaMaya-logo.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/MayaMaya-logo.jpg?width=180&amp;height=114&amp;name=MayaMaya-logo.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/MayaMaya-logo.jpg?width=240&amp;height=152&amp;name=MayaMaya-logo.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/MayaMaya-logo.jpg?width=300&amp;height=190&amp;name=MayaMaya-logo.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/MayaMaya-logo.jpg?width=360&amp;height=228&amp;name=MayaMaya-logo.jpg 360w"
+                                                  sizes="(max-width: 120px) 100vw, 120px">
+                                              </div>
+
+
+                                              <div class="card-item__subtext font-regular text-text">
+                                                <div class="card-item__subtext--inner">
+                                                  <p>We chose the LS Retail software solution because it is a global
+                                                    system which we can use all over the world. As we are ready to
+                                                    expand also outside of Europe, we wanted to keep all administration
+                                                    for all the stores in one system. For this we found the LS Retail
+                                                    software solution to be the best choice.</p>
+                                                </div>
+                                              </div>
+
+                                            </div>
+                                            <div class="testimonials__box--info">
+                                              <div class="card-item__infoWrap">
+
+                                                <div class="card-item__info ">
+
+                                                  <strong class="card-item__name text-secondary_2">Vivien
+                                                    Takacs</strong>
+
+
+                                                  <span
+                                                    class="card-item__jobTitle d-block text-secondary_1">Manager</span>
+
+                                                </div>
+
+                                              </div>
+                                              <a href="customers/maya-maya.html" class="btn mt-4">
+                                                Read Success Story
+
+                                              </a>
+                                            </div>
+                                          </div>
+
+
+
+                                        </div>
+                                      </div>
+
+
+
+
+                                      <div class="col-md-4">
+                                        <div
+                                          class="testimonials__box testimonials__box3 px-3 bg_image text-center text-lg-center">
+
+
+
+
+
+                                          <div class="testimonials__box testimonials__box--inner">
+                                            <div class="testimonials__box--copy">
+                                              <div class="card-item__icon mb-3">
+                                                <img height="76" width="120" loading="lazy" style="margin:0 auto"
+                                                  data-src=" https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/petit-bateau-logo.png"
+                                                  src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/petit-bateau-logo4077.png?width=120&amp;height=76&amp;name=petit-bateau-logo.png"
+                                                  alt="Petit Bateau Japan"
+                                                  srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/petit-bateau-logo.png?width=60&amp;height=38&amp;name=petit-bateau-logo.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/petit-bateau-logo.png?width=120&amp;height=76&amp;name=petit-bateau-logo.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/petit-bateau-logo.png?width=180&amp;height=114&amp;name=petit-bateau-logo.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/petit-bateau-logo.png?width=240&amp;height=152&amp;name=petit-bateau-logo.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/petit-bateau-logo.png?width=300&amp;height=190&amp;name=petit-bateau-logo.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/petit-bateau-logo.png?width=360&amp;height=228&amp;name=petit-bateau-logo.png 360w"
+                                                  sizes="(max-width: 120px) 100vw, 120px">
+                                              </div>
+
+
+                                              <div class="card-item__subtext font-regular text-text">
+                                                <div class="card-item__subtext--inner">
+                                                  <p>Since it is now possible to drill down from the posting screen to
+                                                    the actual transaction, it has become much faster and easier to
+                                                    research and solve discrepancies prior to closing the books. After
+                                                    having used the system for 3 months, we can say that time required
+                                                    closing the books has been reduced significantly.</p>
+                                                </div>
+                                              </div>
+
+                                            </div>
+                                            <div class="testimonials__box--info">
+                                              <div class="card-item__infoWrap">
+
+                                                <div class="card-item__info ">
+
+
+                                                  <span class="card-item__jobTitle d-block text-secondary_1">Accounting
+                                                    Staff</span>
+
+                                                </div>
+
+                                              </div>
+                                              <a href="customers/petit-bateau-japan.html" class="btn mt-4">
+                                                Read Success Story
+
+                                              </a>
+                                            </div>
+                                          </div>
+
+
+
+                                        </div>
+                                      </div>
+
+
+
+
+                                      <div class="col-md-4">
+                                        <div
+                                          class="testimonials__box testimonials__box4 px-3 bg_image text-center text-lg-center">
+
+
+
+
+
+                                          <div class="testimonials__box testimonials__box--inner">
+                                            <div class="testimonials__box--copy">
+                                              <div class="card-item__icon mb-3">
+                                                <img height="76" width="120" loading="lazy" style="margin:0 auto"
+                                                  data-src=" https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/mamamia-logo.png"
+                                                  src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/mamamia-logo7278.png?width=120&amp;height=76&amp;name=mamamia-logo.png"
+                                                  alt="Mamamia"
+                                                  srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/mamamia-logo.png?width=60&amp;height=38&amp;name=mamamia-logo.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/mamamia-logo.png?width=120&amp;height=76&amp;name=mamamia-logo.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/mamamia-logo.png?width=180&amp;height=114&amp;name=mamamia-logo.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/mamamia-logo.png?width=240&amp;height=152&amp;name=mamamia-logo.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/mamamia-logo.png?width=300&amp;height=190&amp;name=mamamia-logo.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/mamamia-logo.png?width=360&amp;height=228&amp;name=mamamia-logo.png 360w"
+                                                  sizes="(max-width: 120px) 100vw, 120px">
+                                              </div>
+
+
+                                              <div class="card-item__subtext font-regular text-text">
+                                                <div class="card-item__subtext--inner">
+                                                  <p>The LS Retail software solution is a very flexible instrument that
+                                                    can be adjusted according to our business-needs. Configuration and
+                                                    customization requires additional investment, but I believe that
+                                                    these investments will be returned. I can see already that I’ve made
+                                                    the right choice and got a powerful instrument for managing business
+                                                    and creation of unique loyalty programs.</p>
+                                                </div>
+                                              </div>
+
+                                            </div>
+                                            <div class="testimonials__box--info">
+                                              <div class="card-item__infoWrap">
+
+                                                <div class="card-item__info ">
+
+                                                  <strong class="card-item__name text-secondary_2">Alex Turin</strong>
+
+
+                                                  <span
+                                                    class="card-item__jobTitle d-block text-secondary_1">Director</span>
+
+                                                </div>
+
+                                              </div>
+                                              <a href="customers/mamamia.html" class="btn mt-4">
+                                                Read Success Story
+
+                                              </a>
+                                            </div>
+                                          </div>
+
+
+
+                                        </div>
+                                      </div>
+
+
+
+
+                                      <div class="col-md-4">
+                                        <div
+                                          class="testimonials__box testimonials__box5 px-3 bg_image text-center text-lg-center">
+
+
+
+
+
+                                          <div class="testimonials__box testimonials__box--inner">
+                                            <div class="testimonials__box--copy">
+                                              <div class="card-item__icon mb-3">
+                                                <img height="76" width="120" loading="lazy" style="margin:0 auto"
+                                                  data-src=" https://f.hubspotusercontent10.net/hubfs/491011/CS-logo-Mount-Meru-Zambia.jpg"
+                                                  src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS-logo-Mount-Meru-Zambia776f.jpg?width=120&amp;height=76&amp;name=CS-logo-Mount-Meru-Zambia.jpg"
+                                                  alt="Mount Meru Retail Zambia Limited"
+                                                  srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS-logo-Mount-Meru-Zambia.jpg?width=60&amp;height=38&amp;name=CS-logo-Mount-Meru-Zambia.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS-logo-Mount-Meru-Zambia.jpg?width=120&amp;height=76&amp;name=CS-logo-Mount-Meru-Zambia.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS-logo-Mount-Meru-Zambia.jpg?width=180&amp;height=114&amp;name=CS-logo-Mount-Meru-Zambia.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS-logo-Mount-Meru-Zambia.jpg?width=240&amp;height=152&amp;name=CS-logo-Mount-Meru-Zambia.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS-logo-Mount-Meru-Zambia.jpg?width=300&amp;height=190&amp;name=CS-logo-Mount-Meru-Zambia.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS-logo-Mount-Meru-Zambia.jpg?width=360&amp;height=228&amp;name=CS-logo-Mount-Meru-Zambia.jpg 360w"
+                                                  sizes="(max-width: 120px) 100vw, 120px">
+                                              </div>
+
+
+                                              <div class="card-item__subtext font-regular text-text">
+                                                <div class="card-item__subtext--inner">
+                                                  <p>With LS Central, we can now track and manage inventory in real time
+                                                    and spend less time both in data input and back-office
+                                                    reconciliation. Our customers are benefitting, too, as the new POS
+                                                    has reduced queues at the register, making shopping quicker and more
+                                                    pleasant for them.</p>
+                                                </div>
+                                              </div>
+
+                                            </div>
+                                            <div class="testimonials__box--info">
+                                              <div class="card-item__infoWrap">
+
+                                                <div class="card-item__info ">
+
+
+                                                  <span
+                                                    class="card-item__jobTitle d-block text-secondary_1">Representatives
+                                                    from Financials and Operations</span>
+
+                                                </div>
+
+                                              </div>
+                                              <a href="customers/mount-meru.html" class="btn mt-4">
+                                                Read Success Story
+
+                                              </a>
+                                            </div>
+                                          </div>
+
+
+
+                                        </div>
+                                      </div>
+
+
+
+
+                                      <div class="col-md-4">
+                                        <div
+                                          class="testimonials__box testimonials__box6 px-3 bg_image text-center text-lg-center">
+
+
+
+
+
+                                          <div class="testimonials__box testimonials__box--inner">
+                                            <div class="testimonials__box--copy">
+                                              <div class="card-item__icon mb-3">
+                                                <img height="76" width="120" loading="lazy" style="margin:0 auto"
+                                                  data-src=" https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/Praktiker_logo-copy.png"
+                                                  src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Praktiker_logo-copy30ed.png?width=120&amp;height=76&amp;name=Praktiker_logo-copy.png"
+                                                  alt="Praktiker Hellas"
+                                                  srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Praktiker_logo-copy.png?width=60&amp;height=38&amp;name=Praktiker_logo-copy.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Praktiker_logo-copy.png?width=120&amp;height=76&amp;name=Praktiker_logo-copy.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Praktiker_logo-copy.png?width=180&amp;height=114&amp;name=Praktiker_logo-copy.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Praktiker_logo-copy.png?width=240&amp;height=152&amp;name=Praktiker_logo-copy.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Praktiker_logo-copy.png?width=300&amp;height=190&amp;name=Praktiker_logo-copy.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Praktiker_logo-copy.png?width=360&amp;height=228&amp;name=Praktiker_logo-copy.png 360w"
+                                                  sizes="(max-width: 120px) 100vw, 120px">
+                                              </div>
+
+
+                                              <div class="card-item__subtext font-regular text-text">
+                                                <div class="card-item__subtext--inner">
+                                                  <p>We are now able to operate with an integrated platform that allows
+                                                    us to eliminate inconsistency and gain the kind of visibility that
+                                                    will enable our retail operations to offer great customer experience
+                                                    in store and online.</p>
+                                                </div>
+                                              </div>
+
+                                            </div>
+                                            <div class="testimonials__box--info">
+                                              <div class="card-item__infoWrap">
+
+                                                <div class="card-item__info ">
+
+                                                  <strong class="card-item__name text-secondary_2">Alkiviadis
+                                                    Manaris</strong>
+
+
+                                                  <span class="card-item__jobTitle d-block text-secondary_1">IT
+                                                    Manager</span>
+
+                                                </div>
+
+                                              </div>
+                                              <a href="customers/praktiker.html" class="btn mt-4">
+                                                Read Success Story
+
+                                              </a>
+                                            </div>
+                                          </div>
+
+
+
+                                        </div>
+                                      </div>
+
+
+
+
+                                      <div class="col-md-4">
+                                        <div
+                                          class="testimonials__box testimonials__box7 px-3 bg_image text-center text-lg-center">
+
+
+
+
+
+                                          <div class="testimonials__box testimonials__box--inner">
+                                            <div class="testimonials__box--copy">
+                                              <div class="card-item__icon mb-3">
+                                                <img height="76" width="120" loading="lazy" style="margin:0 auto"
+                                                  data-src=" https://491011.fs1.hubspotusercontent-na1.net/hubfs/491011/CS%20logo%204%20Shopping%20Center.jpg"
+                                                  src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%204%20Shopping%20Center0b1f.jpg?width=120&amp;height=76&amp;name=CS%20logo%204%20Shopping%20Center.jpg"
+                                                  alt="4 Shopping Center"
+                                                  srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%204%20Shopping%20Center.jpg?width=60&amp;height=38&amp;name=CS%20logo%204%20Shopping%20Center.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%204%20Shopping%20Center.jpg?width=120&amp;height=76&amp;name=CS%20logo%204%20Shopping%20Center.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%204%20Shopping%20Center.jpg?width=180&amp;height=114&amp;name=CS%20logo%204%20Shopping%20Center.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%204%20Shopping%20Center.jpg?width=240&amp;height=152&amp;name=CS%20logo%204%20Shopping%20Center.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%204%20Shopping%20Center.jpg?width=300&amp;height=190&amp;name=CS%20logo%204%20Shopping%20Center.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/CS%20logo%204%20Shopping%20Center.jpg?width=360&amp;height=228&amp;name=CS%20logo%204%20Shopping%20Center.jpg 360w"
+                                                  sizes="(max-width: 120px) 100vw, 120px">
+                                              </div>
+
+
+                                              <div class="card-item__subtext font-regular text-text">
+                                                <div class="card-item__subtext--inner">
+                                                  LS Retail software enables us to manage and operate all sales,
+                                                  inventory, prices, campaigns, offers and promotions in an easier way
+                                                  than before.
+                                                </div>
+                                              </div>
+
+                                            </div>
+                                            <div class="testimonials__box--info">
+                                              <div class="card-item__infoWrap">
+
+                                                <div class="card-item__info ">
+
+                                                  <strong class="card-item__name text-secondary_2">Ahmed Abo
+                                                    Arab</strong>
+
+
+                                                  <span class="card-item__jobTitle d-block text-secondary_1">IT System
+                                                    Administrator</span>
+
+                                                </div>
+
+                                              </div>
+                                              <a href="customers/4-shopping-center.html" class="btn mt-4">
+                                                Read Success Story
+
+                                              </a>
+                                            </div>
+                                          </div>
+
+
+
+                                        </div>
+                                      </div>
+
+
+
+
+                                      <div class="col-md-4">
+                                        <div
+                                          class="testimonials__box testimonials__box8 px-3 bg_image text-center text-lg-center">
+
+
+
+
+
+                                          <div class="testimonials__box testimonials__box--inner">
+                                            <div class="testimonials__box--copy">
+                                              <div class="card-item__icon mb-3">
+                                                <img height="76" width="120" loading="lazy" style="margin:0 auto"
+                                                  data-src=" https://cdn2.hubspot.net/hubfs/491011/Blue-Lagoon-Iceland-logo.jpg"
+                                                  src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Blue-Lagoon-Iceland-logo6dfb.jpg?width=120&amp;height=76&amp;name=Blue-Lagoon-Iceland-logo.jpg"
+                                                  alt="Blue Lagoon Iceland"
+                                                  srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Blue-Lagoon-Iceland-logo.jpg?width=60&amp;height=38&amp;name=Blue-Lagoon-Iceland-logo.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Blue-Lagoon-Iceland-logo.jpg?width=120&amp;height=76&amp;name=Blue-Lagoon-Iceland-logo.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Blue-Lagoon-Iceland-logo.jpg?width=180&amp;height=114&amp;name=Blue-Lagoon-Iceland-logo.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Blue-Lagoon-Iceland-logo.jpg?width=240&amp;height=152&amp;name=Blue-Lagoon-Iceland-logo.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Blue-Lagoon-Iceland-logo.jpg?width=300&amp;height=190&amp;name=Blue-Lagoon-Iceland-logo.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Blue-Lagoon-Iceland-logo.jpg?width=360&amp;height=228&amp;name=Blue-Lagoon-Iceland-logo.jpg 360w"
+                                                  sizes="(max-width: 120px) 100vw, 120px">
+                                              </div>
+
+
+                                              <div class="card-item__subtext font-regular text-text">
+                                                <div class="card-item__subtext--inner">
+                                                  <p><span style="background-color: transparent;">Our booking engines
+                                                      and hotels are open 24 hours, so it is vital for us to have a
+                                                      system running on the most recent version at all times, like LS
+                                                      Central.</span></p>
+                                                </div>
+                                              </div>
+
+                                            </div>
+                                            <div class="testimonials__box--info">
+                                              <div class="card-item__infoWrap">
+
+                                                <div class="card-item__info ">
+
+                                                  <strong class="card-item__name text-secondary_2">Sigurdur
+                                                    Long</strong>
+
+
+                                                  <span class="card-item__jobTitle d-block text-secondary_1">CIO &amp;
+                                                    CDO</span>
+
+                                                </div>
+
+                                              </div>
+                                              <a href="customers/blue-lagoon-iceland.html" class="btn mt-4">
+                                                Read Success Story
+
+                                              </a>
+                                            </div>
+                                          </div>
+
+
+
+                                        </div>
+                                      </div>
+
+
+
+
+                                      <div class="col-md-4">
+                                        <div
+                                          class="testimonials__box testimonials__box9 px-3 bg_image text-center text-lg-center">
+
+
+
+
+
+                                          <div class="testimonials__box testimonials__box--inner">
+                                            <div class="testimonials__box--copy">
+                                              <div class="card-item__icon mb-3">
+                                                <img height="76" width="120" loading="lazy" style="margin:0 auto"
+                                                  data-src=" https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/hard-rock-cafe.png"
+                                                  src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/hard-rock-cafe8664.jpg?width=120&amp;height=76&amp;name=hard-rock-cafe.png"
+                                                  alt="Hard Rock Cafe Budapest"
+                                                  srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/hard-rock-cafe.png?width=60&amp;height=38&amp;name=hard-rock-cafe.png 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/hard-rock-cafe.png?width=120&amp;height=76&amp;name=hard-rock-cafe.png 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/hard-rock-cafe.png?width=180&amp;height=114&amp;name=hard-rock-cafe.png 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/hard-rock-cafe.png?width=240&amp;height=152&amp;name=hard-rock-cafe.png 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/hard-rock-cafe.png?width=300&amp;height=190&amp;name=hard-rock-cafe.png 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/hard-rock-cafe.png?width=360&amp;height=228&amp;name=hard-rock-cafe.png 360w"
+                                                  sizes="(max-width: 120px) 100vw, 120px">
+                                              </div>
+
+
+                                              <div class="card-item__subtext font-regular text-text">
+                                                <div class="card-item__subtext--inner">
+                                                  <p>The great thing about LS Central is that we get one package to
+                                                    cover all our needs from the back to the front, we don’t need a
+                                                    hundred different software solutions, we don’t need to train people
+                                                    with different platforms.</p>
+                                                </div>
+                                              </div>
+
+                                            </div>
+                                            <div class="testimonials__box--info">
+                                              <div class="card-item__infoWrap">
+
+                                                <div class="card-item__info ">
+
+                                                  <strong class="card-item__name text-secondary_2">Zsolt
+                                                    Tettinger</strong>
+
+
+                                                  <span class="card-item__jobTitle d-block text-secondary_1">Regional
+                                                    General Manager </span>
+
+                                                </div>
+
+                                              </div>
+                                              <a href="customers/hard-rock-cafe-budapest.html" class="btn mt-4">
+                                                Read Success Story
+
+                                              </a>
+                                            </div>
+                                          </div>
+
+
+
+                                        </div>
+                                      </div>
+
+
+
+
+                                      <div class="col-md-4">
+                                        <div
+                                          class="testimonials__box testimonials__box10 px-3 bg_image text-center text-lg-center">
+
+
+
+
+
+                                          <div class="testimonials__box testimonials__box--inner">
+                                            <div class="testimonials__box--copy">
+                                              <div class="card-item__icon mb-3">
+                                                <img height="76" width="120" loading="lazy" style="margin:0 auto"
+                                                  data-src=" https://cdn2.hubspot.net/hubfs/491011/Nettside_2018/Customer%20logos/Juventus-logo.jpg"
+                                                  src="../491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo2cd4.jpg?width=120&amp;height=76&amp;name=Juventus-logo.jpg"
+                                                  alt="Juventus F.C."
+                                                  srcset="https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo.jpg?width=60&amp;height=38&amp;name=Juventus-logo.jpg 60w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo.jpg?width=120&amp;height=76&amp;name=Juventus-logo.jpg 120w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo.jpg?width=180&amp;height=114&amp;name=Juventus-logo.jpg 180w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo.jpg?width=240&amp;height=152&amp;name=Juventus-logo.jpg 240w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo.jpg?width=300&amp;height=190&amp;name=Juventus-logo.jpg 300w, https://491011.fs1.hubspotusercontent-na1.net/hub/491011/hubfs/Nettside_2018/Customer%20logos/Juventus-logo.jpg?width=360&amp;height=228&amp;name=Juventus-logo.jpg 360w"
+                                                  sizes="(max-width: 120px) 100vw, 120px">
+                                              </div>
+
+
+                                              <div class="card-item__subtext font-regular text-text">
+                                                <div class="card-item__subtext--inner">
+                                                  <p>Everything works perfectly. The software meets and exceeds our
+                                                    expectations.</p>
+                                                </div>
+                                              </div>
+
+                                            </div>
+                                            <div class="testimonials__box--info">
+                                              <div class="card-item__infoWrap">
+
+                                                <div class="card-item__info ">
+
+                                                  <strong class="card-item__name text-secondary_2">Mauro
+                                                    Zanetti</strong>
+
+
+                                                  <span class="card-item__jobTitle d-block text-secondary_1">PMO
+                                                    Manager</span>
+
+                                                </div>
+
+                                              </div>
+                                              <a href="customers/juventus-f-c.html" class="btn mt-4">
+                                                Read Success Story
+
+                                              </a>
+                                            </div>
+                                          </div>
+
+
+
+                                        </div>
+                                      </div>
+
+
+
+
+
+
+
+
+                                    </div>
+
+                                  </div>
+
+
+
+
+                                </div>
+
+                              </div>
+
+
+
+                            </div>
+
+                          </div><!--end widget-span -->
+                        </div><!--end row-->
+                      </div><!--end row-wrapper -->
+
+                      <div class="row-fluid-wrapper row-depth-1 row-number-10 dnd-row">
+                        <div class="row-fluid ">
+                          <div class="span12 widget-span widget-type-custom_widget dnd-module" style=""
+                            data-widget-type="custom_widget" data-x="0" data-w="12">
+                            <div id="hs_cos_wrapper_widget_1663399129122"
+                              class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=""
+                              data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+                              <div class="content-grid bg-image  none">
+
+                                <div class="bg-image__wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                  <img class="bg-image__image  bg-image--contain bg-image--BOTTOM_RIGHT d-block"
+                                    src="hubfs/shape-15-right-b.svg" alt="background image" loading="lazy" width="100">
+
+
+
+
+
+
+                                </div>
+
+
+                                <div class="container">
+
+
+                                  <div
+                                    class="content-grid__heading row text-center justify-content-center text-center ">
+                                    <div class="col-lg-7">
+
+                                      <h2 class="text-secondary_1 content-grid__title mb-3 font-bold ">Omni-channel
+                                        solutions that work for your industry</h2>
+
+
+                                      <div class="content-grid__rtext text-body none font-regular">
+
+                                        <p>Retail, hospitality, pharmacy, and forecourt businesses rely on LS Retail
+                                          software to manage their daily operations. Select your industry to discover
+                                          specific features, benefits, and case studies.</p>
+
+                                      </div>
+                                    </div>
+
+
+
+                                  </div>
+
+
+                                  <div class="content-grid__boxes pt-4 pt-lg-5">
+                                    <div id="cgb-widget_1663399129122" class="row justify-content-lg-center">
+                                      <div
+                                        class="content-grid__boxes-col boxes-widget_1663399129122-1 col-md-6  col-lg-2 pb-3">
+                                        <div class="content-grid__box box-item text-center">
+                                          <div data-ani="animate__fadeInUp" class="animate__animated  "><a
+                                              href="industries/retail.html">
+                                              <div class="box-item__icon mb-3">
+
+
+
+
+
+                                                <img class="" src="hubfs/i-industry-retail2.svg"
+                                                  alt="i-industry-retail2" loading="" width="100" height="100">
+
+
+                                              </div>
+
+                                              <h6 class="text-secondary_1 box-item__title mb-3 text-uppercase ">RETAIL
+                                              </h6>
+
+                                            </a></div>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="content-grid__boxes-col boxes-widget_1663399129122-2 col-md-6  col-lg-2 pb-3">
+                                        <div class="content-grid__box box-item text-center">
+                                          <div data-ani="animate__fadeInUp" class="animate__animated  "><a
+                                              href="industries/restaurants-food-service.html">
+                                              <div class="box-item__icon mb-3">
+
+
+
+
+
+                                                <img class="" src="hubfs/i-industry-restaurant.svg"
+                                                  alt="i-industry-restaurant" loading="lazy" width="100" height="100">
+
+
+                                              </div>
+
+                                              <h6 class="text-secondary_1 box-item__title mb-3 text-uppercase ">
+                                                RESTAURANTS</h6>
+
+                                            </a></div>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="content-grid__boxes-col boxes-widget_1663399129122-3 col-md-6  col-lg-2 pb-3">
+                                        <div class="content-grid__box box-item text-center">
+                                          <div data-ani="animate__fadeInUp" class="animate__animated  "><a
+                                              href="industries/software-hotels-resorts-casinos.html">
+                                              <div class="box-item__icon mb-3">
+
+
+
+
+
+                                                <img class="" src="hubfs/i-industry-hotels.svg" alt="i-industry-hotels"
+                                                  loading="lazy" width="100" height="100">
+
+
+                                              </div>
+
+                                              <h6 class="text-secondary_1 box-item__title mb-3 text-uppercase ">HOTELS
+                                              </h6>
+
+                                            </a></div>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="content-grid__boxes-col boxes-widget_1663399129122-4 col-md-6  col-lg-2 pb-3">
+                                        <div class="content-grid__box box-item text-center">
+                                          <div data-ani="animate__fadeInUp" class="animate__animated  "><a
+                                              href="products/ls-central-for-pharmacies.html">
+                                              <div class="box-item__icon mb-3">
+
+
+
+
+
+                                                <img class="" src="hubfs/i-industry-pharmacy.svg"
+                                                  alt="i-industry-pharmacy" loading="lazy" width="100" height="100">
+
+
+                                              </div>
+
+                                              <h6 class="text-secondary_1 box-item__title mb-3 text-uppercase ">PHARMACY
+                                              </h6>
+
+                                            </a></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="text-center mt-4">
+
+
+
+                                      <a href="industries.html" class="btn">
+                                        View all industries
+
+                                      </a>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+
+                              </div>
+                            </div>
+
+                          </div><!--end widget-span -->
+                        </div><!--end row-->
+                      </div><!--end row-wrapper -->
+
+                    </div><!--end widget-span -->
+                  </div><!--end row-->
+                </div><!--end row-wrapper -->
+
+                <div class="row-fluid-wrapper row-depth-1 row-number-11 dnd-section">
+                  <div class="row-fluid ">
+                    <div class="span12 widget-span widget-type-cell dnd-column" style="" data-widget-type="cell"
+                      data-x="0" data-w="12">
+
+                      <div class="row-fluid-wrapper row-depth-1 row-number-12 dnd-row">
+                        <div class="row-fluid ">
+                          <div class="span12 widget-span widget-type-custom_widget dnd-module" style=""
+                            data-widget-type="custom_widget" data-x="0" data-w="12">
+                            <div id="hs_cos_wrapper_widget_1665975210459"
+                              class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=""
+                              data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+
+
+
+
+
+
+
+
+
+                              <div class="about-us-image-copy bg-image  none">
+
+
+
+
+
+
+
+                                <div class="container ">
+
+                                  <div class="about-us-image-copy__inner about-us-image-copy__card">
+
+                                    <div class="about-us-image-copy__card-inner bg-secondary_1">
+                                    </div>
+
+                                    <div class="row  align-items-center">
+
+
+                                      <div class="col-image col-lg-4">
+
+                                        <div class="image-container">
+
+
+                                          <img
+                                            src="hs-fs/hubfs/wp-retail-trends-ctaa964.png?width=495&amp;height=500&amp;name=wp-retail-trends-cta.png"
+                                            width="495" height="500" loading="lazy"
+                                            alt="Don’t buy retail management software until you read this"
+                                            srcset="https://www.lsretail.com/hs-fs/hubfs/wp-retail-trends-cta.png?width=248&amp;height=250&amp;name=wp-retail-trends-cta.png 248w, https://www.lsretail.com/hs-fs/hubfs/wp-retail-trends-cta.png?width=495&amp;height=500&amp;name=wp-retail-trends-cta.png 495w, https://www.lsretail.com/hs-fs/hubfs/wp-retail-trends-cta.png?width=743&amp;height=750&amp;name=wp-retail-trends-cta.png 743w, https://www.lsretail.com/hs-fs/hubfs/wp-retail-trends-cta.png?width=990&amp;height=1000&amp;name=wp-retail-trends-cta.png 990w, https://www.lsretail.com/hs-fs/hubfs/wp-retail-trends-cta.png?width=1238&amp;height=1250&amp;name=wp-retail-trends-cta.png 1238w, https://www.lsretail.com/hs-fs/hubfs/wp-retail-trends-cta.png?width=1485&amp;height=1500&amp;name=wp-retail-trends-cta.png 1485w"
+                                            sizes="(max-width: 495px) 100vw, 495px">
+
+
+                                        </div>
+
+                                      </div>
+                                      <div class="col-lg-8 col-copy">
+
+                                        <div class="col-copy-inner">
+
+
+
+                                          <div class="about-us-image-copy__copy text-left text-lg-left">
+
+                                            <span
+                                              class="about-us-image-copy__stitle overline  d-block mb-3 text-primary ">FEATURED
+                                              EBOOK</span>
+
+
+
+
+
+
+
+
+
+
+
+                                            <h3 class="text-white about-us-image-copy__title mb-4  font-bold">Don’t buy
+                                              retail management software until you read this</h3>
+
+
+
+
+
+
+
+
+
+
+
+                                            <div class="about-us-image-copy__rtext mb-4 text-body text-white ">
+
+
+                                              Learn the 7 most common mistakes business owners make when selecting
+                                              retail POS, ERP and accounting software, and how to avoid them.
+
+
+                                            </div>
+
+
+
+
+
+
+
+                                            <!--HubSpot Call-to-Action Code --><span class="hs-cta-wrapper"
+                                              id="hs-cta-wrapper-4382c494-cdb6-49f7-9bcb-1f485ac2c5ed"><span
+                                                class="hs-cta-node hs-cta-4382c494-cdb6-49f7-9bcb-1f485ac2c5ed"
+                                                id="hs-cta-4382c494-cdb6-49f7-9bcb-1f485ac2c5ed"><!--[if lte IE 8]><div id="hs-cta-ie-element"></div><![endif]--><a
+                                                  href="https://cta-redirect.hubspot.com/cta/redirect/491011/4382c494-cdb6-49f7-9bcb-1f485ac2c5ed"
+                                                  target="_blank" rel="noopener"><img class="hs-cta-img"
+                                                    id="hs-cta-img-4382c494-cdb6-49f7-9bcb-1f485ac2c5ed"
+                                                    style="border-width:0px;"
+                                                    src="../no-cache.hubspot.com/cta/default/491011/4382c494-cdb6-49f7-9bcb-1f485ac2c5ed.png"
+                                                    alt="Download Today"></a></span>
+                                              <script charset="utf-8" src="../js.hscta.net/cta/current.js"></script>
+                                              <script
+                                                type="text/javascript"> hbspt.cta.load(491011, '4382c494-cdb6-49f7-9bcb-1f485ac2c5ed', { "useNewLoader": "true", "region": "na1" }); </script>
+                                            </span><!-- end HubSpot Call-to-Action Code -->
+
+
+
+                                          </div>
+
+                                        </div>
+                                      </div>
+
+
+
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+
+                          </div><!--end widget-span -->
+                        </div><!--end row-->
+                      </div><!--end row-wrapper -->
+
+                    </div><!--end widget-span -->
+                  </div><!--end row-->
+                </div><!--end row-wrapper -->
+
+                <div class="row-fluid-wrapper row-depth-1 row-number-13 dnd-section">
+                  <div class="row-fluid ">
+                    <div class="span12 widget-span widget-type-cell dnd-column" style="" data-widget-type="cell"
+                      data-x="0" data-w="12">
+
+                      <div class="row-fluid-wrapper row-depth-1 row-number-14 dnd-row">
+                        <div class="row-fluid ">
+                          <div class="span12 widget-span widget-type-custom_widget dnd-module" style=""
+                            data-widget-type="custom_widget" data-x="0" data-w="12">
+                            <div id="hs_cos_wrapper_widget_1663409884749"
+                              class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=""
+                              data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+
+
+
+
+
+
+
+
+
+                              <div class="copy-image-mod bg-image  none">
+
+
+
+
+
+
+                                <div class="container">
+                                  <div class="copy-image__inner">
+                                    <div class="row  align-items-lg-center">
+
+
+
+                                      <div class="col-lg order-lg-last col-img__custom pb-4 pb-lg-0   copy-image">
+
+
+
+
+                                        <div data-ani="animate__fadeInRight" class="animate__animated  ">
+
+
+                                          <div class="copy-image__image custom text-center  text-lg-center ">
+
+
+
+
+
+
+                                            <img class="d-block"
+                                              src="hs-fs/hubfs/ci-home-page-partners79be.jpg?width=718&amp;height=600&amp;name=ci-home-page-partners.jpg"
+                                              alt="ci-home-page-partners" loading="lazy" width="718" height="600"
+                                              srcset="https://www.lsretail.com/hs-fs/hubfs/ci-home-page-partners.jpg?width=359&amp;height=300&amp;name=ci-home-page-partners.jpg 359w, https://www.lsretail.com/hs-fs/hubfs/ci-home-page-partners.jpg?width=718&amp;height=600&amp;name=ci-home-page-partners.jpg 718w, https://www.lsretail.com/hs-fs/hubfs/ci-home-page-partners.jpg?width=1077&amp;height=900&amp;name=ci-home-page-partners.jpg 1077w, https://www.lsretail.com/hs-fs/hubfs/ci-home-page-partners.jpg?width=1436&amp;height=1200&amp;name=ci-home-page-partners.jpg 1436w, https://www.lsretail.com/hs-fs/hubfs/ci-home-page-partners.jpg?width=1795&amp;height=1500&amp;name=ci-home-page-partners.jpg 1795w, https://www.lsretail.com/hs-fs/hubfs/ci-home-page-partners.jpg?width=2154&amp;height=1800&amp;name=ci-home-page-partners.jpg 2154w"
+                                              sizes="(max-width: 718px) 100vw, 718px">
+
+
+
+                                          </div>
+
+
+                                        </div>
+
+
+                                      </div>
+
+
+
+                                      <div class="col-lg-1"></div>
+
+
+
+
+
+
+                                      <div class="copy-image_col-copy col-lg-5  order-lg-first">
+
+                                        <div class="copy-image__copy text-left text-lg-left ">
+
+
+
+
+
+                                          <div data-ani="animate__fadeIn" class="animate__animated  ">
+
+
+
+
+
+
+                                            <h2 class="text-secondary_1 copy-image__title mb-3  font-bold">Join our
+                                              partner network</h2>
+
+
+
+
+                                          </div>
+
+
+
+
+
+
+                                          <div class="copy-image__rtext text-body none ">
+
+
+                                            <div data-ani="animate__fadeIn" class="animate__animated  ">
+
+
+                                              LS Retail software solutions are sold by a global network of 380+
+                                              certified partners. Want to join us?
+
+
+                                            </div>
+
+
+                                          </div>
+
+
+
+
+
+
+
+                                          <div data-ani="animate__fadeIn" class="animate__animated  ">
+
+
+                                            <div class="copy-image__cta mt-3">
+
+
+
+
+
+                                              <a href="become-a-partner.html" class="btn">
+                                                become a partner
+
+                                              </a>
+
+
+
+
+
+
+
+
+                                            </div>
+
+
+                                          </div>
+
+
+
+                                        </div>
+
+                                      </div>
+
+
+
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+
+                          </div><!--end widget-span -->
+                        </div><!--end row-->
+                      </div><!--end row-wrapper -->
+
+                    </div><!--end widget-span -->
+                  </div><!--end row-->
+                </div><!--end row-wrapper -->
+
+                <div class="row-fluid-wrapper row-depth-1 row-number-15 dnd-section">
+                  <div class="row-fluid ">
+                    <div class="span12 widget-span widget-type-cell dnd-column" style="" data-widget-type="cell"
+                      data-x="0" data-w="12">
+
+                      <div class="row-fluid-wrapper row-depth-1 row-number-16 dnd-row">
+                        <div class="row-fluid ">
+                          <div class="span12 widget-span widget-type-custom_widget dnd-module" style=""
+                            data-widget-type="custom_widget" data-x="0" data-w="12">
+                            <div id="hs_cos_wrapper_widget_1663410382241"
+                              class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=""
+                              data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              <div class="related-posts bg-image   none">
+
+
+
+
+
+
+                                <div class="container">
+                                  <div class="row justify-content-center">
+                                    <div class="related-posts__inner">
+
+
+                                      <div class="related-posts__heading pt-4 pb-2 text-center">
+
+
+
+
+
+
+
+
+
+
+                                        <h2 class="text-secondary_1 related-posts__title mb-3 font-bold">Our latest
+                                          articles</h2>
+
+
+
+
+
+
+
+
+
+
+                                      </div>
+
+
+                                      <div class="related-posts__posts">
+                                        <div class="row ">
+
+
+
+
+
+
+                                          <div class="col-md-6 col-lg-4 mt-4">
+
+
+
+
+
+
+                                            <article class="post-itemCard "
+                                              aria-label="Blog post summary: 4 technology trends defining retailers in Latin America">
+                                              <a class="post-itemCard__inner link-wrap"
+                                                href="resources/technology-trends-defining-retailers-in-latin-america.html">
+                                                <div class="post-itemCard__img">
+
+
+
+
+
+
+
+
+
+                                                  <div class="post-itemCard__img-wrapper bg-image">
+
+
+
+
+                                                    <div class="bg-image__wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                      <img class="bg-image__image  bg-image-- bg-image-- d-block"
+                                                        src="hs-fs/hubfs/Blog-Retail-trends-for-Latin-America09ea.jpg?width=1200&amp;height=630&amp;name=Blog-Retail-trends-for-Latin-America.jpg"
+                                                        alt="background image" loading="lazy" width="1200" height="630"
+                                                        srcset="https://www.lsretail.com/hs-fs/hubfs/Blog-Retail-trends-for-Latin-America.jpg?width=600&amp;height=315&amp;name=Blog-Retail-trends-for-Latin-America.jpg 600w, https://www.lsretail.com/hs-fs/hubfs/Blog-Retail-trends-for-Latin-America.jpg?width=1200&amp;height=630&amp;name=Blog-Retail-trends-for-Latin-America.jpg 1200w, https://www.lsretail.com/hs-fs/hubfs/Blog-Retail-trends-for-Latin-America.jpg?width=1800&amp;height=945&amp;name=Blog-Retail-trends-for-Latin-America.jpg 1800w, https://www.lsretail.com/hs-fs/hubfs/Blog-Retail-trends-for-Latin-America.jpg?width=2400&amp;height=1260&amp;name=Blog-Retail-trends-for-Latin-America.jpg 2400w, https://www.lsretail.com/hs-fs/hubfs/Blog-Retail-trends-for-Latin-America.jpg?width=3000&amp;height=1575&amp;name=Blog-Retail-trends-for-Latin-America.jpg 3000w, https://www.lsretail.com/hs-fs/hubfs/Blog-Retail-trends-for-Latin-America.jpg?width=3600&amp;height=1890&amp;name=Blog-Retail-trends-for-Latin-America.jpg 3600w"
+                                                        sizes="(max-width: 1200px) 100vw, 1200px">
+
+
+
+
+
+
+                                                    </div>
+
+
+                                                  </div>
+                                                </div>
+
+                                                <div class="post-itemCard__content">
+
+
+
+
+
+                                                  <h4 class="h4 mb-3 text-secondary_1">4 technology trends defining
+                                                    retailers in Latin America</h4>
+
+
+
+
+                                                  Whether facing challenges due to inflation, labor...
+
+
+
+                                                  <span class="link text-uppercase d-block">
+                                                    Read
+                                                    <svg width="17" height="14" viewbox="0 0 17 14" fill="none"
+                                                      xmlns="http://www.w3.org/2000/svg">
+                                                      <path
+                                                        d="M10.2901 1L15.8901 7L10.2901 13M15.8901 7H1.89014H15.8901Z"
+                                                        stroke="#FCD873" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                    </svg>
+                                                  </span>
+                                                </div>
+                                              </a>
+                                            </article>
+
+
+
+                                          </div>
+
+                                          <div class="col-md-6 col-lg-4 mt-4">
+
+
+
+
+
+
+                                            <article class="post-itemCard "
+                                              aria-label="Blog post summary: 4 reasons why businesses should switch from on-premises to Software as a Service">
+                                              <a class="post-itemCard__inner link-wrap"
+                                                href="resources/why-businesses-should-switch-from-on-premises-to-software-as-a-service.html">
+                                                <div class="post-itemCard__img">
+
+
+
+
+
+
+
+
+
+                                                  <div class="post-itemCard__img-wrapper bg-image">
+
+
+
+
+                                                    <div class="bg-image__wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                      <img class="bg-image__image  bg-image-- bg-image-- d-block"
+                                                        src="hs-fs/hubfs/Blog-Why-you-should-switch-from-on-prem-to-SaaS%207436.jpg?width=1200&amp;height=630&amp;name=Blog-Why-you-should-switch-from-on-prem-to-SaaS%20.jpg"
+                                                        alt="background image" loading="lazy" width="1200" height="630"
+                                                        srcset="https://www.lsretail.com/hs-fs/hubfs/Blog-Why-you-should-switch-from-on-prem-to-SaaS%20.jpg?width=600&amp;height=315&amp;name=Blog-Why-you-should-switch-from-on-prem-to-SaaS%20.jpg 600w, https://www.lsretail.com/hs-fs/hubfs/Blog-Why-you-should-switch-from-on-prem-to-SaaS%20.jpg?width=1200&amp;height=630&amp;name=Blog-Why-you-should-switch-from-on-prem-to-SaaS%20.jpg 1200w, https://www.lsretail.com/hs-fs/hubfs/Blog-Why-you-should-switch-from-on-prem-to-SaaS%20.jpg?width=1800&amp;height=945&amp;name=Blog-Why-you-should-switch-from-on-prem-to-SaaS%20.jpg 1800w, https://www.lsretail.com/hs-fs/hubfs/Blog-Why-you-should-switch-from-on-prem-to-SaaS%20.jpg?width=2400&amp;height=1260&amp;name=Blog-Why-you-should-switch-from-on-prem-to-SaaS%20.jpg 2400w, https://www.lsretail.com/hs-fs/hubfs/Blog-Why-you-should-switch-from-on-prem-to-SaaS%20.jpg?width=3000&amp;height=1575&amp;name=Blog-Why-you-should-switch-from-on-prem-to-SaaS%20.jpg 3000w, https://www.lsretail.com/hs-fs/hubfs/Blog-Why-you-should-switch-from-on-prem-to-SaaS%20.jpg?width=3600&amp;height=1890&amp;name=Blog-Why-you-should-switch-from-on-prem-to-SaaS%20.jpg 3600w"
+                                                        sizes="(max-width: 1200px) 100vw, 1200px">
+
+
+
+
+
+
+                                                    </div>
+
+
+                                                  </div>
+                                                </div>
+
+                                                <div class="post-itemCard__content">
+
+
+
+
+
+                                                  <h4 class="h4 mb-3 text-secondary_1">4 reasons why businesses should
+                                                    switch from on-premises to Software as a Service</h4>
+
+
+
+
+                                                  To stay competitive in today’s evolving digital landscape,...
+
+
+
+                                                  <span class="link text-uppercase d-block">
+                                                    Read
+                                                    <svg width="17" height="14" viewbox="0 0 17 14" fill="none"
+                                                      xmlns="http://www.w3.org/2000/svg">
+                                                      <path
+                                                        d="M10.2901 1L15.8901 7L10.2901 13M15.8901 7H1.89014H15.8901Z"
+                                                        stroke="#FCD873" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                    </svg>
+                                                  </span>
+                                                </div>
+                                              </a>
+                                            </article>
+
+
+
+                                          </div>
+
+                                          <div class="col-md-6 col-lg-4 mt-4">
+
+
+
+
+
+
+                                            <article class="post-itemCard "
+                                              aria-label="Blog post summary: How furniture stores like IKEA use LS Retail software to run their business">
+                                              <a class="post-itemCard__inner link-wrap"
+                                                href="resources/how-furniture-stores-like-ikea-use-ls-retail-software.html">
+                                                <div class="post-itemCard__img">
+
+
+
+
+
+
+
+
+
+                                                  <div class="post-itemCard__img-wrapper bg-image">
+
+
+
+
+                                                    <div class="bg-image__wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                      <img class="bg-image__image  bg-image-- bg-image-- d-block"
+                                                        src="hs-fs/hubfs/Blog-How-furniture-stores-like-IKEA-use-LS-Retail-software-to-run-their-business-38ea.jpg?width=1200&amp;height=630&amp;name=Blog-How-furniture-stores-like-IKEA-use-LS-Retail-software-to-run-their-business-.jpg"
+                                                        alt="background image" loading="lazy" width="1200" height="630"
+                                                        srcset="https://www.lsretail.com/hs-fs/hubfs/Blog-How-furniture-stores-like-IKEA-use-LS-Retail-software-to-run-their-business-.jpg?width=600&amp;height=315&amp;name=Blog-How-furniture-stores-like-IKEA-use-LS-Retail-software-to-run-their-business-.jpg 600w, https://www.lsretail.com/hs-fs/hubfs/Blog-How-furniture-stores-like-IKEA-use-LS-Retail-software-to-run-their-business-.jpg?width=1200&amp;height=630&amp;name=Blog-How-furniture-stores-like-IKEA-use-LS-Retail-software-to-run-their-business-.jpg 1200w, https://www.lsretail.com/hs-fs/hubfs/Blog-How-furniture-stores-like-IKEA-use-LS-Retail-software-to-run-their-business-.jpg?width=1800&amp;height=945&amp;name=Blog-How-furniture-stores-like-IKEA-use-LS-Retail-software-to-run-their-business-.jpg 1800w, https://www.lsretail.com/hs-fs/hubfs/Blog-How-furniture-stores-like-IKEA-use-LS-Retail-software-to-run-their-business-.jpg?width=2400&amp;height=1260&amp;name=Blog-How-furniture-stores-like-IKEA-use-LS-Retail-software-to-run-their-business-.jpg 2400w, https://www.lsretail.com/hs-fs/hubfs/Blog-How-furniture-stores-like-IKEA-use-LS-Retail-software-to-run-their-business-.jpg?width=3000&amp;height=1575&amp;name=Blog-How-furniture-stores-like-IKEA-use-LS-Retail-software-to-run-their-business-.jpg 3000w, https://www.lsretail.com/hs-fs/hubfs/Blog-How-furniture-stores-like-IKEA-use-LS-Retail-software-to-run-their-business-.jpg?width=3600&amp;height=1890&amp;name=Blog-How-furniture-stores-like-IKEA-use-LS-Retail-software-to-run-their-business-.jpg 3600w"
+                                                        sizes="(max-width: 1200px) 100vw, 1200px">
+
+
+
+
+
+
+                                                    </div>
+
+
+                                                  </div>
+                                                </div>
+
+                                                <div class="post-itemCard__content">
+
+
+
+
+
+                                                  <h4 class="h4 mb-3 text-secondary_1">How furniture stores like IKEA
+                                                    use LS Retail software to run their business</h4>
+
+
+
+
+                                                  Renowned for its budget-friendly Scandinavian aesthetic,...
+
+
+
+                                                  <span class="link text-uppercase d-block">
+                                                    Read
+                                                    <svg width="17" height="14" viewbox="0 0 17 14" fill="none"
+                                                      xmlns="http://www.w3.org/2000/svg">
+                                                      <path
+                                                        d="M10.2901 1L15.8901 7L10.2901 13M15.8901 7H1.89014H15.8901Z"
+                                                        stroke="#FCD873" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                    </svg>
+                                                  </span>
+                                                </div>
+                                              </a>
+                                            </article>
+
+
+
+                                          </div>
+
+
+
+                                        </div>
+                                      </div>
+
+
+
+
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+
+                          </div><!--end widget-span -->
+                        </div><!--end row-->
+                      </div><!--end row-wrapper -->
+
+                    </div><!--end widget-span -->
+                  </div><!--end row-->
+                </div><!--end row-wrapper -->
+
+                <div class="row-fluid-wrapper row-depth-1 row-number-17 dnd-section">
+                  <div class="row-fluid ">
+                    <div class="span12 widget-span widget-type-cell dnd-column" style="" data-widget-type="cell"
+                      data-x="0" data-w="12">
+
+                      <div class="row-fluid-wrapper row-depth-1 row-number-18 dnd-row">
+                        <div class="row-fluid ">
+                          <div class="span12 widget-span widget-type-custom_widget dnd-module" style=""
+                            data-widget-type="custom_widget" data-x="0" data-w="12">
+                            <div id="hs_cos_wrapper_widget_1663413143076"
+                              class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=""
+                              data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+
+
+
+
+
+
+
+
+
+                              <div class="cta-banner bg-image  bg-muted">
+
+
+
+
+
+
+
+
+                                <div class="container">
+                                  <div class="cta-banner__inner">
+                                    <div class="row justify-content-center justify-content-lg-center">
+                                      <div class="col-lg-10">
+
+
+                                        <div class="cta-banner__copy text-center">
+
+
+
+
+
+
+
+
+
+
+                                          <h2 class="text-secondary_1 cta-banner__title mb-3 font-bold">Get started with
+                                            our unified solutions</h2>
+
+
+
+
+
+
+
+
+
+                                          <div class="cta-banner__rtext text-body none">
+
+
+
+                                            <p>Choosing the ideal POS system or business management software for your
+                                              company may feel overwhelming, but don't worry, we are here to help every
+                                              step of the way. Reach out to our experts for tailored guidance that
+                                              perfectly suits your specific needs.</p>
+
+
+
+                                          </div>
+
+
+
+
+
+
+                                          <div class="cta-banner__cta ">
+
+
+
+
+                                            <div class="d-block d-md-inline-block mt-4  me-md-3">
+
+
+
+
+                                              <a href="request-a-demo.html" class="btn">
+                                                Request a demo
+                                              </a>
+
+
+
+                                            </div>
+
+                                            <div class="d-block d-md-inline-block mt-4  ">
+
+
+
+
+                                              <a href="contact-us.html" class="btn btn-outlined">
+                                                Contact us
+                                              </a>
+
+
+
+                                            </div>
+
+
+
+
+                                          </div>
+
+
+                                        </div>
+
+                                      </div>
+
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+
+                          </div><!--end widget-span -->
+                        </div><!--end row-->
+                      </div><!--end row-wrapper -->
+
+                    </div><!--end widget-span -->
+                  </div><!--end row-->
+                </div><!--end row-wrapper -->
+
+              </div><!--end widget-span -->
+            </div>
+          </div>
+        </div>
+      </main>
+
+    </main>
+
+
+    <div data-global-resource-path="lsretail-s2/templates/partials/footer.html">
+      <footer class="footer">
+
+
+        <div class="footer__pattern d-none d-lg-block  ">
+          <img
+            src="hs-fs/hubfs/s2_assets/patterns/bg-pattern5faa2.png?width=304&amp;height=319&amp;name=bg-pattern5.png"
+            alt="bg-pattern5" width="304" height="319" loading="lazy"
+            srcset="https://www.lsretail.com/hs-fs/hubfs/s2_assets/patterns/bg-pattern5.png?width=152&amp;height=160&amp;name=bg-pattern5.png 152w, https://www.lsretail.com/hs-fs/hubfs/s2_assets/patterns/bg-pattern5.png?width=304&amp;height=319&amp;name=bg-pattern5.png 304w, https://www.lsretail.com/hs-fs/hubfs/s2_assets/patterns/bg-pattern5.png?width=456&amp;height=479&amp;name=bg-pattern5.png 456w, https://www.lsretail.com/hs-fs/hubfs/s2_assets/patterns/bg-pattern5.png?width=608&amp;height=638&amp;name=bg-pattern5.png 608w, https://www.lsretail.com/hs-fs/hubfs/s2_assets/patterns/bg-pattern5.png?width=760&amp;height=798&amp;name=bg-pattern5.png 760w, https://www.lsretail.com/hs-fs/hubfs/s2_assets/patterns/bg-pattern5.png?width=912&amp;height=957&amp;name=bg-pattern5.png 912w"
+            sizes="(max-width: 304px) 100vw, 304px">
+
+        </div>
+
+        <div class="container">
+          <div class="row mb-lg-4 justify-content-between">
+            <div class="col-lg-auto order-lg-last">
+              <div class="footer__search mb-4 mb-lg-0">
+                <div id="hs_cos_wrapper_module_16960148376863"
+                  class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=""
+                  data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <div class="hs-search-field" data-hide-suggestions="true">
+                    <div class="hs-search-field__bar hs-search-field__bar--button-inline  ">
+                      <form data-hs-do-not-collect="true" class="hs-search-field__form"
+                        action="https://www.lsretail.com/hs-search-results">
+
+                        <label class="hs-search-field__label show-for-sr" for="module_16960148376863-input">This is a
+                          search field with an auto-suggest feature attached.</label>
+
+                        <input role="combobox" aria-expanded="false" aria-controls="autocomplete-results"
+                          aria-label="This is a search field with an auto-suggest feature attached." type="search"
+                          class="hs-search-field__input" id="module_16960148376863-input" name="q" autocomplete="off"
+                          aria-autocomplete="list" placeholder="Search">
+
+
+                        <input type="hidden" name="type" value="SITE_PAGE">
+
+
+
+                        <input type="hidden" name="type" value="BLOG_POST">
+                        <input type="hidden" name="type" value="LISTING_PAGE">
+
+
+
+                        <button class="hs-search-field__button " aria-label="Search">
+                          <span id="hs_cos_wrapper_module_16960148376863_"
+                            class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_icon" style=""
+                            data-hs-cos-general-type="widget" data-hs-cos-type="icon"><svg version="1.0"
+                              xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" aria-hidden="true">
+                              <g id="search1_layer">
+                                <path
+                                  d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z" />
+                              </g>
+                            </svg></span>
+                        </button>
+                        <div class="hs-search-field__suggestions-container ">
+                          <ul id="autocomplete-results" role="listbox" aria-label="term"
+                            class="hs-search-field__suggestions">
+
+                            <li role="option" tabindex="-1" aria-posinset="1" aria-setsize="0"
+                              class="results-for show-for-sr">There are no suggestions because the search field is
+                              empty.</li>
+
+                          </ul>
+                        </div>
+                      </form>
+                    </div>
+                    <div id="sr-messenger" class="hs-search-sr-message-container show-for-sr" role="status"
+                      aria-live="polite" aria-atomic="true">
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="footer__logo mb-3">
+
+
+
+
+
+
+
+
+
+
+
+
+                <span id="hs_cos_wrapper_logo_"
+                  class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_linked_image" style=""
+                  data-hs-cos-general-type="widget" data-hs-cos-type="linked_image"><img
+                    src="hubfs/s2_assets/logo/ls-retail-logo-white.svg" class="hs-image-widget " width="140" height="43"
+                    alt="ls-retail-logo-white" title="ls-retail-logo-white" loading="lazy"></span>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="footer__menu">
+
+                <span id="hs_cos_wrapper_footer_nav_"
+                  class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_menu" style=""
+                  data-hs-cos-general-type="widget" data-hs-cos-type="menu">
+                  <div id="hs_menu_wrapper_footer_nav_"
+                    class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal" role="navigation"
+                    data-sitemap-name="default" data-menu-id="85131279692" aria-label="Navigation Menu">
+                    <ul role="menu">
+                      <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children" role="none"><a href="products.html"
+                          aria-haspopup="true" aria-expanded="false" role="menuitem">Products</a>
+                        <ul role="menu" class="hs-menu-children-wrapper">
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a
+                              href="products/ls-central-for-retail.html" role="menuitem">LS Central for retail</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a
+                              href="products/ls-central-for-restaurants.html" role="menuitem">LS Central for
+                              restaurants</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a
+                              href="products/ls-central-for-hotels.html" role="menuitem">LS Central for hotels</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a
+                              href="products/ls-central-for-pharmacies.html" role="menuitem">LS Central for
+                              pharmacies</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="products/ls-express.html"
+                              role="menuitem">LS Express</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="products/ls-one.html"
+                              role="menuitem">LS One</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a
+                              href="products/software-enhancers.html" role="menuitem">Software enhancers</a></li>
+                        </ul>
+                      </li>
+                      <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children" role="none"><a
+                          href="industries.html" aria-haspopup="true" aria-expanded="false"
+                          role="menuitem">Industries</a>
+                        <ul role="menu" class="hs-menu-children-wrapper">
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="industries/retail.html"
+                              role="menuitem">Retail</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a
+                              href="industries/restaurants-food-service.html" role="menuitem">Restaurants &amp; food
+                              service</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a
+                              href="industries/software-hotels-resorts-casinos.html" role="menuitem">Hotels &amp;
+                              resorts</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a
+                              href="products/ls-central-for-pharmacies.html" role="menuitem">Pharmacies</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a
+                              href="industries/forecourt-c-store.html" role="menuitem">Forecourt, gas stations &amp;
+                              c-stores</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="industries.html"
+                              role="menuitem">View all industries</a></li>
+                        </ul>
+                      </li>
+                      <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children" role="none"><a href="partners.html"
+                          aria-haspopup="true" aria-expanded="false" role="menuitem">Partners</a>
+                        <ul role="menu" class="hs-menu-children-wrapper">
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="find-a-partner.html"
+                              role="menuitem">Find a partner</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="become-a-partner.html"
+                              role="menuitem">Become a partner / reseller</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a
+                              href="partners/partner-success-stories.html" role="menuitem">Partner success stories</a>
+                          </li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a
+                              href="https://portal.lsretail.com/why-ls-retail-academy" role="menuitem">Academy training
+                              courses</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a
+                              href="products/services-consulting.html" role="menuitem">Services &amp; consulting for
+                              partners</a></li>
+                        </ul>
+                      </li>
+                      <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children" role="none"><a href="resources.html"
+                          aria-haspopup="true" aria-expanded="false" role="menuitem">Resources</a>
+                        <ul role="menu" class="hs-menu-children-wrapper">
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="customers.html"
+                              role="menuitem">Success stories</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="resourcesb45c.html?content=blog"
+                              role="menuitem">Blog</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a
+                              href="resourcesc41f.html?content=whitepaper" role="menuitem">Ebooks &amp; whitepapers</a>
+                          </li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="events.html"
+                              role="menuitem">Events</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="resourcesd551.html?content=news"
+                              role="menuitem">News</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://help.lsretail.com/"
+                              role="menuitem">Online help &amp; support</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="search.html"
+                              role="menuitem">Search the website</a></li>
+                        </ul>
+                      </li>
+                      <li class="hs-menu-item hs-menu-depth-1 hs-item-has-children" role="none"><a href="about-us.html"
+                          aria-haspopup="true" aria-expanded="false" role="menuitem">About us</a>
+                        <ul role="menu" class="hs-menu-children-wrapper">
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="about-us.html"
+                              role="menuitem">About LS Retail</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://careers.lsretail.com/"
+                              role="menuitem">Careers</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="contact-us.html"
+                              role="menuitem">Contact us</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="https://portal.lsretail.com/"
+                              role="menuitem">Portal login</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a
+                              href="sitemap-privacy-policy-terms-of-use.html" role="menuitem">Privacy policy &amp; terms
+                              of use</a></li>
+                          <li class="hs-menu-item hs-menu-depth-2" role="none"><a href="equal-pay-policy.html"
+                              role="menuitem">Equal pay policy</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row align-items-center  mt-lg-5 ">
+            <div class="col-lg-6 order-lg-last ">
+              <div class="footer__socials row-social mt-4 mt-lg-0 pt-4 pt-lg-0">
+                <div id="hs_cos_wrapper_social_links"
+                  class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=""
+                  data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+                  <ul class="social d-flex  justify-content-center justify-content-lg-end align-items-center">
+
+                    <li>
+                      <a href="https://www.facebook.com/lsretail" target="_blank"
+                        class="d-flex align-items-center justify-content-center" aria-label="facebook-f">
+
+                        <span id="hs_cos_wrapper_social_links_"
+                          class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_icon" style=""
+                          data-hs-cos-general-type="widget" data-hs-cos-type="icon"><svg version="1.0"
+                            xmlns="http://www.w3.org/2000/svg" viewbox="0 0 264 512" aria-hidden="true">
+                            <g id="facebook-f1_layer">
+                              <path
+                                d="M76.7 512V283H0v-91h76.7v-71.7C76.7 42.4 124.3 0 193.8 0c33.3 0 61.9 2.5 70.2 3.6V85h-48.2c-37.8 0-45.1 18-45.1 44.3V192H256l-11.7 91h-73.6v229" />
+                            </g>
+                          </svg></span>
+
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="https://www.youtube.com/user/LSRETAIL1?feature=watch" target="_blank"
+                        class="d-flex align-items-center justify-content-center" aria-label="youtube">
+
+                        <span id="hs_cos_wrapper_social_links_"
+                          class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_icon" style=""
+                          data-hs-cos-general-type="widget" data-hs-cos-type="icon"><svg version="1.0"
+                            xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512" aria-hidden="true">
+                            <g id="youtube2_layer">
+                              <path
+                                d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />
+                            </g>
+                          </svg></span>
+
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="https://twitter.com/LSRetailChat" target="_blank"
+                        class="d-flex align-items-center justify-content-center" aria-label="twitter">
+
+                        <svg width="44" height="40" viewbox="0 0 44 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <g clip-path="url(#clip0_20_173)">
+                            <path
+                              d="M34.6133 0H41.36L26.5466 16.9742L43.8533 40H30.272L19.6386 26.0074L7.46529 40H0.718623L16.412 21.845L-0.161377 0H13.7573L23.364 12.7823L34.6133 0ZM32.252 36.0148H35.992L11.792 3.83764H7.77329L32.252 36.0148Z"
+                              fill="white" />
+                          </g>
+                          <defs>
+                            <clippath id="clip0_20_173">
+                              <rect width="44" height="40" fill="white" />
+                            </clippath>
+                          </defs>
+                        </svg>
+
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="https://www.instagram.com/lsretail/" target="_blank"
+                        class="d-flex align-items-center justify-content-center" aria-label="instagram">
+
+                        <span id="hs_cos_wrapper_social_links_"
+                          class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_icon" style=""
+                          data-hs-cos-general-type="widget" data-hs-cos-type="icon"><svg version="1.0"
+                            xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512" aria-hidden="true">
+                            <g id="instagram3_layer">
+                              <path
+                                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                            </g>
+                          </svg></span>
+
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="https://www.linkedin.com/company/ls-retail/" target="_blank"
+                        class="d-flex align-items-center justify-content-center" aria-label="linkedin">
+
+                        <span id="hs_cos_wrapper_social_links_"
+                          class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_icon" style=""
+                          data-hs-cos-general-type="widget" data-hs-cos-type="icon"><svg version="1.0"
+                            xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512" aria-hidden="true">
+                            <g id="linkedin4_layer">
+                              <path
+                                d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                            </g>
+                          </svg></span>
+
+                      </a>
+                    </li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-lg-6 order-lg-first mt-4 mt-lg-0">
+
+              <div class="footer__copyright text-center text-lg-left ">
+                <span id="hs_cos_wrapper_copyright_"
+                  class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text" style=""
+                  data-hs-cos-general-type="widget" data-hs-cos-type="rich_text">© 2024 Copyright LS Retail ehf. All
+                  rights reserved.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </footer>
+    </div>
+
+  </div>
+
+
+  <script src="hs/hsstatic/jquery-libs/static-1.4/jquery/jquery-1.11.2.js"></script>
+  <script src="hs/hsstatic/jquery-libs/static-1.4/jquery-migrate/jquery-migrate-1.2.1.js"></script>
+  <script>hsjQuery = window['jQuery'];</script>
+  <!-- HubSpot performance collection script -->
+  <script defer src="../static.hsappstatic.net/content-cwv-embed/static-1.971/embed.js"></script>
+  <script>
+    var hsVars = hsVars || {}; hsVars['language'] = 'en';
+  </script>
+
+  <script src="hs/hsstatic/cos-i18n/static-1.53/bundles/project.js"></script>
+  <script
+    src="hs-fs/hub/491011/hub_generated/template_assets/85016273979/1694069683224/lsretail-s2/js/main.min.js"></script>
+  <script
+    src="hs-fs/hub/491011/hub_generated/module_assets/85015250080/1716824863019/module_85015250080_menu.min.js"></script>
+  <script
+    src="hs-fs/hub/491011/hub_generated/template_assets/85203786935/1677082497553/lsretail-s2/js/vendors/_slick-min.min.js"></script>
+
+  <script>
+    $(function () {
+      let currentMod = $('.widget_1663369318873.logos-mod');
+      let slickDom = currentMod.find('.logos-mod__logos-wrap');
+      let hiddenDom = $('.hidden-items-widget_1663369318873');
+      let items = hiddenDom.html();
+      let slickSettings = {
+        dots: false,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        rows: 1,
+        prevArrow: '<span class="slick-prev"><svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.70283 11L0.902833 6L5.70283 0.999999M0.902833 6L12.9028 6L0.902833 6Z" stroke="#361D5C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>',
+        nextArrow: '<span class="slick-next"><svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.29717 1L13.0972 6L8.29717 11M13.0972 6H1.09717H13.0972Z" stroke="#361D5C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>',
+        responsive: [
+          {
+            breakpoint: 991,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              rows: 2,
+              infinite: true,
+              arrows: true,
+              dots: true
+            }
+          }
+          // You can unslick at a given breakpoint now by adding:
+          // settings: "unslick"
+          // instead of a settings object
+        ]
+      };
+
+      slickDom.slick(slickSettings);
+      let resetTime = false;
+      let bodyWidthDeskUpdated = false;
+      let bodyWidthDesk = false;
+      $(window).resize(function () {
+        bodyWidthDesk = ($('body').width() > 991 ? true : false);
+        if (!resetTime && bodyWidthDesk != bodyWidthDeskUpdated) {
+
+          resetTime = true;
+          setTimeout(function () {
+            bodyWidthDeskUpdated = ($('body').width() > 991 ? true : false);
+            slickDom.slick("unslick");
+            slickDom.html(items);
+            slickDom.slick(slickSettings);
+            slickDom.slick("resize");
+            resetTime = false;
+          }, 500);
+        }
+      });
     });
-</script>
-
-
-<!-- Swipper JS -->
-
-<script src="../cdnjs.cloudflare.com/ajax/libs/Swiper/9.4.1/swiper-bundle.js"></script>
-<script src="frontend-assets/js/customSwipper.js" defer></script>
-<!-- Swipper JS Ends -->
-
-<!-- Jquery-validation JS -->
-<script src="frontend-assets/libraries/js/jqueryValidate.js"></script>
-<!-- Jquery-validation cdn Ends-->
-
-<script src="frontend-assets/js/feedackSelector.js" defer></script>
-
-
-
-
-<!-- custom Js -->
-<script  src="frontend-assets/js/script.js" data-param1="[]" data-param2="[&quot;&quot;]" defer></script>
-<!-- custom Js Ends -->
-
-<script  src="frontend-assets/js/main.js" defer></script>
-
-<!-- custom Base Ajax Script -->
-<script  src="frontend-assets/js/baseAjax.js" defer></script>
-<!-- custom Base Ajax Script Ends -->
-
-
-<script type="text/javascript" defer>
-    toastr.options = {
-      "closeButton": true,
-      "debug": false,
-      "newestOnTop": false,
-      "progressBar": false,
-      "positionClass": "toast-top-right",
-      "preventDuplicates": false,
-      "onclick": null,
-      "showDuration": "300",
-      "hideDuration": "1000",
-      "timeOut": "3000",
-      "extendedTimeOut": "1000",
-      "showEasing": "swing",
-      "hideEasing": "linear",
-      "showMethod": "fadeIn",
-      "hideMethod": "fadeOut",
-      "closeHtml" : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">\
-  <path d="M16.066 9.49502C16.1377 9.42587 16.1948 9.34314 16.2342 9.25165C16.2735 9.16017 16.2943 9.06176 16.2952 8.96218C16.2961 8.8626 16.2772 8.76383 16.2395 8.67164C16.2018 8.57945 16.1462 8.49568 16.0758 8.42523C16.0054 8.35478 15.9217 8.29905 15.8295 8.2613C15.7374 8.22354 15.6386 8.20452 15.5391 8.20534C15.4395 8.20616 15.341 8.2268 15.2495 8.26606C15.158 8.30532 15.0752 8.36242 15.006 8.43402L12 11.439L8.995 8.43402C8.92634 8.36033 8.84354 8.30123 8.75154 8.26024C8.65954 8.21925 8.56022 8.19721 8.45952 8.19543C8.35882 8.19365 8.25879 8.21218 8.1654 8.2499C8.07201 8.28762 7.98718 8.34376 7.91596 8.41498C7.84474 8.4862 7.7886 8.57103 7.75087 8.66442C7.71315 8.75781 7.69463 8.85784 7.69641 8.95854C7.69818 9.05925 7.72022 9.15856 7.76122 9.25056C7.80221 9.34256 7.86131 9.42536 7.935 9.49402L10.938 12.5L7.933 15.505C7.80052 15.6472 7.72839 15.8352 7.73182 16.0295C7.73525 16.2238 7.81396 16.4092 7.95138 16.5466C8.08879 16.6841 8.27417 16.7628 8.46847 16.7662C8.66278 16.7696 8.85082 16.6975 8.993 16.565L12 13.56L15.005 16.566C15.1472 16.6985 15.3352 16.7706 15.5295 16.7672C15.7238 16.7638 15.9092 16.6851 16.0466 16.5476C16.184 16.4102 16.2627 16.2248 16.2662 16.0305C16.2696 15.8362 16.1975 15.6482 16.065 15.506L13.062 12.5L16.066 9.49502Z" fill="#636363"/>\
-</svg>',
-    }
-
-    // Load Toaster Css when page is loaded
-    window.addEventListener('load', function() {
-                // var smartWizardBundleJS = document.getElementById('smartWizardBundleJS');
-                // smartWizardBundleJS.src = "https://zaptatech.com/frontend-assets/libraries/js/swiperBundle.js";
-
-
-                // // Add an event listener to check when the first script is loaded
-                // smartWizardBundleJS.onload = function() {
-                //     var smartWizardBundleCustomJS = document.getElementById('smartWizardBundleCustomJS');
-                //     smartWizardBundleCustomJS.src = "https://zaptatech.com/frontend-assets/js/customSwipper.js";
-                // };
-
-            var select2Css = document.createElement("link");
-            select2Css.rel = "stylesheet";
-            select2Css.type = "text/css";
-            select2Css.href = "frontend-assets/libraries/css/select2.css";
-
-
-            var select2CustomCss = document.createElement("link");
-            select2CustomCss.rel = "stylesheet";
-            select2CustomCss.type = "text/css";
-            select2CustomCss.href = "frontend-assets/css/customSelect2Style.css";
-
-            document.head.appendChild(select2Css);
-            document.head.appendChild(select2CustomCss);
-        });
-</script>
-
-
-
-    <!-- Country Selecter Js -->
-    <script src="../cdn.jsdelivr.net/npm/intl-tel-input%4015.1.2/build/js/intlTelInput.min.js" defer></script>
-    <!-- Country Selecter Js Ends -->
-
-    <!-- Flatepicker JS -->
-    <script src="frontend-assets/libraries/js/flatepicker.js"></script>
-    <!-- Flatepicker JS Ends -->
-
-    <script type="text/javascript" defer>
-        window.addEventListener('load', function() {
-            getHomeProjects();
-        });
-
-        function getHomeProjects() {
-            $.ajax({
-                type: "get",
-                url: "https://zaptatech.com",
-                cache: false,
-                success: function(response) {
-                    if (response.status) {
-                        $(".project-loader").css("display", "none");
-                        $('#home-projects').append(response.home_projects);
-                        if (window.innerWidth >= 768) {
-                            attachHoverEvents();
-                        }
-                        // add onclick events
-                        var e = $(".span-link");
-                        e && e.each(function() {
-                            $(this).on("click", function(e) {
-                                var a = $(this).attr("data-href-value");
-                                e.ctrlKey || e.metaKey ? window.open(a, "_blank") : window
-                                    .location.href = a
-                            })
-                        });
-                    }
-                }
-            });
-        }
-        // var video = document.getElementById("myVideo");
-
-        // // Add an event listener for the "loadedmetadata" event
-        // video.addEventListener("loadedmetadata", function() {
-        //     video.play().catch(function(error) {
-        //         // Handle the error if video playback fails
-        //         console.error('Video playback failed:', error.message);
-        //     });
-        // });
-
-        // var bgVideos = document.getElementById('myVideo');
-        // if (bgVideos) {
-        //     setTimeout(() => {
-        //         // bgVideos.setAttribute('src', 'https://beeba-dev.s3.us-west-1.amazonaws.com/Hero-section-video.mp4');
-        //         bgVideos.setAttribute('src', "https://zaptatech.com/frontend-assets/media/zapta-processes.mp4");
-        //         bgVideos.addEventListener('canplaythrough', function() {
-
-        //             $(".backgrpound-video").css("opacity", "1");
-        //             $(".attribute-to-team").css("display", "none");
-        //         });
-
-        //     }, 3000);
-        // }
-    </script>
-
-
-    <script src="frontend-assets/js/schedule-call.js"
-        data-param="https://zaptatech.com/get-availabe-slots" data-param2="https://zaptatech.com/get-time-zones"
-        data-param3="30" defer></script>
-
-    <script type="text/javascript" defer>
-        // For Videos and Lottie Player
-
-        // Function to show video player and hide the other
-        function toggleVideoPlayer(playerToShow, playerToHide) {
-            playerToShow.style.display = "block";
-            playerToHide.style.display = "none";
-            playerToShow.currentTime = 0; // Reset the playback progress to the beginning
-            playerToShow.play();
-        }
-
-        // Attach event listener for hover in and hover out for all project cards
-        function attachHoverEvents() {
-            var projectCards = document.querySelectorAll('.project-cards2');
-            projectCards.forEach(function(projectCard) {
-                var projectThumbnails = projectCard.querySelectorAll('.grid-left');
-                projectThumbnails.forEach(function(projectThumbnail) {
-
-                    let videoPlayers = projectThumbnail.querySelectorAll('.video-player');
-
-                    projectThumbnail.addEventListener('mouseenter', function() {
-                        isHovered = true;
-                        let image = projectThumbnail.querySelector('.thumbnail-img');
-                        image.style.display = "none";
-
-
-                        // Check if video player already exists
-                        const existingVideoPlayer = projectThumbnail.querySelector('.video-player');
-                        if (!existingVideoPlayer) {
-                            const hoverInVideoSrc = image.getAttribute('data-hover-in-video');
-                            const hoverInVideoType = image.getAttribute('data-hover-in-video-type');
-
-                            const hoverOutVideoSrc = image.getAttribute('data-hover-out-video');
-                            const hoverOutVideoType = image.getAttribute(
-                                'data-hover-out-video-type');
-
-                            // Create a new video hoverIn player
-                            createVideoElement(image, hoverInVideoSrc, hoverInVideoType,
-                                projectThumbnail);
-
-                            // Create a new video hoverIn player
-                            createVideoElement(image, hoverOutVideoSrc, hoverOutVideoType,
-                                projectThumbnail);
-
-                            videoPlayers = projectThumbnail.querySelectorAll('.video-player');
-                        }
-
-                        toggleVideoPlayer(videoPlayers[0], videoPlayers[1]);
-                    });
-
-                    projectThumbnail.addEventListener('mouseleave', function() {
-                        isHovered = false;
-                        setTimeout(function() {
-                            if (!isHovered) {
-                                toggleVideoPlayer(videoPlayers[1], videoPlayers[0]);
-                                let image = projectThumbnail.querySelector(
-                                    '.thumbnail-img');
-                                // image.style.display = "block";
-                            }
-                        }, 0); // Adjust the time (in milliseconds) before the video stops
-                    });
-                });
-            });
-        }
-
-        function createVideoElement(image, videoSrc, videoType, projectThumbnail) {
-
-            const videoPlayer = document.createElement('video');
-            videoPlayer.className = 'video-player';
-            videoPlayer.poster = image.src;
-            videoPlayer.autoplay = true;
-            videoPlayer.muted = true;
-            videoPlayer.preload = 'none';
-
-            const source = document.createElement('source');
-            source.src = videoSrc;
-            source.type = videoType;
-            videoPlayer.appendChild(source);
-            const thumbnailType = image.getAttribute('data-parent-class');
-            projectThumbnail.querySelector('.' + thumbnailType).appendChild(
-                videoPlayer);
-        }
-
-        // Attach event listener for when all resources have been loaded
-        // document.addEventListener('DOMContentLoaded', function() {
-        //     if (window.innerWidth >= 768) {
-
-        //         attachHoverEvents();
-        //     }
-        // });
-
-        window.addEventListener('resize', function() {
-            if (window.innerWidth >= 768) {
-
-                attachHoverEvents();
-            }
-        });
-    </script>
-
-
-    <script type="text/javascript" defer>
-        $(document).ready(function() {
-            $('.need-expert').click(function(e) {
-                e.preventDefault();
-                $(".bookingFormShow").click();
-            });
-        })
-
-        window.addEventListener('load', function() {
-
-            // Create a new link element
-            var intelInputCss = document.createElement("link");
-            intelInputCss.rel = "stylesheet";
-            intelInputCss.type = "text/css";
-            intelInputCss.href = "../cdn.jsdelivr.net/npm/intl-tel-input%4015.1.2/build/css/intlTelInput.css";
-
-
-            // var select2Css = document.createElement("link");
-            // select2Css.rel = "stylesheet";
-            // select2Css.type = "text/css";
-            // select2Css.href = "https://zaptatech.com/frontend-assets/libraries/css/select2.css";
-
-
-            // var select2CustomCss = document.createElement("link");
-            // select2CustomCss.rel = "stylesheet";
-            // select2CustomCss.type = "text/css";
-            // select2CustomCss.href = "https://zaptatech.com/frontend-assets/css/customSelect2Style.css";
-
-
-            // var flatPickerCss = document.createElement("link");
-            // flatPickerCss.rel = "stylesheet";
-            // flatPickerCss.type = "text/css";
-            // flatPickerCss.href = "https://zaptatech.com/frontend-assets/libraries/css/flatepicker.css";
-
-            // Get a reference to the element you want to insert the link before
-            var referenceLink = document.querySelector(
-                "head > link[href='https://zaptatech.com/frontend-assets/css/style.css']");
-            // Insert the link element before the reference element
-            if (referenceLink) {
-                var parent = referenceLink.parentNode;
-                parent.insertBefore(intelInputCss, referenceLink);
-                // parent.insertBefore(select2Css, referenceLink);
-                // parent.insertBefore(select2CustomCss, referenceLink);
-                // parent.insertBefore(flatPickerCss, referenceLink);
-            } else {
-                // If no reference element is found, just append it to the end of the head
-                document.head.appendChild(intelInputCss);
-                // document.head.appendChild(select2Css);
-                // document.head.appendChild(select2CustomCss);
-                // document.head.appendChild(flatPickerCss);
-            }
-
-        });
-    </script>
-
-    <script type="text/javascript" defer>
-        $(document).ready(function() {
-
-            $(".shedule-section-scroller").on("click", function() {
-
-                if ($(".accordion-collapse").hasClass("scroll")) {
-                    const targetTabContent = $(".shedul-call-sec");
-
-                    const targetOffset = targetTabContent.offset().top + 260;
-                    console.log(targetOffset);
-                    $("html, body").animate({
-                        scrollTop: targetOffset
-                    }, 500);
-
-                    $(".accordion-collapse").removeClass("scroll");
-                } else {
-                    $(".accordion-collapse").addClass("scroll");
-                }
-            });
-
-        });
-
-        $(document).ready(function() {
-            // $(".hand-tool").addClass("hand-tool-animation");
-
-
-            // setTimeout(() => {
-            $(".hand-tool").addClass("animation-left");
-            // },1000);
-
-            setTimeout(() => {
-                $(".graph__wrapper").addClass("add-path");
-            }, 3000);
-        });
-    </script>
-
-    <script type="text/javascript" defer>
-        const $button = document.querySelector(".wave-btn");
-        const waveContainer = document.querySelector("#waveContainer");
-        // waveContainer
-
-        let debounce = false;
-        // $button.addEventListener("click", () => {
-        // if (debounce) return;
-        // debounce = true;
-        // buttonAnimate();
-        // createWave();
-        // });
-
-
-
-        function runCode() {
-            if (debounce) return;
-            debounce = true;
-            buttonAnimate();
-            createWave();
-        }
-
-        const interval = setInterval(runCode, 2000);
-
-        // setTimeout(() => {
-        //     const interval = setInterval(runCode, 2000);
-        //     }, 1500);
-
-        const buttonAnimate = () => {
-            // $button.classList.add("clicked");
-            setTimeout(() => {
-                // $button.classList.remove("clicked");
-                debounce = false;
-            }, 700);
-        };
-
-        const createWave = () => {
-            const wave = document.createElement("div");
-            wave.classList.add("wave");
-            waveContainer.appendChild(wave);
-            setTimeout(() => wave.remove(), 7000);
-        };
-
-        var desktopElement = document.querySelector(".smart-wizard-desktop");
-
-        if (desktopElement) {
-            var desktopSwiper = new Swiper(desktopElement, {
-                slidesPerView: 1,
-                spaceBetween: 0,
-                simulateTouch: false,
-                shortSwipes: false,
-                allowTouchMove: false,
-                slideToClickedSlide: false,
-            });
-
-            $(".next-slide").on("click", function() {
-                if (desktopSwiper && !desktopSwiper.destroyed) {
-                    desktopSwiper.slideNext();
-                }
-            });
-
-            $(".previous-slide").on("click", function() {
-                if (desktopSwiper && !desktopSwiper.destroyed) {
-                    desktopSwiper.slidePrev();
-                }
-            });
-        }
-
-        var mobileElement = document.querySelector(".smart-wizard");
-
-        if (mobileElement) {
-
-            if ($(window).width() < 992) {
-                var swiper = new Swiper(".smart-wizard", {
-                    slidesPerView: 1,
-                    spaceBetween: 0,
-                    simulateTouch: false,
-                    shortSwipes: false,
-                    allowTouchMove: false,
-                    slideToClickedSlide: false,
-
-                    on: {
-                        slideChange: function() {
-                            setWrapperHeight();
-                        },
-                    },
-                });
-
-                function setWrapperHeight() {
-                    const activeSlide = swiper.slides[swiper.activeIndex];
-                    const wrapper = swiper.wrapperEl;
-                    if (activeSlide && activeSlide.offsetHeight) {
-                        console.log(activeSlide.offsetHeight);
-                        wrapper.style.height = activeSlide.offsetHeight + 'px';
-                    }
-                }
-                window.addEventListener('load', setWrapperHeight);
-                $(".nextSlide").click(function() {
-                    swiper.slideNext();
-                });
-
-                $(".prevSlide").click(function() {
-                    swiper.slidePrev();
-                });
-            }
-
-        }
-
-        var e, i = document.querySelector("#scroll-swiper");
-
-        if (typeof Swiper !== "undefined" && i !== null) {
-            e = new Swiper(".mySwiper", {
-                slidesPerView: 1,
-                spaceBetween: 0,
-                speed: 600,
-                autoplay: false,
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true
-                },
-
-            });
-        }
-        window.onload = function() {
-            // Your code snippet
-            setTimeout(() => {
-                if (typeof Swiper !== "undefined" && i !== null && $(window).width() > 991) {
-
-                    e = new Swiper(".mySwiper", {
-                        slidesPerView: 1,
-                        spaceBetween: 0,
-                        speed: 600,
-                        autoplay: false,
-                        pagination: {
-                            el: ".swiper-pagination",
-                            clickable: true,
-                        },
-                        freeMode: true,
-                        mousewheel: {
-                            sensitivity: 1,
-                            releaseOnEdges: true,
-                        },
-                        passiveListeners: false,
-                    });
-                }
-            }, 1000);
-
-            
-        };
-
-        $(document).ready(function() {
-
-            // $(document).on("shown.bs.dropdown", ".dropdown", function() {
-
-            // var field = $('.country-select-mobile');
-            // var fieldPos = field.offset();
-            // var fieldWidth = field.outerWidth();
-            // var fieldHeight = field.outerHeight();
-
-            // // Set the position of the dropdown menu
-            // $(".intl-tel-input.iti-container").css({
-            //     position: "absolute",
-            //     top: fieldPos.top + fieldHeight,
-            //     left: fieldPos.left,
-            //     width: fieldWidth,
-            // });
-            // console.log(field);
-            // });
-
-        });
-
-        document.addEventListener("DOMContentLoaded", function() {
-            var backgroundDiv = document.querySelector(".background-image-placeholder");
-            var imageUrl = "frontend-assets/images/offices-bg.webp";
-            backgroundDiv.style.backgroundImage = 'url("' + imageUrl + '")';
-        });
-    </script>
-    <script>
-        // Wait for the DOM content to load
-        document.addEventListener("DOMContentLoaded", function() {
-            // Find the iframe element
-            var iframe = document.querySelector('#myVideo iframe');
-            var windowWidth = $(window).width();
-            var iframeHeight = windowWidth / 2 + 200;
-            console.log(iframeHeight);
-            if($(window).width() > 1439){
-                iframe.style.minHeight = iframeHeight + 'px';
-                iframe.style.height = 100 + 'vh';
-                iframe.style.width = 100 + '%';
-            }
-
-         
-            if (iframe) {
-               
-                setTimeout(function() {
-                   
-                    $(".backgrpound-video").css("opacity","1");
-                }, 1000); 
-            }
-        });
-
-    </script>
-
-<script>
-
-$(document).ready(function() {
-
-    $('#videoModal').modal({
-        backdrop: 'static',
-        keyboard: false,
-    });
-    
-    document.querySelectorAll(".video-pop").forEach(function(element) {
-        element.addEventListener("click", function(event) {
-            event.preventDefault();
-            $("#videoModal").modal("show");
-            var videoId = this.getAttribute("data-id");
-            document.getElementById("video-popup-iframe").src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&controls=0&modestbranding=1&;showinfo=0&;autohide=1&;rel=0;";
-        });
-    });
-    
-    document.querySelectorAll("#video-popup-close").forEach(function(element) {
-        element.addEventListener("click", function(event) {
-            $("#videoModal").modal("hide");
-            document.getElementById("video-popup-iframe").src = "";
-        });
-    });
-
-});
-
-      
-    var swiper = new Swiper(".testiSwiper", {
-   
-    speed: 1200,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-
-    loop: true,
-});
-
-</script>
-
-
-    <script>
-        $(document).ready(function() {
-
-            $(".select-options li:not(:first-child)").click(function() {
-
-                $(".select-styled").css("color", "#636363").css("important", "color");
-                $("#selectBudget").val($(this).text());
-                $("#selectBudget").next("label.error").remove();
-                $(this).addClass('custom-selected');
-                if ($(this).prev().length > 0) {
-                    $(this).prevAll().removeClass('custom-selected');
-                }
-                if ($(this).next().length > 0) {
-                    $(this).nextAll().removeClass('custom-selected');
-                }
-
-            });
-
-            $(".services-wraper .service").click(function() {
-                $(this).toggleClass("selected");
-            });
-        });
-
-        function getInTouchError(e) {
-            console.log(e);
-            $('.error.error-message.customError').remove();
-            $.each(e.errors, function(field, messages) {
-                if (field == 'services' || field == 'looking_for') {
-                    console.log(field)
-
-                    $(`#${field}_error`).css({
-                        'display': 'block'
-                    });
-                    $(`#${field}_error`).text(messages[0]);
-                } else {
-                    console.log("field",field);
-                    if(field == 'document'){
-                        $('.upload-document').after('<label class="error error-message customError" for="' + field +
-                            '">' + messages[0] + "</label>")
-                    }else{
-                        $(document).find("input[name=" + field + "]").after('<label class="error error-message customError" for="' + field +
-                            '">' + messages[0] + "</label>");
-                    }
-                }
-            });
-        }
-
-    </script>
+  </script>
 
 
   <script>
+    $(function () {
+      $('.tm__nav .nav-item').on('click', function () {
+        const data = $(this).data('id');
+        const text = $(this).text();
+        $(this).addClass('is-active').siblings().removeClass('is-active');
+        $('#tm-' + data).addClass('is-active').siblings().removeClass('is-active');
 
-    $( window ).on( "load", function() {
-
-      $(".zapta-loader").css("display","none");
-
-    } );
-
-
-    function showInformation() {
-      var informationContainer = document.getElementById('informationContainer');
-
-        if (window.innerWidth > 991) {
-          informationContainer.style.display = 'block';
-        } else {
-          informationContainer.style.display = 'none';
+        $('.tm__nav .tm-nav-lbl').text(text);
+        if (window.innerWidth < 992) {
+          $('.tm__nav ul').slideUp();
         }
-    }
 
-    function hideInformation() {
-      document.getElementById('informationContainer').style.display = 'none';
-    }
-    </script>
-    <script>
+      });
 
-    window.addEventListener('load', function() {
-            var toasterCss = document.createElement("link");
-            toasterCss.rel = "stylesheet";
-            toasterCss.type = "text/css";
-            toasterCss.href = "../cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css";
-            var referenceLink = document.querySelector("head > link[href='https://zaptatech.com/frontend-assets/libraries/css/bootstrap.css']");
-            if (referenceLink) {
-                var parent = referenceLink.parentNode;
-                parent.insertBefore(toasterCss, referenceLink.nextSibling);
-              } else {
-                document.head.appendChild(toasterCss);
+      $('.tm__nav .selected-item').on('click', function () {
+        $(this).toggleClass('active').siblings().slideToggle();
+      });
+
+
+
+
+      function ddSticky() {
+        if (window.innerWidth < 992) {
+          var mainNav_height = $('.header').outerHeight();
+          var navOffset = $('.tm__nav').offset().top + 60;
+          var sectionHeight = $('.tm__navWrap').outerHeight();
+          console.log(mainNav_height)
+          $(window).scroll(function () {
+            if ($(this).scrollTop() > (navOffset + mainNav_height) && $(this).scrollTop() < (navOffset + sectionHeight)) {
+              $('.tm__navWrap').addClass('tm__nav--sticky');
+              $('.tm__nav').css({ 'top': mainNav_height + 'px' });
+
+            } else {
+              $('.tm__navWrap').removeClass('tm__nav--sticky');
+              $('.tm__nav').css({ 'top': '0' });
             }
-        });
+          });
+        }
+      }
+
+      ddSticky();
+      $(window).resize(function () {
+        ddSticky();
+      });
+
+
+
+    });
   </script>
-<script>
 
-  setTimeout(function (){
-    const newMetaTag = document.createElement("meta");
-    newMetaTag.setAttribute("http-equiv", "refresh");
-    newMetaTag.setAttribute("content", "7140");
-    const headElement = document.head;
-    headElement.appendChild(newMetaTag);
-  }, 60000);
+  <script
+    src="hs-fs/hub/491011/hub_generated/template_assets/99897781812/1677082498743/lsretail-s2/js/vendors/_expander-min.min.js"></script>
 
-</script>
+  <script>
+    $(function () {
+      $('.testimonials__cards-wrap').slick({
+        dots: false,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        adaptiveHeight: true,
+        prevArrow: '<button class="slick-prev" aria-label="arrow prev"><svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.70283 11L0.902833 6L5.70283 0.999999M0.902833 6L12.9028 6L0.902833 6Z" stroke="#361D5C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>',
+        nextArrow: '<button class="slick-next" aria-label="arrow prev"><svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.29717 1L13.0972 6L8.29717 11M13.0972 6H1.09717H13.0972Z" stroke="#361D5C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button',
+        responsive: [
+          {
+            breakpoint: 991,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              infinite: true,
+              arrows: true,
+              dots: true,
+              adaptiveHeight: true
+            }
+          },
+          // You can unslick at a given breakpoint now by adding:
+          // settings: "unslick"
+          // instead of a settings object
+        ]
+      });
+      $('.testimonials__cards-wrap').on("beforeChange", function (ev, slick, current, next) {
+
+        console.log($(this).find('.testimonials__box--inner'));
+
+      });
+      $('.card-item__subtext--inner').expander({
+        slicePoint: 180,
+        afterExpand: function () {
+          $(this).parents('.slick-list').css({ 'height': 'auto' });
+        }
+      });
+    });
+  </script>
+
+  <script
+    src="hs-fs/hub/491011/hub_generated/module_assets/85015200636/1695297759514/module_85015200636_10-recommended-readings.min.js"></script>
+  <script
+    src="hs-fs/hub/491011/hub_generated/module_assets/137728726659/1696374353091/module_137728726659_search-input.min.js"></script>
+  <script src="hs/hsstatic/keyboard-accessible-menu-flyouts/static-1.17/bundles/project.js"></script>
+
+  <!-- Start of HubSpot Analytics Code -->
+  <script type="text/javascript">
+    var _hsq = _hsq || [];
+    _hsq.push(["setContentType", "standard-page"]);
+    _hsq.push(["setCanonicalUrl", "https:\/\/www.lsretail.com"]);
+    _hsq.push(["setPageId", "93880510270"]);
+    _hsq.push(["setContentMetadata", {
+      "contentPageId": 93880510270,
+      "legacyPageId": "93880510270",
+      "contentFolderId": null,
+      "contentGroupId": null,
+      "abTestId": null,
+      "languageVariantId": 93880510270,
+      "languageCode": "en",
+
+
+    }]);
+  </script>
+
+  <script type="text/javascript" id="hs-script-loader" async defer src="hs/scriptloader/491011.js"></script>
+  <!-- End of HubSpot Analytics Code -->
+
+
+  <script type="text/javascript">
+    var hsVars = {
+      render_id: "1592bc06-049e-4033-aadc-8c331f12cbcf",
+      ticks: 1718874894240,
+      page_id: 93880510270,
+
+      content_group_id: 0,
+      portal_id: 491011,
+      app_hs_base_url: "https://app.hubspot.com",
+      cp_hs_base_url: "https://cp.hubspot.com",
+      language: "en",
+      analytics_page_type: "standard-page",
+      scp_content_type: "",
+      analytics_page_id: "93880510270",
+      category_id: 1,
+      folder_id: 0,
+      is_hubspot_user: false
+    }
+  </script>
+
+
+  <script defer src="hs/hsstatic/HubspotToolsMenu/static-1.321/js/index.js"></script>
+
+
+
 </body>
 </html>
